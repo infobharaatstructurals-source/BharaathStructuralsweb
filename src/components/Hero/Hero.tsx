@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import Icon from '../common/Icon'
-import video1 from '../../assets/hero/Video1.mp4'
-import video2 from '../../assets/hero/Video2.mp4'
-import video3 from '../../assets/hero/Video3.mp4'
+
+import video1 from '../../assets/hero/Video1-web.mp4'
+import video2 from '../../assets/hero/Video2-web.mp4'
+import video3 from '../../assets/hero/Video3-web.mp4'
+
 import './Hero.css'
 
 type HeroProps = {
@@ -27,24 +29,28 @@ export default function Hero({
   const transitioning = useRef(false)
 
   /*
-   * Start the currently active video.
+   * Start the active video.
    */
   useEffect(() => {
-    const active =
+    const activeVideoElement =
       videoRefs.current[activeVideo]
 
-    if (!active) return
+    if (!activeVideoElement) return
 
-    active.currentTime = 0
+    activeVideoElement.currentTime = 0
 
-    const playPromise = active.play()
+    const playPromise =
+      activeVideoElement.play()
 
     if (playPromise !== undefined) {
       playPromise.catch(() => {
-        // Browser may block autoplay in rare cases.
+        // Autoplay may be blocked by the browser.
       })
     }
 
+    /*
+     * Pause all other videos.
+     */
     videoRefs.current.forEach(
       (video, index) => {
         if (
@@ -60,10 +66,8 @@ export default function Hero({
   }, [activeVideo])
 
   /*
-   * Begin the next video slightly before
-   * the current video finishes.
-   *
-   * This creates the cinematic crossfade.
+   * Start the next video before the
+   * current video finishes.
    */
   const handleTimeUpdate = (
     index: number
@@ -85,6 +89,10 @@ export default function Hero({
     const remaining =
       video.duration - video.currentTime
 
+    /*
+     * Switch 1.1 seconds before the
+     * current video finishes.
+     */
     if (remaining <= 1.1) {
       transitioning.current = true
 
@@ -94,6 +102,35 @@ export default function Hero({
       )
     }
   }
+
+  /*
+   * Preload only the NEXT video.
+   *
+   * This means:
+   *
+   * Video 1 playing
+   *      ↓
+   * preload Video 2
+   *
+   * Video 2 playing
+   *      ↓
+   * preload Video 3
+   *
+   * Video 3 playing
+   *      ↓
+   * preload Video 1
+   */
+  useEffect(() => {
+    const nextIndex =
+      (activeVideo + 1) % videos.length
+
+    const nextVideo =
+      videoRefs.current[nextIndex]
+
+    if (!nextVideo) return
+
+    nextVideo.load()
+  }, [activeVideo])
 
   return (
     <section
@@ -107,40 +144,66 @@ export default function Hero({
 
       <div className="hero-ambient" />
 
+
       {/* ==================================================
           MAIN HERO PANEL
           ================================================== */}
 
       <div className="hero-panel">
 
-        {/* VIDEO BACKGROUND */}
+
+        {/* ==================================================
+            VIDEO BACKGROUND
+            ================================================== */}
+
         <div className="hero-video-layer">
 
-          {videos.map((video, index) => (
-            <video
-              key={video}
-              ref={(element) => {
-                videoRefs.current[index] =
-                  element
-              }}
-              className={`hero-video ${
-                activeVideo === index
-                  ? 'hero-video--active'
-                  : ''
-              }`}
-              src={video}
-              muted
-              playsInline
-              preload={
-                index === 0
-                  ? 'auto'
-                  : 'metadata'
-              }
-              onTimeUpdate={() =>
-                handleTimeUpdate(index)
-              }
-            />
-          ))}
+          {videos.map(
+            (video, index) => (
+              <video
+                key={video}
+
+                ref={(element) => {
+                  videoRefs.current[index] =
+                    element
+                }}
+
+                className={`hero-video ${
+                  activeVideo === index
+                    ? 'hero-video--active'
+                    : ''
+                }`}
+
+                src={video}
+
+                muted
+
+                playsInline
+
+                autoPlay={
+                  activeVideo === index
+                }
+
+                /*
+                 * Only the active video gets
+                 * automatic loading.
+                 *
+                 * The next video gets loaded
+                 * manually by the preload
+                 * effect above.
+                 */
+                preload={
+                  index === activeVideo
+                    ? 'auto'
+                    : 'none'
+                }
+
+                onTimeUpdate={() =>
+                  handleTimeUpdate(index)
+                }
+              />
+            )
+          )}
 
         </div>
 
@@ -163,17 +226,23 @@ export default function Hero({
           <div className="hero-copy">
 
             <div className="hero-eyebrow">
+
               <span className="hero-eyebrow-line" />
+
               <span>
                 STEEL · BIM · ENGINEERING
               </span>
+
             </div>
 
 
             <h1>
               Precision in
               <br />
-              <span>structural detail.</span>
+
+              <span>
+                structural detail.
+              </span>
             </h1>
 
 
@@ -195,6 +264,7 @@ export default function Hero({
                   onNavigate('services')
                 }
               >
+
                 <span>
                   Explore Services
                 </span>
@@ -203,6 +273,7 @@ export default function Hero({
                   name="ArrowUpRight"
                   size={15}
                 />
+
               </button>
 
 
@@ -212,6 +283,7 @@ export default function Hero({
                   onNavigate('projects')
                 }
               >
+
                 <span>
                   View Projects
                 </span>
@@ -220,6 +292,7 @@ export default function Hero({
                   name="ArrowRight"
                   size={14}
                 />
+
               </button>
 
             </div>
@@ -234,9 +307,11 @@ export default function Hero({
           <div className="hero-side">
 
             <div className="hero-side-label">
+
               STRUCTURAL
               <br />
               ENGINEERING
+
             </div>
 
             <div className="hero-side-line" />
@@ -255,30 +330,37 @@ export default function Hero({
           <div className="hero-bottom">
 
             <div className="hero-description">
-              
 
               <p>
                 Engineering precision
                 that carries from model
                 to fabrication.
               </p>
+
             </div>
 
 
-            {/* VIDEO INDICATOR */}
+            {/* ==================================================
+                VIDEO INDICATOR
+                ================================================== */}
 
             <div className="hero-video-indicator">
 
-              {videos.map((_, index) => (
-                <span
-                  key={index}
-                  className={
-                    activeVideo === index
-                      ? 'is-active'
-                      : ''
-                  }
-                />
-              ))}
+              {videos.map(
+                (_, index) => (
+
+                  <span
+                    key={index}
+
+                    className={
+                      activeVideo === index
+                        ? 'is-active'
+                        : ''
+                    }
+                  />
+
+                )
+              )}
 
             </div>
 
@@ -289,6 +371,7 @@ export default function Hero({
                 onNavigate('about')
               }
             >
+
               <span>
                 Scroll Down
               </span>
@@ -297,6 +380,7 @@ export default function Hero({
                 name="ArrowDown"
                 size={13}
               />
+
             </button>
 
           </div>
