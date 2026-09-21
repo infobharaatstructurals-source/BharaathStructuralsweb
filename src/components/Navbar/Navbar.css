@@ -1,0 +1,934 @@
+/* =========================================================
+   BHARAATH STRUCTURALS
+   FULL WIDTH DESKTOP NAVBAR
+   MOBILE BOTTOM NAVIGATION
+   ========================================================= */
+
+
+/* =========================================================
+   DESKTOP NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: fixed;
+
+  z-index: 1000;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 70px;
+
+  color: #ffffff;
+
+  background: transparent;
+
+  border: none;
+
+  transition:
+    color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   NAVBAR INNER
+   ========================================================= */
+
+.navbar-inner {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  padding:
+    0
+    clamp(28px, 5vw, 78px);
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   HOME
+   TRANSPARENT
+   WHITE TEXT
+   ========================================================= */
+
+/* =========================================================
+   HOME
+   SLIGHTLY FROSTED / BLURRED
+   ========================================================= */
+
+.navbar--home {
+  color: #ffffff;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.10);
+
+  box-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter:
+    blur(10px)
+    saturate(115%);
+
+  -webkit-backdrop-filter:
+    blur(10px)
+    saturate(115%);
+}
+
+.navbar--home .navbar-inner {
+  background: transparent;
+}
+
+
+/* =========================================================
+   OTHER SECTIONS
+   TRANSPARENT WHITE GLASS
+   BLACK TEXT
+   ========================================================= */
+
+.navbar--inner {
+  color: #111111;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border-bottom:
+    1px solid rgba(0, 0, 0, 0.07);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.06);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(130%);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(130%);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.navbar-brand {
+  justify-self: start;
+
+  width: auto;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.navbar-brand img {
+  display: block;
+
+  width: 205px;
+
+  height: auto;
+
+  max-height: 58px;
+
+  object-fit: contain;
+
+  object-position: left center;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.02);
+}
+
+
+/* =========================================================
+   DESKTOP LINKS
+   ========================================================= */
+
+.navbar-links {
+  justify-self: center;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+}
+
+
+/* =========================================================
+   LINK
+   ========================================================= */
+
+.navbar-link {
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    0
+    12px;
+
+  border: none;
+
+  border-radius: 0;
+
+  background: transparent;
+
+  color:
+    rgba(255, 255, 255, 0.68);
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.025em;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   HOME LINKS
+   ========================================================= */
+
+.navbar--home
+.navbar-link {
+  color:
+    rgba(255, 255, 255, 0.68);
+}
+
+.navbar--home
+.navbar-link:hover {
+  color: #ffffff;
+}
+
+.navbar--home
+.navbar-link--active {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   OTHER SECTION LINKS
+   ========================================================= */
+
+.navbar--inner
+.navbar-link {
+  color:
+    rgba(0, 0, 0, 0.56);
+}
+
+.navbar--inner
+.navbar-link:hover {
+  color: #000000;
+}
+
+.navbar--inner
+.navbar-link--active {
+  color: #000000;
+}
+
+
+/* =========================================================
+   ACTIVE LINE
+   ========================================================= */
+
+.navbar-link--active::after {
+  content: '';
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+
+  bottom: 17px;
+
+  height: 1px;
+
+  background:
+    rgba(255, 255, 255, 0.9);
+
+  transition:
+    background 0.3s ease;
+}
+
+.navbar--inner
+.navbar-link--active::after {
+  background: #111111;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+   ========================================================= */
+
+.navbar-contact {
+  justify-self: end;
+
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding:
+    0
+    6px
+    0
+    17px;
+
+  border-radius: 999px;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.035em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.25s ease;
+}
+
+
+/* =========================================================
+   CONTACT ON HOME
+   ========================================================= */
+
+.navbar--home
+.navbar-contact {
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.42);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color: #ffffff;
+}
+
+.navbar--home
+.navbar-contact:hover {
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  border-color:
+    rgba(255, 255, 255, 0.7);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   CONTACT OUTSIDE HOME
+   BLACK BUTTON
+   WHITE TEXT
+   ========================================================= */
+
+.navbar--inner
+.navbar-contact {
+  border:
+    1px solid #0b0d0f;
+
+  background: #0b0d0f;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.14);
+}
+
+.navbar--inner
+.navbar-contact:hover {
+  background: #24282c;
+
+  border-color: #24282c;
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   CONTACT ICON
+   ========================================================= */
+
+.navbar-contact-icon {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   MOBILE TOP BAR
+   ========================================================= */
+
+.mobile-topbar {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE BOTTOM NAV
+   ========================================================= */
+
+.mobile-bottom-nav {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .navbar {
+    height: 66px;
+  }
+
+  .navbar-inner {
+    padding:
+      0
+      clamp(22px, 4vw, 45px);
+  }
+
+  .navbar-brand img {
+    width: 205px;
+  }
+
+  .navbar-links {
+    gap: 1px;
+  }
+
+  .navbar-link {
+    padding:
+      0
+      8px;
+
+    font-size: 7.5px;
+  }
+
+  .navbar-link--active::after {
+    left: 8px;
+    right: 8px;
+
+    bottom: 16px;
+  }
+
+  .navbar-contact {
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  /* -------------------------------------------------------
+     HIDE DESKTOP NAVBAR
+     ------------------------------------------------------- */
+
+  .navbar {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE TOP LOGO
+     ------------------------------------------------------- */
+
+  .mobile-topbar {
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+      0
+      18px;
+
+    background: transparent;
+
+    transition:
+      background 0.3s ease,
+      backdrop-filter 0.3s ease;
+  }
+
+
+  /* -------------------------------------------------------
+     HOME TOP BAR
+     ------------------------------------------------------- */
+
+  .mobile-topbar--home {
+    background: transparent;
+
+    backdrop-filter: none;
+
+    -webkit-backdrop-filter: none;
+  }
+
+
+  /* -------------------------------------------------------
+     OTHER SECTION TOP BAR
+     ------------------------------------------------------- */
+
+  .mobile-topbar--inner {
+    background:
+      rgba(255, 255, 255, 0.72);
+
+    border-bottom:
+      1px solid rgba(0, 0, 0, 0.06);
+
+    backdrop-filter:
+      blur(16px);
+
+    -webkit-backdrop-filter:
+      blur(16px);
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE LOGO BUTTON
+     ------------------------------------------------------- */
+
+  .mobile-logo-button {
+    width: auto;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+
+  .mobile-logo-button img {
+    display: block;
+
+    width: 118px;
+
+    max-height: 34px;
+
+    object-fit: contain;
+
+    object-position: left center;
+  }
+
+
+  /* =======================================================
+     BOTTOM NAVIGATION
+     ======================================================= */
+
+  .mobile-bottom-nav {
+    position: fixed;
+
+    z-index: 2000;
+
+    left: 50%;
+
+    bottom:
+      calc(
+        12px +
+        env(safe-area-inset-bottom, 0px)
+      );
+
+    display: block;
+
+    width:
+      calc(100% - 28px);
+
+    max-width: 430px;
+
+    transform:
+      translateX(-50%);
+  }
+
+
+  /* =======================================================
+     BOTTOM NAV CONTAINER
+     ======================================================= */
+
+  .mobile-bottom-nav-inner {
+    width: 100%;
+
+    min-height: 64px;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(5, 1fr);
+
+    align-items: center;
+
+    padding:
+      5px;
+
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.10);
+
+    border-radius: 18px;
+
+    background:
+      rgba(7, 10, 14, 0.95);
+
+    box-shadow:
+      0 18px 45px
+      rgba(0, 0, 0, 0.38),
+
+      0 5px 15px
+      rgba(0, 0, 0, 0.22);
+
+    backdrop-filter:
+      blur(22px);
+
+    -webkit-backdrop-filter:
+      blur(22px);
+  }
+
+
+  /* =======================================================
+     BOTTOM ITEM
+     ======================================================= */
+
+  .mobile-bottom-item {
+    position: relative;
+
+    height: 53px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    color:
+      rgba(255, 255, 255, 0.42);
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+      transparent;
+
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      transform 0.2s ease;
+  }
+
+
+  /* =======================================================
+     PRESS
+     ======================================================= */
+
+  .mobile-bottom-item:active {
+    transform:
+      scale(0.93);
+  }
+
+
+  /* =======================================================
+     ICON CONTAINER
+     ======================================================= */
+
+  .mobile-bottom-icon {
+    width: 30px;
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    transition:
+      color 0.25s ease,
+      background 0.25s ease;
+  }
+
+
+  /* =======================================================
+     ICON
+     ======================================================= */
+
+  .mobile-bottom-icon svg {
+    display: block;
+
+    transition:
+      transform 0.25s ease;
+  }
+
+
+  /* =======================================================
+     LABEL
+     ======================================================= */
+
+  .mobile-bottom-label {
+    max-width: 60px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 7px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: 0.01em;
+  }
+
+
+  /* =======================================================
+     ACTIVE ITEM
+     ======================================================= */
+
+  .mobile-bottom-item--active {
+    color: #ffffff;
+  }
+
+
+  .mobile-bottom-item--active
+  .mobile-bottom-icon {
+    color: #ffffff;
+
+    background:
+      rgba(67, 125, 255, 0.18);
+  }
+
+
+  .mobile-bottom-item--active
+  .mobile-bottom-icon svg {
+    transform:
+      translateY(-1px);
+  }
+
+
+  /* =======================================================
+     ACTIVE TOP INDICATOR
+     ======================================================= */
+
+  .mobile-bottom-item--active::before {
+    content: '';
+
+    position: absolute;
+
+    top: 1px;
+    left: 50%;
+
+    width: 20px;
+    height: 2px;
+
+    transform:
+      translateX(-50%);
+
+    border-radius: 999px;
+
+    background:
+      #4d8cff;
+
+    box-shadow:
+      0 0 10px
+      rgba(77, 140, 255, 0.5);
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .mobile-topbar {
+    height: 56px;
+
+    padding:
+      0
+      14px;
+  }
+
+  .mobile-logo-button img {
+    width: 112px;
+
+    max-height: 32px;
+  }
+
+  .mobile-bottom-nav {
+    width:
+      calc(100% - 20px);
+
+    bottom:
+      calc(
+        9px +
+        env(safe-area-inset-bottom, 0px)
+      );
+  }
+
+  .mobile-bottom-nav-inner {
+    min-height: 60px;
+
+    padding: 4px;
+
+    border-radius: 17px;
+  }
+
+  .mobile-bottom-item {
+    height: 51px;
+  }
+
+  .mobile-bottom-icon {
+    width: 28px;
+    height: 25px;
+  }
+
+  .mobile-bottom-label {
+    font-size: 6.5px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+  .mobile-bottom-nav {
+    width:
+      calc(100% - 14px);
+  }
+
+  .mobile-bottom-label {
+    font-size: 6px;
+  }
+
+  .mobile-bottom-icon {
+    width: 26px;
+    height: 24px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar,
+  .navbar-link,
+  .navbar-contact,
+  .mobile-topbar,
+  .mobile-bottom-item,
+  .mobile-bottom-icon,
+  .mobile-bottom-icon svg {
+    transition: none !important;
+  }
+}

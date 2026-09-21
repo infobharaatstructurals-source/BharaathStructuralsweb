@@ -1,0 +1,529 @@
+/* =========================================================
+   BHARAAT STRUCTURALS
+   CERTIFICATE / CLIENTS SECTION
+   ========================================================= */
+
+.certificate-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 90px 20px 100px;
+
+  background: #ffffff;
+
+  color: #050505;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SUBTLE BACKGROUND
+   ========================================================= */
+
+.certificate-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(22, 135, 255, 0.045),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(255, 90, 31, 0.035),
+      transparent 25%
+    );
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.certificate-container {
+  position: relative;
+
+  z-index: 1;
+
+  width: min(1100px, 100%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.certificate-header {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+
+.certificate-eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  color: #1687ff;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+.certificate-header h1 {
+  margin: 0;
+
+  color: #050505;
+
+  font-size: clamp(32px, 5vw, 56px);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+
+.certificate-header h1::after {
+  content: "";
+
+  display: block;
+
+  width: 58px;
+
+  height: 3px;
+
+  margin: 18px auto 0;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #1687ff,
+    #ff5a1f
+  );
+}
+
+
+.certificate-header p {
+  max-width: 550px;
+
+  margin: 18px auto 0;
+
+  color: #555f69;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CERTIFICATE VIEWER
+   ========================================================= */
+
+.certificate-viewer {
+  width: min(850px, 100%);
+
+  margin: 0 auto;
+
+  padding: 18px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e9ee;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 20px 55px rgba(15, 30, 45, 0.10),
+    0 4px 15px rgba(15, 30, 45, 0.05);
+}
+
+
+/* =========================================================
+   IMAGE WRAPPER
+   ========================================================= */
+
+.certificate-image-wrap {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background: #f5f7f9;
+
+  border: 1px solid #e5e9ed;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CERTIFICATE IMAGE
+   ========================================================= */
+
+.certificate-image {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
+
+  vertical-align: middle;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.certificate-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 20px 5px 4px;
+}
+
+
+/* =========================================================
+   DOWNLOAD BUTTON
+   ========================================================= */
+
+.certificate-download {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #1687ff 0%,
+    #006dcc 100%
+  );
+
+  border: 1px solid #1687ff;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+
+.certificate-download:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 22px rgba(22, 135, 255, 0.22);
+
+  background: linear-gradient(
+    135deg,
+    #2498ff 0%,
+    #0074d9 100%
+  );
+}
+
+
+.certificate-download-icon {
+  width: 25px;
+  height: 25px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 6px;
+
+  font-size: 16px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   OPEN BUTTON
+   ========================================================= */
+
+.certificate-open {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  color: #111111;
+
+  background: #ffffff;
+
+  border: 1px solid #d8e0e7;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+
+.certificate-open:hover {
+  color: #1687ff;
+
+  background: #f7fbff;
+
+  border-color: #1687ff;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.certificate-download:focus-visible,
+.certificate-open:focus-visible {
+  outline: 2px solid #1687ff;
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .certificate-section {
+    padding: 70px 18px 80px;
+  }
+
+
+  .certificate-header {
+    margin-bottom: 32px;
+  }
+
+
+  .certificate-header h1 {
+    font-size: clamp(30px, 7vw, 44px);
+  }
+
+
+  .certificate-viewer {
+    padding: 12px;
+
+    border-radius: 14px;
+  }
+
+
+  .certificate-actions {
+    padding-top: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .certificate-section {
+    padding: 55px 14px 65px;
+  }
+
+
+  .certificate-header {
+    margin-bottom: 26px;
+  }
+
+
+  .certificate-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 0.18em;
+  }
+
+
+  .certificate-header h1 {
+    font-size: 32px;
+
+    letter-spacing: -0.03em;
+  }
+
+
+  .certificate-header h1::after {
+    width: 48px;
+
+    height: 2px;
+
+    margin-top: 14px;
+  }
+
+
+  .certificate-header p {
+    margin-top: 14px;
+
+    font-size: 12px;
+
+    line-height: 1.65;
+  }
+
+
+  .certificate-viewer {
+    width: 100%;
+
+    padding: 8px;
+
+    border-radius: 12px;
+
+    box-shadow:
+      0 12px 35px rgba(15, 30, 45, 0.08);
+  }
+
+
+  .certificate-image-wrap {
+    border-radius: 7px;
+  }
+
+
+  .certificate-actions {
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 9px;
+
+    padding: 14px 2px 2px;
+  }
+
+
+  .certificate-download,
+  .certificate-open {
+    width: 100%;
+
+    min-height: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .certificate-section {
+    padding: 45px 10px 55px;
+  }
+
+
+  .certificate-header h1 {
+    font-size: 28px;
+  }
+
+
+  .certificate-header p {
+    font-size: 11px;
+  }
+
+
+  .certificate-viewer {
+    padding: 6px;
+  }
+
+
+  .certificate-download,
+  .certificate-open {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .certificate-section *,
+  .certificate-section *::before,
+  .certificate-section *::after {
+    transition: none !important;
+  }
+
+}

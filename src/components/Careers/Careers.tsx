@@ -1,0 +1,3 @@
+import Icon from '../common/Icon'
+import './Careers.css'
+export default function Careers({onNavigate}:{onNavigate:(id:string)=>void}){return <section id="careers" className="careers-section"><div className="section-wrap careers-grid"><div data-reveal><div className="eyebrow orange">CAREERS</div><h2>Build what<br/><span>comes next.</span></h2></div><div data-reveal><p>Join a team working at the intersection of structural engineering, detailing and digital technology.</p><button className="btn btn-primary" onClick={()=>onNavigate('contact')}>Talk to our team <Icon name="ArrowRight" size={17}/></button></div></div></section>}

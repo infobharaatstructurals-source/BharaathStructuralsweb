@@ -1,0 +1,1139 @@
+.services-section {
+  position: relative;
+  overflow: hidden;
+
+  padding: 50px 0 50px;
+
+  color: #fff;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(30, 145, 255, .16),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #061522 0%,
+      #081f32 55%,
+      #0d344f 100%
+    );
+
+  isolation: isolate;
+}
+
+
+/* BACKGROUND GRID */
+
+.services-bg-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: .35;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(75, 171, 255, .045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(75, 171, 255, .045) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.services-heading {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 1fr 410px;
+
+  gap: 80px;
+
+  align-items: end;
+
+  margin-bottom: 65px;
+}
+
+
+.services-heading .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 22px;
+
+  color: #54adff;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  letter-spacing: .2em;
+}
+
+
+.services-heading .eyebrow::before {
+  content: "";
+
+  width: 28px;
+  height: 1px;
+
+  background: #1687ff;
+}
+
+
+.services-heading .display-title {
+  margin: 0;
+
+  color: #fff;
+
+  font-size:
+    clamp(50px, 5.5vw, 76px);
+
+  line-height: .92;
+
+  letter-spacing: -.065em;
+}
+
+
+.services-heading .display-title span {
+  color: #55aeff;
+  font-weight: 700;
+}
+
+
+.services-intro {
+  padding-bottom: 4px;
+}
+
+
+.services-code {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: rgba(255, 255, 255, 0.801);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+
+.services-intro p {
+  margin: 0;
+
+  color: rgba(255,255,255,.55);
+
+  font-size: 15px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.services-layout {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 370px minmax(0, 1fr);
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.services-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.services-sidebar-head {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 0 5px 12px;
+
+  color: rgb(255, 255, 255);
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   SERVICE ROW
+   ========================================================= */
+
+.service-row {
+  position: relative;
+
+  width: 100%;
+  min-height: 86px;
+
+  display: grid;
+
+  grid-template-columns: 40px 1fr 25px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 16px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  border-radius: 15px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  color: #fff;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    background .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+
+.service-row::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 17px;
+  bottom: 17px;
+
+  width: 2px;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  transition: .3s ease;
+}
+
+
+.service-row:hover,
+.service-row.selected {
+  transform: translateX(5px);
+
+  border-color:
+    rgba(76,174,255,.35);
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(22,135,255,.14),
+      rgba(255,255,255,.05)
+    );
+
+  box-shadow:
+    0 18px 40px
+    rgba(0,0,0,.15);
+}
+
+
+.service-row.selected::before {
+  background: #1687ff;
+
+  box-shadow:
+    0 0 14px
+    rgba(22,135,255,.7);
+}
+
+
+.service-number {
+  color: #55aeff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: .13em;
+}
+
+
+.service-row-copy {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.service-row-copy strong {
+  color: #fff;
+
+  font-size: 15px;
+
+  font-weight: 750;
+
+  letter-spacing: -.01em;
+}
+
+
+.service-row-copy small {
+  color: rgba(255,255,255,.34);
+
+  font-size: 8.5px;
+
+  font-weight: 700;
+
+  letter-spacing: .15em;
+}
+
+
+.service-arrow {
+  display: grid;
+  place-items: center;
+
+  color: rgba(255,255,255,.35);
+
+  transition:
+    transform .3s ease,
+    color .3s ease;
+}
+
+
+.service-row:hover .service-arrow,
+.service-row.selected .service-arrow {
+  color: #fff;
+
+  transform:
+    translate(3px,-3px);
+}
+
+
+/* =========================================================
+   INDUSTRIES
+   ========================================================= */
+
+.service-industries {
+  margin-top: auto;
+
+  padding: 30px 5px 0;
+}
+
+
+.service-industries > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: rgb(255, 255, 255);
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  letter-spacing: .17em;
+}
+
+
+.service-industries > div {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+
+.service-industries b {
+  padding: 7px 9px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+
+  border-radius: 5px;
+
+  color: rgba(255,255,255,.43);
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   FEATURE
+   ========================================================= */
+
+.service-feature {
+  position: relative;
+
+  min-height: 535px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.16);
+
+  background: #071a2b;
+
+  box-shadow:
+    0 40px 100px
+    rgba(0,0,0,.28);
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   REAL SERVICE IMAGE
+   ========================================================= */
+
+.service-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  z-index: -3;
+
+  animation:
+    serviceImageIn
+    .7s
+    cubic-bezier(.16,.78,.16,1);
+}
+
+
+@keyframes serviceImageIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(1.07);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+   ========================================================= */
+
+.service-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,16,28,.96) 0%,
+      rgba(4,16,28,.83) 30%,
+      rgba(4,16,28,.45) 58%,
+      rgba(4,16,28,.18) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(4,16,28,.15) 0%,
+      transparent 35%,
+      rgba(4,16,28,.88) 100%
+    );
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.feature-top {
+  position: absolute;
+
+  left: 22px;
+  right: 22px;
+  top: 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  z-index: 10;
+
+  color: rgba(255,255,255,.43);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .15em;
+}
+
+
+/* =========================================================
+   LARGE NUMBER
+   ========================================================= */
+
+.feature-number {
+  position: absolute;
+
+  right: 20px;
+  top: 42px;
+
+  color: rgba(255, 255, 255, 0.356);
+
+  font-size: 150px;
+
+  line-height: .8;
+
+  font-weight: 900;
+
+  letter-spacing: -.1em;
+}
+
+
+/* =========================================================
+   CORNERS
+   ========================================================= */
+
+.feature-corner {
+  position: absolute;
+
+  width: 28px;
+  height: 28px;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+.corner-tl {
+  left: 16px;
+  top: 52px;
+
+  border-left:
+    1px solid
+    rgba(255,255,255,.45);
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.45);
+}
+
+
+.corner-br {
+  right: 16px;
+  bottom: 16px;
+
+  border-right:
+    1px solid
+    rgba(255,255,255,.35);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.35);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.feature-content {
+  position: absolute;
+
+  left: 32px;
+  bottom: 30px;
+
+  width:
+    min(
+      58%,
+      490px
+    );
+
+  z-index: 10;
+}
+
+
+.feature-tag {
+  color: #55aeff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: .2em;
+}
+
+
+.feature-content h3 {
+  margin: 9px 0 10px;
+
+  color: #fff;
+
+  font-size:
+    clamp(
+      30px,
+      3vw,
+      43px
+    );
+
+  line-height: .96;
+
+  letter-spacing: -.055em;
+}
+
+
+.feature-content p {
+  margin: 0;
+
+  color: rgba(255,255,255,.68);
+
+  font-size: 14px;
+
+  line-height: 1.72;
+}
+
+
+/* =========================================================
+   POINTS
+   ========================================================= */
+
+.feature-points {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7px 20px;
+
+  margin-top: 19px;
+}
+
+
+.feature-point {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding-bottom: 7px;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.09);
+}
+
+
+.feature-point span {
+  color: #55aeff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.feature-point strong {
+  color: rgba(255,255,255,.72);
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.service-cta {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 19px;
+
+  padding: 9px 13px;
+
+  border:
+    1px solid
+    rgba(41, 49, 85, 0.911);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,.1);
+
+  color: #fff;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+}
+
+
+.service-cta:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(255,255,255,.17);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .services-heading {
+    grid-template-columns:
+      1fr
+      350px;
+
+    gap: 50px;
+  }
+
+  .services-layout {
+    grid-template-columns:
+      320px
+      minmax(0,1fr);
+  }
+
+  .feature-content {
+    width: 65%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .services-section {
+    padding: 90px 0 100px;
+  }
+
+  .services-heading {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 45px;
+  }
+
+  .services-layout {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .service-industries {
+    margin-top: 28px;
+  }
+
+  .service-feature {
+    min-height: 540px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .services-section {
+    padding: 35px 0 45px;
+  }
+
+  .services-heading .display-title {
+    font-size: 45px;
+  }
+
+  .service-row {
+    min-height: 75px;
+
+    grid-template-columns:
+      34px
+      1fr
+      22px;
+  }
+
+  .service-feature {
+    min-height: 570px;
+
+    border-radius: 19px;
+  }
+
+  .service-image {
+    object-position: center;
+  }
+
+  .service-image-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4,16,28,.97) 0%,
+        rgba(4,16,28,.86) 45%,
+        rgba(4,16,28,.35) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(4,16,28,.1),
+        rgba(4,16,28,.95)
+      );
+  }
+
+  .feature-content {
+    left: 20px;
+    right: 20px;
+    bottom: 22px;
+
+    width: auto;
+  }
+
+  .feature-content h3 {
+    font-size: 29px;
+  }
+
+  .feature-points {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-number {
+    font-size: 110px;
+  }
+}
+/* =========================================================
+   LAPTOP FIX
+   851px – 1400px
+   Desktop UI preserved, only scaled/rebalanced for laptops
+   ========================================================= */
+
+@media (min-width: 851px) and (max-width: 1400px) {
+
+  .services-section {
+    padding: 38px 0 45px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+
+  /* =========================
+     HEADER
+     ========================= */
+
+  .services-heading {
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 45px;
+    margin-bottom: 42px;
+    align-items: end;
+  }
+
+  .services-heading .eyebrow {
+    margin-bottom: 16px;
+    font-size: 17px;
+  }
+
+  .services-heading .display-title {
+    font-size: clamp(48px, 5vw, 65px);
+    line-height: .92;
+  }
+
+  .services-intro {
+    padding-bottom: 2px;
+  }
+
+  .services-code {
+    margin-bottom: 10px;
+    font-size: 8px;
+  }
+
+  .services-intro p {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+
+  /* =========================
+     MAIN LAYOUT
+     ========================= */
+
+  .services-layout {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+
+  /* =========================
+     SIDEBAR
+     ========================= */
+
+  .services-sidebar-head {
+    padding: 0 5px 9px;
+    font-size: 11px;
+  }
+
+  .services-list {
+    gap: 6px;
+  }
+
+  .service-row {
+    min-height: 70px;
+    grid-template-columns: 34px 1fr 22px;
+    gap: 9px;
+    padding: 0 13px;
+    border-radius: 12px;
+  }
+
+  .service-row::before {
+    top: 13px;
+    bottom: 13px;
+  }
+
+  .service-number {
+    font-size: 8px;
+  }
+
+  .service-row-copy {
+    gap: 4px;
+  }
+
+  .service-row-copy strong {
+    font-size: 12px;
+  }
+
+  .service-row-copy small {
+    font-size: 7px;
+    letter-spacing: .12em;
+  }
+
+  .service-arrow {
+    transform: scale(.85);
+  }
+
+
+  /* =========================
+     PROJECT TYPES
+     ========================= */
+
+  .service-industries {
+    padding: 22px 5px 0;
+  }
+
+  .service-industries > span {
+    margin-bottom: 7px;
+    font-size: 12px;
+    letter-spacing: .14em;
+  }
+
+  .service-industries > div {
+    gap: 5px;
+  }
+
+  .service-industries b {
+    padding: 6px 7px;
+    font-size: 9px;
+  }
+
+
+  /* =========================
+     FEATURE IMAGE
+     ========================= */
+
+  .service-feature {
+    min-height: 440px;
+    height: calc(100vh - 265px);
+    max-height: 500px;
+    border-radius: 20px;
+  }
+
+  .service-image {
+    object-position: center;
+  }
+
+
+  /* =========================
+     TOP BAR
+     ========================= */
+
+  .feature-top {
+    left: 18px;
+    right: 18px;
+    top: 16px;
+    font-size: 8px;
+  }
+
+
+  /* =========================
+     BIG NUMBER
+     ========================= */
+
+  .feature-number {
+    right: 17px;
+    top: 35px;
+    font-size: 115px;
+  }
+
+
+  /* =========================
+     CORNERS
+     ========================= */
+
+  .feature-corner {
+    width: 22px;
+    height: 22px;
+  }
+
+  .corner-tl {
+    left: 13px;
+    top: 43px;
+  }
+
+  .corner-br {
+    right: 13px;
+    bottom: 13px;
+  }
+
+
+  /* =========================
+     FEATURE CONTENT
+     ========================= */
+
+  .feature-content {
+    left: 25px;
+    bottom: 23px;
+    width: min(63%, 430px);
+  }
+
+  .feature-tag {
+    font-size: 8px;
+    letter-spacing: .17em;
+  }
+
+  .feature-content h3 {
+    margin: 7px 0 8px;
+    font-size: clamp(25px, 2.7vw, 36px);
+    line-height: .96;
+  }
+
+  .feature-content p {
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+
+  /* =========================
+     FEATURE POINTS
+     ========================= */
+
+  .feature-points {
+    gap: 5px 15px;
+    margin-top: 14px;
+  }
+
+  .feature-point {
+    gap: 6px;
+    padding-bottom: 5px;
+  }
+
+  .feature-point span {
+    font-size: 8px;
+  }
+
+  .feature-point strong {
+    font-size: 8px;
+  }
+
+
+  /* =========================
+     CTA
+     ========================= */
+
+  .service-cta {
+    gap: 7px;
+    margin-top: 14px;
+    padding: 8px 11px;
+    font-size: 10px;
+  }
+}

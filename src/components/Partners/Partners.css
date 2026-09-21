@@ -1,0 +1,1307 @@
+/* =========================================================
+   BHARAAT STRUCTURALS
+   PARTNERS + CLIENTS
+   BLACK / WHITE / GOLD
+   CONTINUOUS MARQUEE
+========================================================= */
+
+.bs-partners-section {
+  --bs-gold: #FF5B04;
+  --bs-gold-light: #FF9A62;
+
+  position: relative;
+  width: 100%;
+
+  padding: 50px 24px 60px;
+
+  box-sizing: border-box;
+
+  background: #061A2B;
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND GOLD LIGHT
+========================================================= */
+
+.bs-partners-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 1000px;
+  height: 500px;
+
+  top: -260px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(36, 152, 255, 0.14) 0%,
+      rgba(255, 91, 4, 0.10) 35%,
+      transparent 72%
+    );
+
+  pointer-events: none;
+}
+
+
+.bs-partners-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 900px;
+  height: 350px;
+
+  left: 50%;
+  bottom: -260px;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(36, 152, 255, 0.055),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MAIN PANEL
+========================================================= */
+
+.bs-partners-panel {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 1450px;
+
+  min-height: 650px;
+
+  margin: 0 auto;
+
+  padding: 38px 0 55px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f0f0f 0%,
+      #08263A 60%,
+      #000000 90%
+    );
+
+  border:
+    1px solid
+    rgba(36,152,255,0.16);
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 30px
+    rgba(1,12,22,0.72),
+
+    inset 0 1px 0
+    rgba(36,152,255,0.035);
+}
+
+
+/* =========================================================
+   PANEL LIGHT
+========================================================= */
+
+.bs-partners-panel::before {
+  content: "";
+
+  position: absolute;
+
+  width: 850px;
+  height: 350px;
+
+  top: -180px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(36,152,255,0.035),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   COMPANY BRAND TEXT
+========================================================= */
+
+.bs-brand {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-bottom: 20px;
+
+  z-index: 3;
+}
+
+
+.bs-brand-line {
+  width: min(23vw, 300px);
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(36,152,255,0.42)
+    );
+}
+
+
+.bs-brand-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36,152,255,0.42),
+      transparent
+    );
+}
+
+
+.bs-brand-text {
+  white-space: nowrap;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  color:
+    rgba(255,255,255,0.78);
+}
+
+
+.bs-brand-text span {
+  color: var(--bs-gold);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.bs-description {
+  position: relative;
+
+  max-width: 680px;
+
+  margin: 0 auto 42px;
+
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  color:
+    rgba(255,255,255,0.4);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+  font-weight: 400;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.bs-heading {
+  position: relative;
+
+  z-index: 5;
+
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+
+.bs-heading-small {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255,91,4,0.88);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+}
+
+
+.bs-heading h2 {
+  margin: 0;
+
+  color:
+    rgba(255,255,255,0.94);
+
+  font-size:
+    clamp(28px, 3vw, 38px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -0.04em;
+}
+
+
+.bs-heading h2 strong {
+  color: var(--bs-gold);
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HEADING ACCENT
+========================================================= */
+
+.bs-heading-accent {
+  position: relative;
+
+  display: block;
+
+  width: 48px;
+
+  height: 2px;
+
+  margin: 14px auto 0;
+
+  background: var(--bs-gold);
+
+  box-shadow:
+    0 0 12px
+    rgba(36,152,255,0.42);
+}
+
+
+.bs-heading-accent::before,
+.bs-heading-accent::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  width: 22px;
+
+  height: 1px;
+
+  background:
+    rgba(36,152,255,0.28);
+}
+
+
+.bs-heading-accent::before {
+  right: 100%;
+
+  margin-right: 7px;
+}
+
+
+.bs-heading-accent::after {
+  left: 100%;
+
+  margin-left: 7px;
+}
+
+
+/* =========================================================
+   MARQUEE WINDOW
+========================================================= */
+
+.bs-marquee {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 4%,
+      #000 96%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 4%,
+      #000 96%,
+      transparent 100%
+    );
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+.bs-marquee-track {
+  display: flex;
+
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  will-change: transform;
+
+  backface-visibility: hidden;
+
+  -webkit-backface-visibility: hidden;
+
+  animation-play-state: running;
+}
+
+
+/* =========================================================
+   GROUP
+   ZERO GAP BETWEEN GROUPS
+========================================================= */
+
+.bs-marquee-group {
+  display: flex;
+
+  flex: 0 0 auto;
+
+  align-items: center;
+
+  gap: 0;
+
+  width: max-content;
+
+  min-width: max-content;
+
+  padding: 0;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   INDIVIDUAL LOGO
+========================================================= */
+
+.bs-logo-item {
+  position: relative;
+
+  flex: 0 0 190px;
+
+  width: 190px;
+
+  height: 105px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+
+  flex-shrink: 0;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   LOGO INNER
+========================================================= */
+
+.bs-logo-inner {
+  position: relative;
+
+  width: 174px;
+
+  height: 88px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background: transparent;
+
+  border:
+    1px solid transparent;
+
+  border-radius: 5px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s
+      cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   GOLD UNDERLINE
+========================================================= */
+
+.bs-logo-inner::after {
+  content: "";
+
+  position: absolute;
+
+  left: 28px;
+  right: 28px;
+
+  bottom: 2px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(36,152,255,0.32),
+      transparent
+    );
+
+  opacity: 0.65;
+
+  transition:
+    left 0.3s ease,
+    right 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+
+.bs-logo-inner img {
+  display: block;
+
+  width: 125px;
+
+  height: 70px;
+
+  max-width: 125px;
+
+  max-height: 70px;
+
+  object-fit: contain;
+
+  margin: 0;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  filter:
+    grayscale(100%)
+    brightness(0)
+    invert(1);
+
+  opacity: 0.7;
+
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s
+      cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================================
+   PARTNER LOGO SIZES
+========================================================= */
+
+.bs-trimble .bs-logo-inner img {
+  width: 130px;
+}
+
+.bs-zwcad .bs-logo-inner img {
+  width: 125px;
+}
+
+.bs-autodesk .bs-logo-inner img {
+  width: 128px;
+}
+
+.bs-foxit .bs-logo-inner img {
+  width: 108px;
+}
+
+.bs-tekla .bs-logo-inner img {
+  width: 125px;
+}
+
+.bs-kirby .bs-logo-inner img {
+  width: 130px;
+}
+
+
+/* =========================================================
+   CLIENT LOGO SIZES
+========================================================= */
+
+.bs-jssl .bs-logo-inner img {
+  width: 118px;
+}
+
+.bs-jsw .bs-logo-inner img {
+  width: 128px;
+}
+
+.bs-lt .bs-logo-inner img {
+  width: 118px;
+}
+
+.bs-nisarg .bs-logo-inner img {
+  width: 128px;
+}
+
+
+/* =========================================================
+   PARTNERS MOVE RIGHT
+========================================================= */
+
+.bs-partner-track {
+  animation:
+    bs-partners-right
+    30s
+    linear
+    infinite;
+
+  animation-play-state: running;
+}
+
+
+@keyframes bs-partners-right {
+
+  from {
+    transform:
+      translate3d(-50%, 0, 0);
+  }
+
+  to {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+}
+
+
+/* =========================================================
+   CLIENTS MOVE LEFT
+========================================================= */
+
+.bs-client-track {
+  animation:
+    bs-clients-left
+    24s
+    linear
+    infinite;
+
+  animation-play-state: running;
+}
+
+
+@keyframes bs-clients-left {
+
+  from {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  to {
+    transform:
+      translate3d(-50%, 0, 0);
+  }
+
+}
+
+
+/* =========================================================
+   HOVER
+   INDIVIDUAL AREA BECOMES WHITE
+========================================================= */
+
+.bs-logo-item:hover {
+  z-index: 100;
+}
+
+
+.bs-logo-item:hover .bs-logo-inner {
+
+  background: #ffffff;
+
+  border-color:
+    rgba(201,162,39,0.85);
+
+  transform:
+    translateY(-5px)
+    scale(1.035);
+
+  box-shadow:
+
+    0 18px 35px
+    rgba(1,12,22,0.78),
+
+    0 0 0 1px
+    rgba(36,152,255,0.12),
+
+    0 0 28px
+    rgba(255,91,4,0.12);
+}
+
+
+/* =========================================================
+   ORIGINAL PNG COLORS ON HOVER
+========================================================= */
+
+.bs-logo-item:hover .bs-logo-inner img {
+
+  filter: none;
+
+  opacity: 1;
+
+  transform:
+    scale(1.055);
+}
+
+
+/* =========================================================
+   HOVER GOLD LINE
+========================================================= */
+
+.bs-logo-item:hover .bs-logo-inner::after {
+
+  left: 12px;
+
+  right: 12px;
+
+  opacity: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--bs-gold),
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(255,91,4,0.58);
+}
+
+
+/* =========================================================
+   MARQUEE HOVER PAUSE
+   Works on desktop + laptop + mobile
+========================================================= */
+
+.bs-marquee:hover .bs-marquee-track {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+}
+
+
+/* =========================================================
+   CLIENT HEADING
+========================================================= */
+
+.bs-client-heading {
+  margin-top: 56px;
+}
+
+
+/* =========================================================
+   BOTTOM MESSAGE
+========================================================= */
+
+.bs-bottom-message {
+  position: relative;
+
+  margin-top: 48px;
+
+  text-align: center;
+}
+
+
+.bs-bottom-line {
+  display: block;
+
+  width: 42px;
+
+  height: 1px;
+
+  margin:
+    0 auto
+    13px;
+
+  background:
+    var(--bs-gold);
+
+  box-shadow:
+    0 0 10px
+    rgba(36,152,255,0.42);
+}
+
+
+.bs-bottom-message p {
+  margin: 0;
+
+  color:
+    rgba(255,255,255,0.26);
+
+  font-size: 8px;
+
+  line-height: 2.1;
+
+  font-weight: 500;
+
+  letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   LAPTOP
+   901px – 1400px
+========================================================= */
+
+@media (min-width: 901px) and (max-width: 1400px) {
+
+  .bs-partners-section {
+    padding: 38px 18px 48px;
+  }
+
+
+  .bs-partners-panel {
+    max-width: 1250px;
+
+    min-height: 0;
+
+    padding: 30px 0 42px;
+
+    border-radius: 20px;
+  }
+
+
+  .bs-brand {
+    gap: 14px;
+
+    margin-bottom: 15px;
+  }
+
+
+  .bs-brand-line {
+    width: min(20vw, 220px);
+  }
+
+
+  .bs-brand-text {
+    font-size: 10px;
+
+    letter-spacing: .17em;
+  }
+
+
+  .bs-description {
+    max-width: 600px;
+
+    margin-bottom: 32px;
+
+    padding: 0 15px;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+  }
+
+
+  .bs-heading {
+    margin-bottom: 18px;
+  }
+
+
+  .bs-heading-small {
+    margin-bottom: 6px;
+
+    font-size: 8px;
+
+    letter-spacing: .22em;
+  }
+
+
+  .bs-heading h2 {
+    font-size:
+      clamp(
+        25px,
+        2.5vw,
+        32px
+      );
+  }
+
+
+  .bs-heading-accent {
+    width: 42px;
+
+    height: 2px;
+
+    margin-top: 10px;
+  }
+
+
+  .bs-logo-item {
+    flex:
+      0 0 155px;
+
+    width: 155px;
+
+    height: 90px;
+  }
+
+
+  .bs-logo-inner {
+    width: 142px;
+
+    height: 76px;
+  }
+
+
+  .bs-logo-inner img {
+    width: 105px;
+
+    height: 60px;
+
+    max-width: 105px;
+
+    max-height: 60px;
+  }
+
+
+  .bs-trimble .bs-logo-inner img {
+    width: 110px;
+  }
+
+
+  .bs-zwcad .bs-logo-inner img {
+    width: 106px;
+  }
+
+
+  .bs-autodesk .bs-logo-inner img {
+    width: 108px;
+  }
+
+
+  .bs-foxit .bs-logo-inner img {
+    width: 92px;
+  }
+
+
+  .bs-tekla .bs-logo-inner img {
+    width: 106px;
+  }
+
+
+  .bs-kirby .bs-logo-inner img {
+    width: 110px;
+  }
+
+
+  .bs-jssl .bs-logo-inner img {
+    width: 100px;
+  }
+
+
+  .bs-jsw .bs-logo-inner img {
+    width: 108px;
+  }
+
+
+  .bs-lt .bs-logo-inner img {
+    width: 100px;
+  }
+
+
+  .bs-nisarg .bs-logo-inner img {
+    width: 108px;
+  }
+
+
+  .bs-partner-track {
+    animation:
+      bs-partners-right
+      24s
+      linear
+      infinite;
+
+    animation-play-state: running;
+  }
+
+
+  .bs-client-track {
+    animation:
+      bs-clients-left
+      20s
+      linear
+      infinite;
+
+    animation-play-state: running;
+  }
+
+
+  .bs-client-heading {
+    margin-top: 42px;
+  }
+
+
+  .bs-bottom-message {
+    margin-top: 38px;
+  }
+
+
+  .bs-bottom-message p {
+    font-size: 7px;
+
+    letter-spacing: 4px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bs-partners-section {
+    padding:
+      55px
+      14px
+      70px;
+  }
+
+
+  .bs-partners-panel {
+    border-radius: 18px;
+  }
+
+
+  .bs-logo-item {
+    flex-basis: 165px;
+
+    width: 165px;
+
+    height: 98px;
+  }
+
+
+  .bs-logo-inner {
+    width: 150px;
+
+    height: 82px;
+  }
+
+
+  .bs-logo-inner img {
+    width: 112px;
+
+    height: 64px;
+
+    max-width: 112px;
+
+    max-height: 64px;
+  }
+
+
+  .bs-partner-track {
+    animation:
+      bs-partners-right
+      25s
+      linear
+      infinite;
+
+    animation-play-state: running;
+  }
+
+
+  .bs-client-track {
+    animation:
+      bs-clients-left
+      20s
+      linear
+      infinite;
+
+    animation-play-state: running;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+/* =========================================================
+   FINAL MOBILE MARQUEE FIX
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .bs-marquee {
+    display: block !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .bs-marquee-track {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    min-width: max-content !important;
+
+    transform: translate3d(0, 0, 0);
+
+    will-change: transform !important;
+
+    animation-play-state: running !important;
+  }
+
+  .bs-marquee-group {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    min-width: max-content !important;
+    gap: 0 !important;
+  }
+
+  /* PARTNERS */
+  .bs-partner-track {
+    animation-name: bs-mobile-partners !important;
+    animation-duration: 18s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: normal !important;
+    animation-fill-mode: both !important;
+    animation-play-state: running !important;
+  }
+
+  /* CLIENTS */
+  .bs-client-track {
+    animation-name: bs-mobile-clients !important;
+    animation-duration: 15s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: normal !important;
+    animation-fill-mode: both !important;
+    animation-play-state: running !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE PARTNER ANIMATION
+========================================================= */
+
+@keyframes bs-mobile-partners {
+
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE CLIENT ANIMATION
+========================================================= */
+
+@keyframes bs-mobile-clients {
+
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+
+}
+
+
+/* =========================================================
+   HOVER = STOP
+========================================================= */
+
+.bs-marquee:hover .bs-marquee-track {
+  animation-play-state: paused !important;
+  -webkit-animation-play-state: paused !important;
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .bs-partner-track {
+    animation-name: bs-mobile-partners !important;
+    animation-duration: 15s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+  }
+
+  .bs-client-track {
+    animation-name: bs-mobile-clients !important;
+    animation-duration: 12s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .bs-logo-item {
+    flex-basis: 115px;
+
+    width: 115px;
+
+    height: 74px;
+  }
+
+
+  .bs-logo-inner {
+    width: 104px;
+
+    height: 63px;
+  }
+
+
+  .bs-logo-inner img {
+    width: 78px;
+
+    height: 47px;
+
+    max-width: 78px;
+
+    max-height: 47px;
+  }
+
+
+  .bs-partner-track {
+    animation-name:
+      bs-partners-right;
+
+    animation-duration:
+      15s;
+
+    animation-timing-function:
+      linear;
+
+    animation-iteration-count:
+      infinite;
+
+    animation-play-state:
+      running;
+  }
+
+
+  .bs-client-track {
+    animation-name:
+      bs-clients-left;
+
+    animation-duration:
+      12s;
+
+    animation-timing-function:
+      linear;
+
+    animation-iteration-count:
+      infinite;
+
+    animation-play-state:
+      running;
+  }
+
+}

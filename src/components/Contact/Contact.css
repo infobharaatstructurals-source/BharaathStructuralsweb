@@ -1,0 +1,2670 @@
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section {
+  position: relative;
+  overflow: hidden;
+
+  padding: 50px 0 50px;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(22, 137, 235, 0.11),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      rgba(22, 137, 235, 0.07),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(22, 137, 235, 0.06),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #061a29 0%,
+      #071f30 48%,
+      #061827 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.contact-bg-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.22;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   GLOWS
+========================================================= */
+
+.contact-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.contact-glow-left {
+  width: 420px;
+  height: 420px;
+
+  left: -230px;
+  top: 25%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(21, 149, 255, 0.13),
+      transparent 70%
+    );
+}
+
+
+.contact-glow-right {
+  width: 500px;
+  height: 500px;
+
+  right: -270px;
+  top: 5%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(21, 149, 255, 0.12),
+      transparent 70%
+    );
+}
+
+
+.contact-glow-center {
+  width: 600px;
+  height: 600px;
+
+  left: 50%;
+  top: 45%;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(21, 149, 255, 0.08),
+      transparent 68%
+    );
+}
+
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+.contact-wrap {
+  position: relative;
+
+  width: min(1120px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   TOP BRAND
+========================================================= */
+
+.contact-top-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-bottom: 78px;
+}
+
+
+.contact-top-line span {
+  width: 95px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(36, 152, 255, 0.65)
+    );
+}
+
+
+.contact-top-line span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 152, 255, 0.65),
+      transparent
+    );
+}
+
+
+.contact-top-line strong {
+  color: #d9e2e8;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.19em;
+}
+
+
+.contact-top-line em {
+  color: #2498ff;
+
+  font-style: normal;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.contact-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(380px, 455px);
+
+  align-items: center;
+
+  gap: 95px;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.contact-left {
+  position: relative;
+}
+
+
+.contact-eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  color: #2498ff;
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+.contact-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #2498ff;
+
+  box-shadow:
+    0 0 0 5px rgba(36, 152, 255, 0.10),
+    0 0 20px rgba(36, 152, 255, 0.50);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.contact-title {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 6vw, 76px);
+
+  line-height: 0.99;
+
+  font-weight: 700;
+
+  letter-spacing: -0.065em;
+}
+
+
+.contact-title span {
+  color: #2498ff;
+
+  text-shadow:
+    0 0 35px rgba(36, 152, 255, 0.14);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.contact-description {
+  max-width: 525px;
+
+  margin: 28px 0 34px;
+
+  color: #8fa4b3;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.contact-actions {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  width: min(100%, 525px);
+}
+
+
+/* =========================================================
+   ACTION CARD
+========================================================= */
+
+.contact-action {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: 70px;
+
+  padding: 11px 12px;
+
+  border: 1px solid rgba(83, 169, 220, 0.18);
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(13, 48, 70, 0.82),
+      rgba(6, 29, 45, 0.72)
+    );
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+.contact-action:hover {
+  transform:
+    translateX(5px)
+    translateY(-3px);
+
+  border-color:
+    rgba(36, 152, 255, 0.60);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(14, 57, 85, 0.95),
+      rgba(7, 34, 52, 0.92)
+    );
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.28),
+    0 0 30px rgba(36, 152, 255, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   ACTION ICON
+========================================================= */
+
+.contact-action-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(36, 152, 255, 0.20),
+      rgba(36, 152, 255, 0.045)
+    );
+
+  border: 1px solid rgba(36, 152, 255, 0.26);
+
+  color: #2498ff;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   ACTION TEXT
+========================================================= */
+
+.contact-action-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  margin-left: 14px;
+
+  min-width: 0;
+}
+
+
+.contact-action-content span {
+  color: #6f8797;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+
+.contact-action-content strong {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ACTION ARROW
+========================================================= */
+
+.contact-action-arrow {
+  display: grid;
+
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  margin-left: auto;
+
+  flex: 0 0 35px;
+
+  border-radius: 50%;
+
+  background: #2498ff;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px rgba(36, 152, 255, 0.22);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+
+.contact-action:hover .contact-action-arrow {
+  transform:
+    rotate(8deg)
+    scale(1.08);
+
+  background: #3ba7ff;
+}
+
+
+/* =========================================================
+   CARD WRAPPER
+========================================================= */
+
+.contact-card-wrap {
+  position: relative;
+
+  width: 100%;
+
+  perspective: 1200px;
+}
+
+
+/* =========================================================
+   CONTACT CARD
+========================================================= */
+
+.contact-card {
+  position: relative;
+
+  width: 100%;
+
+  padding: 28px;
+
+  border-radius: 28px;
+
+  border:
+    1px solid rgba(89, 173, 221, 0.24);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 52, 74, 0.90),
+      rgba(5, 27, 42, 0.78)
+    );
+
+  box-shadow:
+    0 35px 75px rgba(0, 0, 0, 0.40),
+    0 10px 25px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.11);
+
+  transform: translateZ(0);
+
+  transition:
+    transform 0.55s cubic-bezier(.2,.8,.2,1),
+    border-color 0.4s ease,
+    box-shadow 0.55s ease;
+}
+
+
+.contact-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 12%;
+
+  width: 76%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(90, 183, 255, 0.7),
+      transparent
+    );
+
+  opacity: 0.7;
+}
+
+
+.contact-card::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: inherit;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(255, 255, 255, 0.08),
+      transparent 28%
+    );
+
+  pointer-events: none;
+}
+
+
+.contact-card:hover {
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(36, 152, 255, 0.42);
+
+  box-shadow:
+    0 45px 90px rgba(0, 0, 0, 0.48),
+    0 0 40px rgba(36, 152, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.contact-card-top {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.contact-card-brand {
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.contact-card-brand span {
+  color: #78909f;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+
+.contact-card-brand strong {
+  margin-top: 2px;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+
+.contact-card-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #7f96a5;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+
+.contact-card-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #2498ff;
+
+  box-shadow:
+    0 0 10px rgba(36, 152, 255, 0.8);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.contact-card-divider {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 1px;
+
+  margin: 23px 0 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 152, 255, 0.28),
+      rgba(255, 255, 255, 0.06),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   INFO ROW
+========================================================= */
+
+.contact-info {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  width: 100%;
+
+  padding: 17px 0;
+
+  border: 0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.045);
+
+  background: transparent;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  text-align: left;
+}
+
+
+.contact-info:last-of-type {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   LOCATION BUTTON
+========================================================= */
+
+.contact-location-button {
+  cursor: pointer;
+
+  font-family: inherit;
+
+  transition:
+    transform 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+
+.contact-location-button:hover {
+  padding-left: 6px;
+}
+
+
+.contact-location-button:hover
+.contact-info-icon {
+  border-color:
+    rgba(36, 152, 255, 0.55);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(36, 152, 255, 0.24),
+      rgba(36, 152, 255, 0.07)
+    );
+}
+
+
+.contact-location-button:hover
+.location-open-icon {
+  opacity: 1;
+
+  transform:
+    translate(2px, -2px);
+}
+
+
+/* =========================================================
+   INFO LINK
+========================================================= */
+
+.contact-info-link {
+  transition:
+    padding-left 0.3s ease;
+}
+
+
+.contact-info-link:hover {
+  padding-left: 6px;
+}
+
+
+/* =========================================================
+   INFO ICON
+========================================================= */
+
+.contact-info-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(36, 152, 255, 0.16),
+      rgba(36, 152, 255, 0.035)
+    );
+
+  border:
+    1px solid rgba(36, 152, 255, 0.20);
+
+  color: #2498ff;
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   LOCATION ARROW
+========================================================= */
+
+.location-open-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 27px;
+  height: 27px;
+
+  margin-left: auto;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.18);
+
+  border-radius: 50%;
+
+  color: #2498ff;
+
+  opacity: 0.45;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================================================
+   INFO TEXT
+========================================================= */
+
+.contact-info-text {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: 3px;
+}
+
+
+.contact-info-text span {
+  color: #6f8798;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+
+.contact-info-text strong {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.contact-info-text small {
+  color: #657d8d;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+========================================================= */
+
+.contact-card-bottom {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  min-height: 48px;
+
+  margin-top: 13px;
+
+  padding-top: 13px;
+}
+
+
+.contact-card-message {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+
+.contact-message-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 27px;
+  height: 27px;
+
+  flex: 0 0 27px;
+
+  border-radius: 9px;
+
+  background:
+    rgba(36, 152, 255, 0.10);
+
+  border:
+    1px solid rgba(36, 152, 255, 0.18);
+
+  color: #2498ff;
+}
+
+
+.contact-card-message span {
+  overflow: hidden;
+
+  color: #71899a;
+
+  font-size: 13px;
+
+  letter-spacing: 0.04em;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   FIND US BUTTON
+========================================================= */
+
+.contact-map-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 35px;
+
+  padding: 0 13px;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.30);
+
+  border-radius: 11px;
+
+  background:
+    rgba(36, 152, 255, 0.08);
+
+  color: #2498ff;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.contact-map-button:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(36, 152, 255, 0.17);
+
+  border-color:
+    rgba(36, 152, 255, 0.60);
+
+  box-shadow:
+    0 8px 20px rgba(36, 152, 255, 0.12);
+}
+
+
+/* =========================================================
+   MAP CARD
+========================================================= */
+
+.contact-map-card {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.40);
+
+  border-radius: 28px;
+
+  background:
+    #061a29;
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.48),
+    0 0 45px rgba(36, 152, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  animation:
+    mapCardIn 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+
+@keyframes mapCardIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      scale(0.96)
+      translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   MAP HEADER
+========================================================= */
+
+.contact-map-header {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 78px;
+
+  padding: 20px 22px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 30, 46, 0.98),
+      rgba(7, 30, 46, 0.90)
+    );
+
+  border-bottom:
+    1px solid rgba(36, 152, 255, 0.15);
+}
+
+
+.contact-map-header > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+.contact-map-header span {
+  color: #2498ff;
+
+  font-size: 7px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+
+.contact-map-header strong {
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+
+.map-close-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.24);
+
+  border-radius: 11px;
+
+  background:
+    rgba(36, 152, 255, 0.08);
+
+  color: #2498ff;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.map-close-icon:hover {
+  transform: none;
+
+  background: linear-gradient(
+    135deg,
+    #ff3b30 0%,
+    #ff1744 50%,
+    #b00020 100%
+  );
+
+  border-color: rgba(255, 80, 80, 0.8);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 22px rgba(255, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   MAP CONTAINER
+========================================================= */
+
+.contact-map-container {
+  position: relative;
+
+  width: 100%;
+
+  height: 325px;
+
+  overflow: hidden;
+
+  background:
+    #0b2537;
+}
+
+
+/* GOOGLE MAP */
+
+.contact-map-container iframe {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  filter:
+    saturate(0.72)
+    contrast(1.05);
+
+  opacity: 0.88;
+}
+
+
+/* =========================================================
+   MAP GRID
+========================================================= */
+
+.map-grid-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(36, 152, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(36, 152, 255, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  mix-blend-mode: multiply;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   MAP MARKER
+========================================================= */
+
+.map-location-marker {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  pointer-events: none;
+}
+
+
+.map-marker-pin {
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 50%;
+
+  background:
+    #2498ff;
+
+  border:
+    3px solid rgba(255, 255, 255, 0.90);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 8px rgba(36, 152, 255, 0.15),
+    0 12px 35px rgba(0, 0, 0, 0.30),
+    0 0 25px rgba(36, 152, 255, 0.55);
+}
+
+
+.map-marker-pulse {
+  position: absolute;
+
+  width: 72px;
+  height: 72px;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.55);
+
+  border-radius: 50%;
+
+  animation:
+    markerPulse 2s ease-out infinite;
+}
+
+
+@keyframes markerPulse {
+
+  0% {
+    opacity: 0.75;
+
+    transform: scale(0.65);
+  }
+
+  70% {
+    opacity: 0;
+
+    transform: scale(1.25);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: scale(1.25);
+  }
+
+}
+
+
+/* =========================================================
+   MARKER LABEL
+========================================================= */
+
+.map-marker-label {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  padding: 9px 11px;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.30);
+
+  border-radius: 10px;
+
+  background:
+    rgba(5, 24, 37, 0.90);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+.map-marker-label strong {
+  color: #ffffff;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+
+.map-marker-label span {
+  color: #7f98a8;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   MAP COORDINATES
+========================================================= */
+
+.map-coordinates {
+  position: absolute;
+
+  left: 14px;
+  bottom: 13px;
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 7px 9px;
+
+  border:
+    1px solid rgba(36, 152, 255, 0.20);
+
+  border-radius: 8px;
+
+  background:
+    rgba(5, 25, 39, 0.82);
+
+  color: #7d9aaa;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 7px;
+}
+
+
+.map-coordinates svg {
+  color: #2498ff;
+}
+
+
+/* =========================================================
+   SCALE
+========================================================= */
+
+.map-scale {
+  position: absolute;
+
+  right: 15px;
+  bottom: 15px;
+
+  z-index: 10;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 3px;
+}
+
+
+.map-scale span {
+  width: 46px;
+  height: 4px;
+
+  border-left:
+    1px solid #ffffff;
+
+  border-right:
+    1px solid #ffffff;
+
+  border-bottom:
+    1px solid #ffffff;
+}
+
+
+.map-scale small {
+  color: #ffffff;
+
+  font-size: 7px;
+
+  text-shadow:
+    0 1px 4px #000;
+}
+
+
+/* =========================================================
+   MAP FOOTER
+========================================================= */
+
+.contact-map-footer {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  min-height: 88px;
+
+  padding: 16px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #071f30,
+      #061a29
+    );
+
+  border-top:
+    1px solid rgba(36, 152, 255, 0.16);
+}
+
+
+.contact-map-address {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-width: 0;
+}
+
+
+.contact-map-address-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  border-radius: 11px;
+
+  background:
+    rgba(36, 152, 255, 0.10);
+
+  border:
+    1px solid rgba(36, 152, 255, 0.20);
+
+  color: #2498ff;
+}
+
+
+.contact-map-address > div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+
+.contact-map-address span {
+  color: #607b8c;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+
+.contact-map-address strong {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.contact-map-address small {
+  color: #607c8c;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   MAP ACTIONS
+========================================================= */
+
+.contact-map-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  flex: 0 0 auto;
+}
+
+
+.contact-map-close,
+.contact-map-external {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  min-height: 34px;
+
+  padding: 0 11px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.contact-map-close {
+  border:
+    1px solid rgba(36, 152, 255, 0.28);
+
+  background:
+    rgba(36, 152, 255, 0.10);
+
+  color: #2498ff;
+}
+
+
+.contact-map-close:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(36, 152, 255, 0.18);
+
+  border-color:
+    rgba(36, 152, 255, 0.55);
+}
+
+
+.contact-map-external {
+  border:
+    1px solid rgba(255, 255, 255, 0.10);
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  color: #9eb1bd;
+}
+
+
+.contact-map-external:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   FLOATING CHIP
+========================================================= */
+
+.contact-floating-chip {
+  position: absolute;
+
+  right: -27px;
+  bottom: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 125px;
+
+  padding: 10px 12px;
+
+  border:
+    1px solid rgba(70, 166, 220, 0.25);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 49, 70, 0.94),
+      rgba(5, 28, 43, 0.90)
+    );
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transform: translateZ(0) rotate(-2deg);
+
+  z-index: 5;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.3s ease;
+}
+
+
+.contact-floating-chip:hover {
+  transform:
+    translateY(-5px);
+
+  border-color:
+    rgba(36, 152, 255, 0.50);
+}
+
+
+.contact-floating-icon {
+  display: grid;
+
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 10px;
+
+  background: #2498ff;
+
+  color: #ffffff;
+}
+
+
+.contact-floating-chip div:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+
+.contact-floating-chip span {
+  color: #688192;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+
+.contact-floating-chip strong {
+  color: #ffffff;
+
+  font-size: 9px;
+
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.contact-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  margin-top: 95px;
+}
+
+
+.contact-bottom > span {
+  width: 90px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(36, 152, 255, 0.40)
+    );
+}
+
+
+.contact-bottom > span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 152, 255, 0.40),
+      transparent
+    );
+}
+
+
+.contact-bottom div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.contact-bottom strong {
+  color: #597183;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.30em;
+}
+
+
+.contact-bottom small {
+  color: #2498ff;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .contact-section {
+    padding: 95px 0 90px;
+  }
+
+
+  .contact-content {
+    grid-template-columns: 1fr;
+
+    gap: 65px;
+  }
+
+
+  .contact-left {
+    max-width: 650px;
+
+    width: 100%;
+
+    margin: 0 auto;
+  }
+
+
+  .contact-description {
+    max-width: 580px;
+  }
+
+
+  .contact-actions {
+    max-width: 580px;
+  }
+
+
+  .contact-card-wrap {
+    width: min(100%, 500px);
+
+    margin: 0 auto;
+  }
+
+
+  .contact-card {
+    transform: none;
+  }
+
+
+  .contact-card:hover {
+    transform:
+      translateY(-7px);
+  }
+
+
+  .contact-map-card {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .contact-section {
+    padding: 40px 0 40px;
+  }
+
+
+  .contact-wrap {
+    width:
+      min(
+        calc(100% - 28px),
+        520px
+      );
+  }
+
+
+  .contact-top-line {
+    gap: 10px;
+
+    margin-bottom: 55px;
+  }
+
+
+  .contact-top-line span {
+    width: 45px;
+  }
+
+
+  .contact-top-line strong {
+    font-size: 8px;
+
+    letter-spacing: 0.14em;
+  }
+
+
+  .contact-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: 0.17em;
+  }
+
+
+  .contact-title {
+    font-size:
+      clamp(
+        45px,
+        14vw,
+        62px
+      );
+
+    letter-spacing: -0.07em;
+  }
+
+
+  .contact-description {
+    margin: 22px 0 27px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  /* ACTIONS */
+
+  .contact-action {
+    min-height: 65px;
+
+    padding: 9px;
+  }
+
+
+  .contact-action-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-basis: 42px;
+  }
+
+
+  .contact-action-content {
+    margin-left: 11px;
+  }
+
+
+  .contact-action-content strong {
+    max-width: 190px;
+
+    overflow: hidden;
+
+    font-size: 10px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+  }
+
+
+  .contact-action-arrow {
+    width: 32px;
+    height: 32px;
+
+    flex-basis: 32px;
+  }
+
+
+  /* CARD */
+
+  .contact-card {
+    padding: 21px;
+
+    border-radius: 23px;
+  }
+
+
+  .contact-card-top {
+    gap: 10px;
+  }
+
+
+  .contact-card-brand strong {
+    font-size: 11px;
+  }
+
+
+  .contact-card-status {
+    font-size: 7px;
+  }
+
+
+  .contact-info {
+    padding: 14px 0;
+  }
+
+
+  .contact-info-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-basis: 38px;
+  }
+
+
+  .contact-info-text strong {
+    max-width: 210px;
+
+    font-size: 13px;
+  }
+
+
+  .contact-info-text small {
+    font-size: 10px;
+  }
+
+
+  .contact-card-bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+
+  .contact-map-button {
+    width: 100%;
+
+    min-height: 38px;
+  }
+
+
+  .contact-card-message {
+    width: 100%;
+  }
+
+
+  /* FLOATING */
+
+  .contact-floating-chip {
+    right: -5px;
+
+    bottom: -22px;
+
+    transform: none;
+  }
+
+
+  .contact-floating-chip:hover {
+    transform: translateY(-4px);
+  }
+
+
+  /* =====================================================
+     MAP MOBILE
+  ====================================================== */
+
+  .contact-map-card {
+    border-radius: 23px;
+  }
+
+
+  .contact-map-header {
+    min-height: 70px;
+
+    padding:
+      17px 18px;
+  }
+
+
+  .contact-map-header strong {
+    font-size: 13px;
+  }
+
+
+  .map-close-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  .contact-map-container {
+    height: 330px;
+  }
+
+
+  .map-location-marker {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+
+  .map-marker-label {
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  .map-marker-pin {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .map-coordinates {
+    left: 10px;
+    bottom: 10px;
+
+    max-width: calc(100% - 20px);
+
+    overflow: hidden;
+
+    white-space: nowrap;
+  }
+
+
+  .contact-map-footer {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding:
+      15px 17px;
+
+    gap: 13px;
+  }
+
+
+  .contact-map-address {
+    width: 100%;
+  }
+
+
+  .contact-map-actions {
+    width: 100%;
+  }
+
+
+  .contact-map-close,
+  .contact-map-external {
+    flex: 1;
+
+    min-height: 37px;
+  }
+
+
+  /* BOTTOM */
+
+  .contact-bottom {
+    gap: 9px;
+
+    margin-top: 65px;
+  }
+
+
+  .contact-bottom > span {
+    width: 35px;
+  }
+
+
+  .contact-bottom strong {
+    font-size: 5px;
+
+    letter-spacing: 0.18em;
+  }
+
+
+  .contact-bottom small {
+    font-size: 5px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+
+/* =========================================================
+   MOBILE — REMOVE BLUR EVERYWHERE
+   Keeps the original mobile design; removes only blur/filter
+   and GPU/compositing effects that can make the UI look soft.
+========================================================= */
+
+@media (max-width: 600px) {
+  .contact-section,
+  .contact-bg-grid,
+  .contact-glow,
+  .contact-wrap,
+  .contact-content,
+  .contact-left,
+  .contact-card-wrap,
+  .contact-card,
+  .contact-action,
+  .contact-action-icon,
+  .contact-action-arrow,
+  .contact-info,
+  .contact-info-icon,
+  .contact-map-card,
+  .contact-map-header,
+  .contact-map-container,
+  .contact-map-container iframe,
+  .contact-map-footer,
+  .contact-map-address,
+  .contact-map-address-icon,
+  .contact-map-close,
+  .contact-map-external,
+  .contact-floating-chip,
+  .map-marker-label,
+  .map-coordinates,
+  .map-scale {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Do not fade or soften any mobile content. */
+  .contact-section,
+  .contact-bg-grid,
+  .contact-glow,
+  .contact-card,
+  .contact-action,
+  .contact-map-card,
+  .contact-map-container,
+  .contact-map-container iframe,
+  .contact-floating-chip {
+    opacity: 1 !important;
+  }
+
+  /* Keep text and icons crisp. */
+  .contact-section *,
+  .contact-section *::before,
+  .contact-section *::after {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Google Maps must render at its native size without scaling. */
+  .contact-map-container iframe {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+  }
+
+  /* Decorative grid should not sit over the map and soften it. */
+  .map-grid-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    filter: none !important;
+  }
+}
+
+/* Small phones — same crisp rendering. */
+@media (max-width: 380px) {
+  .contact-section,
+  .contact-section *,
+  .contact-section *::before,
+  .contact-section *::after {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .contact-map-container iframe {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .contact-title {
+    font-size: 43px;
+  }
+
+
+  .contact-card {
+    padding: 18px;
+  }
+
+
+  .contact-info-text strong {
+    max-width: 180px;
+  }
+
+
+  .contact-map-container {
+    height: 300px;
+  }
+
+
+  .contact-floating-chip {
+    min-width: 112px;
+
+    padding: 8px 9px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-action,
+  .contact-card,
+  .contact-map-card,
+  .contact-floating-chip,
+  .contact-action-arrow,
+  .map-marker-pulse {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}
+
+/* =========================================================
+   NO-BLUR / CRISP RENDERING OVERRIDES
+   Prevent mobile/desktop GPU compositing from making the
+   contact card, text, icons or glass panels look soft.
+========================================================= */
+
+.contact-section,
+.contact-wrap,
+.contact-content,
+.contact-left,
+.contact-card-wrap,
+.contact-card,
+.contact-action,
+.contact-info,
+.contact-map-card,
+.contact-floating-chip {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Keep the glass appearance through gradients and shadows,
+   not backdrop-filter. */
+.contact-card,
+.contact-action,
+.contact-map-card,
+.contact-floating-chip,
+.map-marker-label,
+.map-coordinates {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Never apply a blur filter to contact-section decorative layers. */
+.contact-section .contact-glow,
+.contact-section .contact-card,
+.contact-section .contact-action,
+.contact-section .contact-map-card,
+.contact-section .contact-floating-chip {
+  filter: none;
+}
+
+/* Crisp card rendering on touch devices. */
+@media (hover: none) and (pointer: coarse) {
+  .contact-card,
+  .contact-action,
+  .contact-map-card,
+  .contact-floating-chip {
+    transform: none;
+  }
+
+  .contact-card:hover,
+  .contact-action:hover,
+  .contact-map-card:hover,
+  .contact-floating-chip:hover {
+    transform: none;
+  }
+}
+
+/* Also avoid motion-induced soft rasterization when the user
+   has requested reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .contact-card,
+  .contact-action,
+  .contact-map-card,
+  .contact-floating-chip,
+  .contact-action-arrow,
+  .location-open-icon {
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL MOBILE CRISP FIX
+   Removes animation/compositing that can make the Contact
+   section appear blurry in Chrome mobile/device emulation.
+   No layout or color redesign.
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* Stop every contact animation/transition from rasterizing
+     the card while it is moving or scaling. */
+  .contact-section,
+  .contact-section *,
+  .contact-section *::before,
+  .contact-section *::after {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+  }
+
+  /* Keep the actual containers at 1:1 scale. */
+  .contact-section,
+  .contact-wrap,
+  .contact-content,
+  .contact-left,
+  .contact-card-wrap,
+  .contact-card,
+  .contact-action,
+  .contact-info,
+  .contact-map-card,
+  .contact-map-header,
+  .contact-map-container,
+  .contact-map-footer,
+  .contact-floating-chip {
+    transform: none !important;
+    animation: none !important;
+    will-change: auto !important;
+    -webkit-transform: none !important;
+  }
+
+  /* Never make contact content translucent while loading/revealing. */
+  .contact-section,
+  .contact-section .contact-wrap,
+  .contact-section .contact-card,
+  .contact-section .contact-action,
+  .contact-section .contact-info,
+  .contact-section .contact-map-card,
+  .contact-section .contact-floating-chip,
+  .contact-section .contact-map-container,
+  .contact-section .contact-map-container iframe {
+    opacity: 1 !important;
+  }
+
+  /* Disable common reveal-motion effects on this section.
+     This is important if a global [data-reveal] rule adds
+     translate/scale/filter effects. */
+  .contact-section [data-reveal],
+  .contact-section [data-reveal].is-visible,
+  .contact-section [data-reveal].visible,
+  .contact-section [data-reveal].active,
+  .contact-section [data-reveal].revealed {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  /* Do not animate the map card on mobile. */
+  .contact-map-card {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  /* Google Maps: native, sharp rendering. */
+  .contact-map-container {
+    transform: none !important;
+    overflow: hidden !important;
+    contain: paint !important;
+  }
+
+  .contact-map-container iframe {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    border: 0 !important;
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  /* The decorative grid must never sit on top of the map. */
+  .contact-section .map-grid-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+
+  /* Remove motion-induced softness from the marker and labels. */
+  .contact-section .map-location-marker,
+  .contact-section .map-marker-pin,
+  .contact-section .map-marker-label,
+  .contact-section .map-coordinates,
+  .contact-section .map-scale {
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    will-change: auto !important;
+  }
+
+  /* Keep the marker pulse off on mobile. */
+  .contact-section .map-marker-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Disable hover transforms on touch/mobile. */
+  .contact-section .contact-card:hover,
+  .contact-section .contact-action:hover,
+  .contact-section .contact-map-card:hover,
+  .contact-section .contact-floating-chip:hover,
+  .contact-section .contact-map-button:hover,
+  .contact-section .contact-info-link:hover,
+  .contact-section .contact-location-button:hover,
+  .contact-section .contact-map-close:hover,
+  .contact-section .contact-map-external:hover {
+    transform: none !important;
+    -webkit-transform: none !important;
+    filter: none !important;
+  }
+
+  /* Prevent the text/icon layers from being promoted into a
+     moving GPU surface. */
+  .contact-section .contact-card *,
+  .contact-section .contact-action *,
+  .contact-section .contact-map-card *,
+  .contact-section .contact-floating-chip * {
+    will-change: auto !important;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .contact-section,
+  .contact-section *,
+  .contact-section *::before,
+  .contact-section *::after {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .contact-map-container iframe {
+    filter: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+  }
+}

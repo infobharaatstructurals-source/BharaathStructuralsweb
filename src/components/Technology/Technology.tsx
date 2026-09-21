@@ -1,0 +1,4 @@
+import Icon from '../common/Icon'
+import { technologies } from '../../data/siteData'
+import './Technology.css'
+export default function Technology(){return <section id="technology" className="technology-section"><div className="section-wrap"><div className="tech-heading" data-reveal><div className="eyebrow orange">TECHNOLOGY</div><h2>Digital tools.<br/><span>Engineering discipline.</span></h2><p>Technology is valuable when it improves the way people build, check and deliver.</p></div><div className="tech-grid">{technologies.map((tech,i)=><div className="tech-card" key={tech.label} data-reveal><span className="tech-index">0{i+1}</span><div className="tech-symbol">{tech.label}</div><h3>{tech.title}</h3><p>{tech.text}</p><Icon name="ArrowUpRight" size={18} className="tech-arrow"/></div>)}</div></div></section>}
