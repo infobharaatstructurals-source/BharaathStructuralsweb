@@ -6,6 +6,7 @@ import './About.css'
 import ColumnImage from '../../assets/about/Column.png'
 import BeamImage from '../../assets/about/Beam.png'
 import ConnectedBeamColImage from '../../assets/about/ConnectedBeamCol.png'
+import CertificateImage from '../../assets/about/Bharaath Structurals_page-0001.jpg'
 
 interface AboutProps {
   onNavigate: (id: string) => void
@@ -13,8 +14,7 @@ interface AboutProps {
 
 export default function About({ onNavigate }: AboutProps) {
   const visualRef = useRef<HTMLDivElement | null>(null)
-   const certificatePath =
-    '/src/assets/about/Bharaath Structurals_page-0001.jpg'
+  
   useEffect(() => {
     const visual = visualRef.current
 
@@ -448,21 +448,31 @@ useEffect(() => {
       >
         <span>
               <a
-              href={certificatePath}
+              href={CertificateImage}
               target="_blank"
               rel="noopener noreferrer"
-              style={{textDecoration:'none',color:'black',fontSize:'15px'}}
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                fontSize: '15px'
+              }}
             >
-             Certifications & Development
+              Certifications & Development
             </a>
         </span>
         
 
         <span className="about-link-icon">
-         <a href={certificatePath}
+         <a
+              href={CertificateImage}
               target="_blank"
               rel="noopener noreferrer"
-               style={{textDecoration:'none'}}><ArrowUpRight
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+                fontSize: '15px'
+              }}
+            ><ArrowUpRight
             size={17}
             strokeWidth={1.8}
           /></a> 

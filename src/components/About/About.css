@@ -1489,22 +1489,11 @@
     0.3s ease;
 }
 
-.about-link:hover
-.about-link-icon {
-  background:
-    var(--navy);
-
-  border-color:
-    var(--navy);
-
-  color:
-    #ffffff;
-
-  transform:
-    translate(
-      2px,
-      -2px
-    );
+.about-link:hover .about-link-icon {
+  background: #ffffff;
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translate(2px, -2px);
 }
 
 
