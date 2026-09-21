@@ -2,9 +2,9 @@ import { useState } from 'react'
 import Icon from '../common/Icon'
 import './Services.css'
 
-import connectionImage from '../../assets/services/connection.png'
-import manpowerImage from '../../assets/services/Man Power Supply Services.png'
-import detailingImage from '../../assets/services/Steel Detailing Services.png'
+import connectionImage from '../../assets/services/connection.webp'
+import manpowerImage from '../../assets/services/Man-Power-Supply-Services.webp'
+import detailingImage from '../../assets/services/Steel-Detailing-Services.webp'
 
 const services = [
   {

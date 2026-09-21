@@ -35,7 +35,7 @@ export default function Footer() {
             aria-label="Bharaat Structurals home"
           >
             <img
-              src="/Logo.png"
+              src="/Logo.webp"
               alt="Bharaat Structurals"
               className="footer-logo-image"
             />

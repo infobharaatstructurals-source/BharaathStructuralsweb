@@ -104,7 +104,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             onClick={() => go('home')}
             aria-label="Bharaath Structurals Home"
           >
-            <img src="/Logo.png" alt="Bharaath Structurals" />
+            <img src="/Logo.webp" alt="Bharaath Structurals" />
           </button>
 
           <nav className="navbar-links" aria-label="Primary navigation">
@@ -142,7 +142,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
           onClick={() => go('home')}
           aria-label="Bharaath Structurals Home"
         >
-          <img src="/Logo.png" alt="Bharaath Structurals" />
+          <img src="/Logo.webp" alt="Bharaath Structurals" />
         </button>
       </div>
 
