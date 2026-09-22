@@ -269,9 +269,10 @@ export default function Hero({
                   Explore Services
                 </span>
 
+                
                 <Icon
-                  name="ArrowUpRight"
-                  size={15}
+                  name="ArrowRight"
+                  size={14}
                 />
 
               </button>

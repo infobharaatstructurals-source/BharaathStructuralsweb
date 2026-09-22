@@ -42,11 +42,7 @@ const partnerLogos = [
     image: TEKLA,
     className: 'bs-tekla',
   },
-  {
-    name: 'Kirby',
-    image: KIRBY,
-    className: 'bs-kirby',
-  },
+  
 ]
 
 
@@ -74,6 +70,11 @@ const clientLogos = [
     name: 'Nisarg Enviro',
     image: NISARG,
     className: 'bs-nisarg',
+  },
+  {
+    name: 'Kirby',
+    image: KIRBY,
+    className: 'bs-kirby',
   },
 ]
 
