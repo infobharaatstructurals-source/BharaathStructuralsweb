@@ -24,7 +24,7 @@ export default function LocationQR() {
             level="H"
             includeMargin={true}
             imageSettings={{
-              src: '/BlackLogo.png',
+              src: '/BlackLogo2.png',
               width: 150,
               height: 150,
               excavate: true,

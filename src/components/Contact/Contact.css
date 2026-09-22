@@ -937,23 +937,47 @@
 ========================================================= */
 
 .contact-card-bottom {
-  position: relative;
-
-  z-index: 2;
-
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 15px;
-
-  min-height: 48px;
+  width: 100%;
+  min-height: auto;
 
   margin-top: 13px;
-
   padding-top: 13px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.contact-card-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.contact-card-message span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  width: 100%;
+}
+
+.contact-map-button {
+  flex: 0 0 auto;
 }
 
 
@@ -963,6 +987,8 @@
   align-items: center;
 
   gap: 9px;
+
+  flex: 1 1 auto;
 
   min-width: 0;
 }
@@ -991,6 +1017,8 @@
 
 
 .contact-card-message span {
+  min-width: 0;
+
   overflow: hidden;
 
   color: #71899a;
@@ -1001,7 +1029,9 @@
 
   text-overflow: ellipsis;
 
-  white-space: nowrap;
+  white-space: normal;
+
+  line-height: 1.35;
 }
 
 
@@ -1011,6 +1041,8 @@
 
 .contact-map-button {
   display: flex;
+
+  flex: 0 0 auto;
 
   align-items: center;
 
@@ -2666,5 +2698,416 @@
     transform: none !important;
     -webkit-transform: none !important;
     animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   LOCATION QR BUTTON + QR CARD
+   ========================================================= */
+
+.contact-qr-button {
+  border-color: rgba(36, 152, 255, 0.30);
+}
+
+.contact-qr-button:hover {
+  border-color: rgba(36, 152, 255, 0.60);
+}
+
+.contact-qr-card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(36, 152, 255, 0.40);
+  border-radius: 28px;
+  background: #061a29;
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.48),
+    0 0 45px rgba(36, 152, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: qrCardIn 0.45s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes qrCardIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.contact-qr-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  min-height: 325px;
+  padding: 28px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(36, 152, 255, 0.08),
+      transparent 45%
+    );
+}
+
+.contact-qr-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 235px;
+  height: 235px;
+  padding: 9px;
+  box-sizing: border-box;
+  flex: 0 0 235px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.30),
+    0 0 30px rgba(36, 152, 255, 0.08);
+}
+
+.contact-qr-box canvas {
+  display: block;
+  width: 217px !important;
+  height: 217px !important;
+}
+
+.contact-qr-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 210px;
+}
+
+.contact-qr-text span {
+  color: #2498ff;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.contact-qr-text strong {
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.contact-qr-text small {
+  color: #8fa4b3;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   DESKTOP / LAPTOP CARD BOTTOM ALIGNMENT
+   ========================================================= */
+
+.contact-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+@media (min-width: 901px) {
+  .contact-card-bottom {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-card-message {
+    max-width: none;
+  }
+
+}
+
+@media (max-width: 900px) {
+  .contact-qr-content {
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .contact-qr-box {
+    width: 210px;
+    height: 210px;
+    flex-basis: 210px;
+  }
+
+  .contact-qr-box canvas {
+    width: 192px !important;
+    height: 192px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-card-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .contact-card-bottom {
+    flex-wrap: wrap;
+  }
+
+  .contact-qr-content {
+    flex-direction: column;
+    min-height: 360px;
+    padding: 24px 15px;
+    text-align: center;
+  }
+
+  .contact-qr-box {
+    width: 200px;
+    height: 200px;
+    flex-basis: 200px;
+  }
+
+  .contact-qr-box canvas {
+    width: 182px !important;
+    height: 182px !important;
+  }
+
+  .contact-qr-text {
+    align-items: center;
+    max-width: 280px;
+  }
+
+  .contact-qr-text strong {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card-bottom {
+    align-items: stretch;
+  }
+
+  .contact-card-message {
+    width: 100%;
+  }
+
+  .contact-map-button {
+    flex: 1 1 auto;
+  }
+
+  .contact-qr-content {
+    min-height: 330px;
+  }
+
+  .contact-qr-box {
+    width: 180px;
+    height: 180px;
+    flex-basis: 180px;
+  }
+
+  .contact-qr-box canvas {
+    width: 164px !important;
+    height: 164px !important;
+  }
+}
+
+
+
+/* =========================================================
+   QR HOVER PREVIEW
+   ========================================================= */
+
+.contact-qr-button-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.contact-qr-hover-preview {
+  position: absolute;
+  z-index: 9999;
+  right: 0;
+  bottom: calc(100% + 14px);
+  width: 190px;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.94);
+  transform-origin: bottom right;
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.22s cubic-bezier(.2,.8,.2,1);
+}
+
+.contact-qr-hover-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid rgba(36, 152, 255, 0.45);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(8, 25, 39, 0.98), rgba(3, 12, 20, 0.98));
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.48),
+    0 0 35px rgba(36, 152, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.contact-qr-hover-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 30%, rgba(36, 152, 255, 0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.contact-qr-hover-inner canvas {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 170px !important;
+  height: 170px !important;
+  border-radius: 8px;
+}
+
+.contact-qr-hover-label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9px;
+}
+
+.contact-qr-hover-label span {
+  color: #2498ff;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.20em;
+}
+
+.contact-qr-hover-label strong {
+  margin-top: 2px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.contact-qr-button-wrap:hover .contact-qr-hover-preview {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.contact-qr-hover-preview::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: 2px;
+  width: 12px;
+  height: 12px;
+  background: #061a29;
+  border-right: 1px solid rgba(36, 152, 255, 0.45);
+  border-bottom: 1px solid rgba(36, 152, 255, 0.45);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 700px) {
+  .contact-qr-hover-preview {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   FINAL MOBILE BUTTON ROW FIX
+   Message stays on first line.
+   Both location buttons stay on the same line below it.
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+  .contact-card-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .contact-card-message {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  .contact-card-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    width: 100% !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .contact-card-actions > .contact-map-button,
+  .contact-card-actions > .contact-qr-button-wrap {
+    flex: 1 1 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+  }
+
+  .contact-card-actions .contact-map-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+    padding: 0 7px !important;
+    gap: 5px !important;
+    font-size: 8px !important;
+    letter-spacing: 0.05em !important;
+    white-space: nowrap !important;
+  }
+
+  .contact-card-actions .contact-qr-button-wrap {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .contact-card-actions .contact-qr-button-wrap .contact-map-button {
+    flex: 1 1 auto !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .contact-card-actions {
+    gap: 6px !important;
+  }
+
+  .contact-card-actions .contact-map-button {
+    min-height: 36px !important;
+    padding: 0 5px !important;
+    gap: 4px !important;
+    font-size: 7px !important;
+    letter-spacing: 0.035em !important;
+  }
+
+  .contact-card-actions .contact-map-button svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex: 0 0 12px !important;
   }
 }

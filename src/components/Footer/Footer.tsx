@@ -1,4 +1,3 @@
-import Icon from '../common/Icon'
 import { scrollToId } from '../../utils/scrollToId'
 import './Footer.css'
 
@@ -12,22 +11,16 @@ export default function Footer() {
 
   const linkedInUrl =
     'https://in.linkedin.com/company/bharaat-structurals'
+  const FacebookUrl =
+    'https://www.facebook.com/share/1D9c55xM1D/'
+  const InstagramUrl =
+    'https://www.instagram.com/bharaatstructurals?stkn=MWthbDV1M244anFjZA=='
 
   return (
     <footer className="footer">
-
-      {/* =====================================================
-          MAIN FOOTER
-      ===================================================== */}
-
       <div className="footer-grid">
 
-        {/* =================================================
-            BRAND
-        ================================================= */}
-
         <div className="footer-brand">
-
           <button
             type="button"
             className="brand-footer-logo"
@@ -41,26 +34,18 @@ export default function Footer() {
             />
           </button>
 
-
           <p className="footer-description">
             Precision steel detailing
             <br />
             &amp; BIM solutions.
           </p>
 
-
-          {/* SOCIAL MEDIA */}
-
           <div className="footer-social-block">
-
             <span className="footer-social-label">
               Follow us
             </span>
 
             <div className="footer-socials">
-
-              {/* LINKEDIN */}
-
               <a
                 href={linkedInUrl}
                 target="_blank"
@@ -68,208 +53,130 @@ export default function Footer() {
                 aria-label="Bharaat Structurals LinkedIn"
                 className="footer-social"
               >
-                <Icon
-                  name="Linkedin"
-                  size={18}
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/ios-filled/50/linkedin.png"
+                  alt="LinkedIn"
                 />
               </a>
 
-
-              {/* FACEBOOK */}
-
               <a
-                href="#contact"
+                href={FacebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Bharaat Structurals Facebook"
                 className="footer-social"
               >
-                <Icon
-                  name="Facebook"
-                  size={18}
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/ios-filled/50/facebook--v1.png"
+                  alt="Facebook"
                 />
               </a>
 
-
-              {/* INSTAGRAM */}
-
               <a
-                href="#contact"
+                href={InstagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Bharaat Structurals Instagram"
                 className="footer-social"
               >
-                <Icon
-                  name="Instagram"
-                  size={18}
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/ios-filled/50/instagram-new--v1.png"
+                  alt="Instagram"
                 />
               </a>
-
-
-              {/* YOUTUBE */}
-
-              <a
-                href="#contact"
-                aria-label="Bharaat Structurals YouTube"
-                className="footer-social"
-              >
-                <Icon
-                  name="Youtube"
-                  size={18}
-                />
-              </a>
-
             </div>
-
           </div>
-
         </div>
 
-
-        {/* =================================================
-            COMPANY
-        ================================================= */}
-
         <div className="footer-column">
-
           <div className="footer-heading">
             <span />
             <h4>Company</h4>
           </div>
 
-
-          <button
-            type="button"
-            onClick={() => go('about')}
-          >
+          <button type="button" onClick={() => go('about')}>
             About
           </button>
 
-
-          <button
-            type="button"
-            onClick={() => go('projects')}
-          >
+          <button type="button" onClick={() => go('projects')}>
             Projects
           </button>
 
-
-          <button
-            type="button"
-            onClick={() => go('careers')}
-          >
+          <button type="button" onClick={() => go('careers')}>
             Careers
           </button>
-
-
-          <button
-            type="button"
-            onClick={() => go('technology')}
-          >
-            Technology
-          </button>
-
         </div>
 
-
-        {/* =================================================
-            HELP
-        ================================================= */}
-
         <div className="footer-column footer-help">
-
           <div className="footer-heading">
             <span />
             <h4>Help</h4>
           </div>
 
-
-          <button
-            type="button"
-            onClick={() => go('services')}
-          >
+          <button type="button" onClick={() => go('services')}>
             Services
           </button>
 
-
-          <button
-            type="button"
-            onClick={() => go('contact')}
-          >
+          <button type="button" onClick={() => go('contact')}>
             Contact us
           </button>
 
-
-          <button
-            type="button"
-            onClick={() => go('contact')}
-          >
+          <button type="button" onClick={() => go('contact')}>
             Sign up
           </button>
 
-
-          <button
-            type="button"
-            onClick={() => go('contact')}
-          >
+          <button type="button" onClick={() => go('contact')}>
             Login
           </button>
-
         </div>
 
-
-        {/* =================================================
-            CONTACT
-        ================================================= */}
-
         <div className="footer-column footer-contact">
-
           <div className="footer-heading">
             <span />
             <h4>Contact</h4>
           </div>
 
-
-          {/* EMAIL */}
-
           <a
             href="mailto:pasha.nadeem@bharaatstructurals.com"
             className="footer-contact-link"
           >
-
             <span className="footer-contact-icon">
-              <Icon
-                name="Mail"
-                size={17}
+              <img
+                width="50"
+                height="50"
+                src="https://img.icons8.com/ios-filled/50/new-post.png"
+                alt="Email"
               />
             </span>
 
             <span>
               pasha.nadeem@bharaatstructurals.com
             </span>
-
           </a>
-
-
-          {/* PHONE */}
 
           <a
             href="tel:+918025349898"
             className="footer-contact-link"
           >
-
             <span className="footer-contact-icon">
-              <Icon
-                name="Phone"
-                size={17}
+              <img
+                width="50"
+                height="50"
+                src="https://img.icons8.com/ios-filled/50/phone-disconnected.png"
+                alt="Phone"
               />
             </span>
 
             <span>
               +91 80 2534 9898
             </span>
-
           </a>
-
-
-          {/* LOCATION */}
 
           <a
             href={googleMapsUrl}
@@ -278,16 +185,16 @@ export default function Footer() {
             className="footer-contact-link footer-location-link"
             aria-label="Open Bharaat Structurals location in Google Maps"
           >
-
             <span className="footer-contact-icon">
-              <Icon
-                name="MapPin"
-                size={17}
+              <img
+                width="50"
+                height="50"
+                src="https://img.icons8.com/ios-filled/50/marker.png"
+                alt="Location"
               />
             </span>
 
             <span className="footer-location-text">
-
               <span>
                 Bengaluru, Karnataka, India
               </span>
@@ -299,20 +206,11 @@ export default function Footer() {
                 <br />
                 Bengaluru, Karnataka – 560045
               </small>
-
             </span>
-
           </a>
-
         </div>
 
-
-        {/* =================================================
-            BOTTOM
-        ================================================= */}
-
         <div className="footer-bottom">
-
           <span>
             © 2026 Bharaat Structurals. All rights reserved.
           </span>
@@ -320,11 +218,9 @@ export default function Footer() {
           <span>
             Precision · Coordination · Delivery
           </span>
-
         </div>
 
       </div>
-
     </footer>
   )
 }

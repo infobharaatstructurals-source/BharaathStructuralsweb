@@ -9,12 +9,15 @@ import {
   ExternalLink,
   X,
   Navigation,
+  QrCode,
 } from 'lucide-react'
-import QRCodeCanvas from '../LocationQR/LocationQR'
+
+import { QRCodeCanvas } from 'qrcode.react'
 import './Contact.css'
 
 export default function Contact() {
   const [showMap, setShowMap] = useState(false)
+  const [showQR, setShowQR] = useState(false)
   const [isOfficeOpen, setIsOfficeOpen] = useState(false)
 
   /*
@@ -30,7 +33,10 @@ export default function Contact() {
   const longitude = 77.6136944
 
   const googleMapsUrl =
-    `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`
+    'https://maps.app.goo.gl/xtXjhpiR2Vm6PnAk6'
+
+  const qrLocationUrl =
+    'https://maps.app.goo.gl/xtXjhpiR2Vm6PnAk6'
 
   const googleEmbedUrl =
     `https://www.google.com/maps?q=${latitude},${longitude}&z=17&output=embed`
@@ -47,7 +53,7 @@ export default function Contact() {
     Saturday + Sunday = CLOSED
     =========================================================
   */
-  
+
   const checkOfficeStatus = () => {
     const now = new Date()
 
@@ -141,6 +147,12 @@ export default function Contact() {
 
   const toggleMap = () => {
     setShowMap((current) => !current)
+    setShowQR(false)
+  }
+
+  const toggleQR = () => {
+    setShowQR((current) => !current)
+    setShowMap(false)
   }
 
 
@@ -335,11 +347,11 @@ Regards,`
                 </div>
 
               </a>
-                
+
               {/* =================================================
                   Contact Us Form
               ================================================== */}
-                <a
+              <a
                 href="/contact"
                 className="contact-action"
                 aria-label="Open Contact Us form"
@@ -355,13 +367,13 @@ Regards,`
                   <span>CONTACT OUR TEAM</span>
 
                   <strong
-                  style={{
-                    whiteSpace: 'nowrap',
-                    wordSpacing: '4px',
-                  }}
-                >
-                  FILL OUT THE FORM
-                </strong>
+                    style={{
+                      whiteSpace: 'nowrap',
+                      wordSpacing: '4px',
+                    }}
+                  >
+                    FILL OUT THE FORM
+                  </strong>
                 </div>
 
                 <div className="contact-action-arrow">
@@ -371,9 +383,35 @@ Regards,`
                   />
                 </div>
               </a>
-                              
 
-ct-card-brand">
+            </div>
+
+          </div>
+
+
+          {/* =================================================
+              RIGHT CARD
+          ================================================== */}
+
+          <div className="contact-card-wrap">
+
+
+            {/* =================================================
+                NORMAL CONTACT CARD
+            ================================================== */}
+
+            {!showMap && !showQR && (
+
+              <div className="contact-card">
+
+
+                {/* =================================================
+                    CARD TOP
+                ================================================== */}
+
+                <div className="contact-card-top">
+
+                  <div className="contact-card-brand">
 
                     <span>
                       BHARAAT
@@ -391,11 +429,10 @@ ct-card-brand">
                   ================================================== */}
 
                   <div
-                    className={`contact-card-status ${
-                      isOfficeOpen
+                    className={`contact-card-status ${isOfficeOpen
                         ? 'is-open'
                         : 'is-closed'
-                    }`}
+                      }`}
                   >
 
                     <span
@@ -596,75 +633,272 @@ ct-card-brand">
 
                 <div className="contact-card-bottom">
 
-
                   <div className="contact-card-message">
-
                     <div className="contact-message-icon">
-
                       <MessageCircle
+                        size={15}
+                        strokeWidth={1.8}
+                      />
+                    </div>
+
+                    <span>
+                      Let's build something precise.
+                    </span>
+                  </div>
+
+                  <div className="contact-card-actions">
+
+                    {/* Find us on Maps */}
+                    <button
+                      type="button"
+                      className="contact-map-button"
+                      onClick={toggleMap}
+                    >
+                      <MapPin
+                        size={14}
+                        strokeWidth={1.8}
+                      />
+                      <span>
+                        Find us on Maps
+                      </span>
+                    </button>
+
+                    {/* =================================================
+                      QR CODE BUTTON
+                  ================================================== */}
+
+                    <div className="contact-qr-button-wrap">
+
+                      <button
+                        type="button"
+                        className="contact-map-button contact-qr-button"
+                        onClick={toggleQR}
+                        aria-label="Show QR code for location"
+                      >
+
+                        <QrCode
+                          size={14}
+                          strokeWidth={1.8}
+                        />
+
+                        <span>
+                          Scan For Location
+                        </span>
+
+                      </button>
+
+                      <div className="contact-qr-hover-preview">
+                        <div className="contact-qr-hover-inner">
+                          <QRCodeCanvas
+                            value={qrLocationUrl}
+                            size={170}
+                            bgColor="#ffffff"
+                            fgColor="#000000"
+                            level="H"
+                            includeMargin={true}
+                            imageSettings={{
+                              src: '/BlackLogo2.png',
+                              width: 34,
+                              height: 34,
+                              excavate: true,
+                            }}
+                          />
+
+                          <div className="contact-qr-hover-label">
+                            <span>SCAN</span>
+                            <strong>LOCATION</strong>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            )}
+
+
+            {/* =================================================
+                MAP CARD
+            ================================================== */}
+
+            {/* =================================================
+                QR CODE CARD
+            ================================================= */}
+
+            {showQR && (
+
+              <div className="contact-qr-card">
+
+                <div className="contact-map-header">
+
+                  <div>
+
+                    <span>
+                      BHARAAT STRUCTURALS
+                    </span>
+
+                    <strong>
+                      Scan our location
+                    </strong>
+
+                  </div>
+
+                  <button
+                    type="button"
+                    className="map-close-icon"
+                    onClick={toggleQR}
+                    aria-label="Close QR code"
+                  >
+
+                    <X
+                      size={17}
+                      strokeWidth={1.8}
+                    />
+
+                  </button>
+
+                </div>
+
+                <div className="contact-qr-content">
+
+                  <div className="contact-qr-box">
+
+                    <QRCodeCanvas
+                      value={qrLocationUrl}
+                      size={720}
+                      bgColor="#ffffff"
+                      fgColor="#000000"
+                      level="H"
+                      includeMargin={true}
+                      imageSettings={{
+                        src: '/BlackLogo2.png',
+                        width: 150,
+                        height: 150,
+                        excavate: true,
+                      }}
+                    />
+
+                  </div>
+
+                  <div className="contact-qr-text">
+
+                    <span>
+                      SCAN FOR LOCATION
+                    </span>
+
+                    <strong>
+                      Find Us on Maps
+                    </strong>
+
+                    <small>
+                      Scan this QR code to open
+                      Bharaat Structurals in Google Maps.
+                    </small>
+
+                  </div>
+
+                </div>
+
+                <div className="contact-map-footer">
+
+                  <div className="contact-map-address">
+
+                    <div className="contact-map-address-icon">
+
+                      <MapPin
                         size={15}
                         strokeWidth={1.8}
                       />
 
                     </div>
 
-                    <span>
-                    <div className="contact-card-bottom">
+                    <div>
 
+                      <span>
+                        OFFICE LOCATION
+                      </span>
 
-                  <div className="contact-card-message">
+                      <strong>
+                        Bengaluru, Karnataka
+                      </strong>
 
-                    <div className="contact-message-icon">
-
-                      <MessageCircle
-                        size={15}
-                        strokeWidth={1.8}
-                      />
+                      <small>
+                        13°02'29.1"N 77°36'49.3"E
+                      </small>
 
                     </div>
 
+                  </div>
+
+                  <div className="contact-map-actions">
+
+                    <button
+                      type="button"
+                      className="contact-map-close"
+                      onClick={toggleQR}
+                    >
+
+                      <X
+                        size={14}
+                        strokeWidth={1.8}
+                      />
+
+                      Close QR
+
+                    </button>
+
+                    <a
+                      href={googleMapsUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="contact-map-external"
+                    >
+
+                      <ExternalLink
+                        size={14}
+                        strokeWidth={1.8}
+                      />
+
+                      Open
+
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            )}
+
+            {showMap && (
+
+              <div className="contact-map-card">
+
+
+                {/* =================================================
+                    MAP HEADER
+                ================================================== */}
+
+                <div className="contact-map-header">
+
+                  <div>
+
                     <span>
-                   <div className="contact-card-bottom">
+                      BHARAAT STRUCTURALS
+                    </span>
 
-  <div className="contact-card-message">
+                    <strong>
+                      Our location
+                    </strong>
 
-    <div className="contact-message-icon">
-      <MessageCircle
-        size={15}
-        strokeWidth={1.8}
-      />
-    </div>
-
-    <span>
-      Let's build something precise.
-    </span>
-
-  </div>
-
-
-<QRCodeCanvas />
-
-
-  {/* MAP BUTTON */}
-
-  <button
-    type="button"
-    className="contact-map-button"
-    onClick={toggleMap}
-  >
-
-    <MapPin
-      size={14}
-      strokeWidth={1.8}
-    />
-
-    <span>
-      Find us on Maps
-    </span>
-
-  </button>
-
-</div>/div>
+                  </div>
 
 
                   <button
