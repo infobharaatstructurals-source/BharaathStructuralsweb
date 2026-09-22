@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import {
   ArrowUpRight,
   Mail,
@@ -48,7 +47,7 @@ export default function Contact() {
     Saturday + Sunday = CLOSED
     =========================================================
   */
-  const navigate = useNavigate()
+  
   const checkOfficeStatus = () => {
     const now = new Date()
 
