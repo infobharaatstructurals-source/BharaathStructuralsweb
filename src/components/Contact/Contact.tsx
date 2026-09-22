@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   ArrowUpRight,
   Mail,
@@ -47,7 +48,7 @@ export default function Contact() {
     Saturday + Sunday = CLOSED
     =========================================================
   */
-
+  const navigate = useNavigate()
   const checkOfficeStatus = () => {
     const now = new Date()
 
@@ -335,7 +336,43 @@ Regards,`
                 </div>
 
               </a>
+                
+              {/* =================================================
+                  Contact Us Form
+              ================================================== */}
+                <a
+                href="/contact"
+                className="contact-action"
+                aria-label="Open Contact Us form"
+              >
+                <div className="contact-action-icon">
+                  <Phone
+                    size={18}
+                    strokeWidth={1.8}
+                  />
+                </div>
 
+                <div className="contact-action-content">
+                  <span>CONTACT OUR TEAM</span>
+
+                  <strong
+                  style={{
+                    whiteSpace: 'nowrap',
+                    wordSpacing: '4px',
+                  }}
+                >
+                  FILL OUT THE FORM
+                </strong>
+                </div>
+
+                <div className="contact-action-arrow">
+                  <ArrowUpRight
+                    size={17}
+                    strokeWidth={1.8}
+                  />
+                </div>
+              </a>
+                              
             </div>
 
           </div>
