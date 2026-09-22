@@ -1,0 +1,252 @@
+/* =========================================================
+   LOCATION QR
+========================================================= */
+
+.location-qr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   QR BOX
+========================================================= */
+
+.location-qr-box {
+  width: 180px;
+  height: 180px;
+
+  flex: 0 0 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+/*
+   The QR is generated at 720px but displayed at 180px.
+   This gives the logo and QR much better rendering quality.
+*/
+
+.location-qr-box canvas {
+  display: block;
+
+  width: 164px !important;
+  height: 164px !important;
+
+  max-width: none;
+
+  image-rendering: auto;
+}
+
+
+/* =========================================================
+   QR CONTENT
+========================================================= */
+
+.location-qr-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 0;
+}
+
+
+.location-qr-label {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  color: #a66a00;
+
+  text-transform: uppercase;
+}
+
+
+.location-qr-content h3 {
+  margin: 0;
+
+  font-size: 19px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+.location-qr-content p {
+  margin: 0;
+
+  max-width: 240px;
+
+  font-size: 11px;
+  line-height: 1.6;
+
+  color: #666666;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.location-qr {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.location-qr:hover {
+  border-color: rgba(166, 106, 0, 0.30);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .location-qr {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .location-qr-box {
+    width: 160px;
+    height: 160px;
+
+    flex-basis: 160px;
+
+    padding: 7px;
+  }
+
+  .location-qr-box canvas {
+    width: 146px !important;
+    height: 146px !important;
+  }
+
+  .location-qr-content h3 {
+    font-size: 17px;
+  }
+
+  .location-qr-content p {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .location-qr {
+    gap: 14px;
+
+    padding: 14px;
+  }
+
+  .location-qr-box {
+    width: 130px;
+    height: 130px;
+
+    flex-basis: 130px;
+
+    padding: 6px;
+
+    border-radius: 9px;
+  }
+
+  .location-qr-box canvas {
+    width: 118px !important;
+    height: 118px !important;
+  }
+
+  .location-qr-label {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+  }
+
+  .location-qr-content h3 {
+    font-size: 16px;
+  }
+
+  .location-qr-content p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .location-qr {
+    gap: 10px;
+
+    padding: 12px;
+  }
+
+  .location-qr-box {
+    width: 110px;
+    height: 110px;
+
+    flex-basis: 110px;
+
+    padding: 5px;
+  }
+
+  .location-qr-box canvas {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .location-qr-content h3 {
+    font-size: 14px;
+  }
+
+  .location-qr-content p {
+    font-size: 9px;
+  }
+}

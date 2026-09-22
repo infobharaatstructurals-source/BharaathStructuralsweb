@@ -10,7 +10,7 @@ import {
   X,
   Navigation,
 } from 'lucide-react'
-
+import QRCodeCanvas from '../LocationQR/LocationQR'
 import './Contact.css'
 
 export default function Contact() {
@@ -372,34 +372,8 @@ Regards,`
                 </div>
               </a>
                               
-            </div>
 
-          </div>
-
-
-          {/* =================================================
-              RIGHT CARD
-          ================================================== */}
-
-          <div className="contact-card-wrap">
-
-
-            {/* =================================================
-                NORMAL CONTACT CARD
-            ================================================== */}
-
-            {!showMap && (
-
-              <div className="contact-card">
-
-
-                {/* =================================================
-                    CARD TOP
-                ================================================== */}
-
-                <div className="contact-card-top">
-
-                  <div className="contact-card-brand">
+ct-card-brand">
 
                     <span>
                       BHARAAT
@@ -635,66 +609,62 @@ Regards,`
                     </div>
 
                     <span>
-                      Let's build something precise.
-                    </span>
-
-                  </div>
+                    <div className="contact-card-bottom">
 
 
-                  {/* =================================================
-                      FIND US ON MAPS
-                  ================================================== */}
+                  <div className="contact-card-message">
 
-                  <button
-                    type="button"
-                    className="contact-map-button"
-                    onClick={toggleMap}
-                  >
+                    <div className="contact-message-icon">
 
-                    <MapPin
-                      size={14}
-                      strokeWidth={1.8}
-                    />
+                      <MessageCircle
+                        size={15}
+                        strokeWidth={1.8}
+                      />
+
+                    </div>
 
                     <span>
-                      Find us on Maps
-                    </span>
+                   <div className="contact-card-bottom">
 
-                  </button>
+  <div className="contact-card-message">
 
-                </div>
+    <div className="contact-message-icon">
+      <MessageCircle
+        size={15}
+        strokeWidth={1.8}
+      />
+    </div>
 
-              </div>
+    <span>
+      Let's build something precise.
+    </span>
 
-            )}
-
-
-            {/* =================================================
-                MAP CARD
-            ================================================== */}
-
-            {showMap && (
-
-              <div className="contact-map-card">
+  </div>
 
 
-                {/* =================================================
-                    MAP HEADER
-                ================================================== */}
+<QRCodeCanvas />
 
-                <div className="contact-map-header">
 
-                  <div>
+  {/* MAP BUTTON */}
 
-                    <span>
-                      BHARAAT STRUCTURALS
-                    </span>
+  <button
+    type="button"
+    className="contact-map-button"
+    onClick={toggleMap}
+  >
 
-                    <strong>
-                      Our location
-                    </strong>
+    <MapPin
+      size={14}
+      strokeWidth={1.8}
+    />
 
-                  </div>
+    <span>
+      Find us on Maps
+    </span>
+
+  </button>
+
+</div>/div>
 
 
                   <button
