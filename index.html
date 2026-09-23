@@ -4,12 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#071a2b" />
-    <meta name="description" content="Bharaat Structurals — precision structural steel detailing, Tekla 3D modelling and BIM solutions." />
+    <meta
+      name="description"
+      content="Bharaat Structurals — precision structural steel detailing, Tekla 3D modelling and BIM solutions."
+    />
     <title>Bharaat Structurals</title>
-    <link rel="shortcut icon" href="/Fav.png" type="image/x-icon">
+
+    <link rel="shortcut icon" href="/Fav.png" type="image/x-icon" />
+
+    <style>
+      /* Disable text selection */
+      * {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      /* Allow typing and selecting text inside form fields */
+      input,
+      textarea,
+      select {
+        user-select: text;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+      }
+
+      /* Prevent image dragging */
+      img {
+        -webkit-user-drag: none;
+        user-drag: none;
+      }
+    </style>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
