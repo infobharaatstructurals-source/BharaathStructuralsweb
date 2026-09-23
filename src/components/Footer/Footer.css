@@ -855,93 +855,93 @@
 /* =========================================================
    SMALL MOBILE
    ========================================================= */
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 480px) {
 
   .footer-grid {
     width: calc(100% - 28px);
 
-    grid-template-columns: 1fr;
+    display: grid;
 
-    column-gap: 0;
+    /* Keep Company + Help side by side */
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 24px;
     row-gap: 32px;
 
     padding-top: 38px;
+    margin-bottom: 70px;
   }
 
-
-  .footer-brand,
-  .footer-contact,
-  .footer-column {
+  /* Brand takes full width */
+  .footer-brand {
     grid-column: 1 / -1;
   }
-
 
   .footer-logo-image {
     width: 160px;
   }
 
-
   .footer-description {
     margin-top: 18px;
-
     font-size: 12px;
-
     line-height: 1.7;
-
     font-weight: 700;
   }
-
 
   .footer-social {
     width: 36px;
     height: 36px;
   }
 
-
   .footer-heading {
     margin-bottom: 18px;
   }
 
-
   .footer-heading h4 {
     font-size: 9px;
-
     font-weight: 900;
   }
 
-
   .footer-column > button {
     margin-bottom: 12px;
-
     font-size: 12px;
-
     font-weight: 700;
   }
 
+  /* Company and Help stay side-by-side */
+  .footer-column {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  /* Contact takes full width */
+  .footer-contact {
+    grid-column: 1 / -1;
+  }
 
   .footer-contact-link {
     margin-bottom: 14px;
-
     font-weight: 700;
   }
-
 
   .footer-location-text > span {
     font-weight: 700;
   }
 
-
   .footer-location-text small {
     font-weight: 600;
   }
 
-
   .footer-bottom {
+    grid-column: 1 / -1;
+
     padding: 16px 0;
 
     font-size: 8px;
-
     font-weight: 700;
   }
 }
