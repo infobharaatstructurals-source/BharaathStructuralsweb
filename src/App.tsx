@@ -30,6 +30,8 @@ import Profile from './components/Careers/Profile/Profile'
 import JobDetails from './components/Careers/JobDetails/JobDetails'
 import Apply from './components/Careers/Apply/Apply'
 import SubmittedApplication from './components/Careers/Applications/SubmittedApplication'
+import AddUser from './components/Careers/AddUser/AddUser'
+import ProtectedRoute from './features/auth/ProtectedRoute'
 
 import { useReveal } from './hooks/useReveal'
 import { useCounters } from './hooks/useCounters'
@@ -230,6 +232,7 @@ export default function App() {
     location.pathname === '/jobs' ||
     location.pathname === '/applications' ||
     location.pathname === '/profile' ||
+    location.pathname === '/add-user' ||
     location.pathname.startsWith('/jobs/') ||
     location.pathname.startsWith('/applications/')
 
@@ -329,6 +332,7 @@ export default function App() {
           - Jobs
           - Applications
           - Profile
+          - Add User
       =================================================== */}
 
       {showMainSiteLayout && (
@@ -372,64 +376,96 @@ export default function App() {
 
 
         {/* =================================================
-            CAREER DASHBOARD
+            PROTECTED CAREER ROUTES
         ================================================= */}
 
         <Route
-          path="/dashboard"
           element={
-            <Dashboard />
+            <ProtectedRoute
+              allowedRoles={[
+                'candidate',
+                'hr',
+                'admin',
+              ]}
+            />
           }
-        />
+        >
 
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard />
+            }
+          />
 
-        {/* =================================================
-            CAREER JOBS
-        ================================================= */}
-
-        <Route
-          path="/jobs"
-          element={
-            <Jobs />
-          }
-        />
+          <Route
+            path="/jobs"
+            element={
+              <Jobs />
+            }
+          />
 
           <Route
             path="/jobs/:jobId"
-            element={<JobDetails />}
+            element={
+              <JobDetails />
+            }
           />
+
           <Route
             path="/jobs/:jobId/apply"
-            element={<Apply />}
+            element={
+              <Apply />
+            }
           />
 
+          <Route
+            path="/applications"
+            element={
+              <Applications />
+            }
+          />
+
+          <Route
+            path="/applications/:applicationId"
+            element={
+              <SubmittedApplication />
+            }
+          />
+
+          <Route
+            path="/profile"
+            element={
+              <Profile />
+            }
+          />
+
+        </Route>
+
+
         {/* =================================================
-            CAREER APPLICATIONS
+            HR + ADMIN ONLY
         ================================================= */}
 
         <Route
-          path="/applications"
           element={
-            <Applications />
+            <ProtectedRoute
+              allowedRoles={[
+                'hr',
+                'admin',
+              ]}
+            />
           }
-        />
-      <Route
-      path="/applications/:applicationId"
-      element={
-        <SubmittedApplication />
-      }
-    />
+        >
 
-        {/* =================================================
-            CAREER PROFILE
-        ================================================= */}
+          <Route
+            path="/add-user"
+            element={
+              <AddUser />
+            }
+          />
 
-        <Route
-          path="/profile"
-          element={
-            <Profile />
-          }
-        />
+        </Route>
 
 
         {/* =================================================

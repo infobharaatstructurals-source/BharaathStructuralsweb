@@ -56,16 +56,16 @@ import './Apply.css'
    JOB TYPE
 ========================================================= */
 
-interface Job {
-  id: string
-  title: string
-  location: string
-  employmentType: string
-  experience: string
-  department: string
-  description: string
-  postedDate: string
-}
+// interface Job {
+//   id: string
+//   title: string
+//   location: string
+//   employmentType: string
+//   experience: string
+//   department: string
+//   description: string
+//   postedDate: string
+// }
 
 
 /* =========================================================

@@ -1,14 +1,11 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { useRef, useState } from 'react'
 
 import {
   LayoutDashboard,
   BriefcaseBusiness,
   ClipboardList,
   UserRound,
+  UserPlus,
   LogOut,
   ChevronRight,
 } from 'lucide-react'
@@ -18,14 +15,26 @@ import {
   useNavigate,
 } from 'react-router-dom'
 
+import { useDispatch, useSelector } from 'react-redux'
+
+import type {
+  AppDispatch,
+  RootState,
+} from '../../../app/store'
+
+import {
+  clearAuth,
+} from '../../../features/auth/authSlice'
+
 import './CareerSidebar.css'
 
 
 /* =========================================================
-   API
+   BACKEND API
 ========================================================= */
 
 const API_URL =
+  import.meta.env.VITE_API_URL ||
   'http://localhost:5000/api'
 
 
@@ -44,6 +53,11 @@ const SIDEBAR_STATE_KEY =
    USER TYPE
 ========================================================= */
 
+type UserRole =
+  | 'candidate'
+  | 'hr'
+  | 'admin'
+
 interface User {
   id: string
   firstName: string
@@ -51,6 +65,7 @@ interface User {
   email: string
   phone: string
   emailVerified: boolean
+  role: UserRole
 }
 
 
@@ -85,6 +100,51 @@ const getSavedExpandedState = (): boolean => {
 
 
 /* =========================================================
+   ROLE HELPERS
+========================================================= */
+
+const normalizeRole = (
+  role: unknown
+): UserRole | null => {
+
+  const value =
+    String(role ?? '')
+      .trim()
+      .toLowerCase()
+
+  if (value === 'admin') {
+    return 'admin'
+  }
+
+  if (value === 'hr') {
+    return 'hr'
+  }
+
+  if (value === 'candidate') {
+    return 'candidate'
+  }
+
+  return null
+}
+
+
+const getRoleLabel = (
+  role: UserRole
+): string => {
+
+  if (role === 'admin') {
+    return 'Admin'
+  }
+
+  if (role === 'hr') {
+    return 'HR'
+  }
+
+  return 'Candidate'
+}
+
+
+/* =========================================================
    COMPONENT
 ========================================================= */
 
@@ -95,17 +155,25 @@ export default function CareerSidebar({
 
   const navigate = useNavigate()
   const location = useLocation()
-
-
   /* =======================================================
-     USER
+     CURRENT AUTHENTICATED USER
+
+     The sidebar reads the current logged-in user directly
+     from Redux. It does NOT call /auth/me.
+
+     ProtectedRoute restores the session after a full
+     browser refresh.
   ======================================================= */
 
-  const [user, setUser] =
-    useState<User | null>(null)
+  const dispatch =
+    useDispatch<AppDispatch>()
 
-
-  /* =======================================================
+  const user =
+    useSelector(
+      (state: RootState) =>
+        state.auth.user
+    )
+/* =======================================================
      EXPANDED STATE
 
      IMPORTANT:
@@ -143,61 +211,6 @@ export default function CareerSidebar({
 
   const sidebarExpanded =
     isExpanded || mobileOpen
-
-
-  /* =======================================================
-     LOAD CURRENT USER
-  ======================================================= */
-
-  useEffect(() => {
-
-    const loadUser = async () => {
-
-      try {
-
-        const response =
-          await fetch(
-            `${API_URL}/auth/me`,
-            {
-              method: 'GET',
-              credentials: 'include',
-            }
-          )
-
-
-        if (!response.ok) {
-          return
-        }
-
-
-        const data =
-          await response.json()
-
-
-        if (
-          data.success &&
-          data.user
-        ) {
-
-          setUser(data.user)
-
-        }
-
-      } catch (error) {
-
-        console.error(
-          'Career sidebar user loading error:',
-          error
-        )
-
-      }
-
-    }
-
-
-    loadUser()
-
-  }, [])
 
 
   /* =======================================================
@@ -393,6 +406,10 @@ export default function CareerSidebar({
 
     } finally {
 
+      dispatch(
+        clearAuth()
+      )
+
       navigate('/login')
 
     }
@@ -407,7 +424,38 @@ export default function CareerSidebar({
   const userInitial =
     user?.firstName
       ?.charAt(0)
-      .toUpperCase() || 'A'
+      .toUpperCase() || ''
+
+
+  /* =======================================================
+     CURRENT ROLE
+  ======================================================= */
+
+  const userRole =
+    normalizeRole(
+      user?.role
+    )
+
+  const roleLabel =
+    userRole
+      ? getRoleLabel(userRole)
+      : ''
+
+  const canAddUser =
+    userRole === 'hr' ||
+    userRole === 'admin'
+
+  /*
+   * Candidate:
+   *   My Applications
+   *
+   * HR/Admin:
+   *   Applications
+   */
+  const applicationsLabel =
+    userRole === 'candidate'
+      ? 'My Applications'
+      : 'Applications'
 
 
   /* =======================================================
@@ -511,11 +559,11 @@ export default function CareerSidebar({
           className="
             bs-career-sidebar-profile
           "
-          onClick={() =>
-            handleNavigation(
-              '/profile'
-            )
-          }
+          onClick={() => {
+            if (user) {
+              handleNavigation('/profile')
+            }
+          }}
         >
 
           <div
@@ -539,13 +587,13 @@ export default function CareerSidebar({
 
               {user
                 ? `${user.firstName} ${user.lastName}`
-                : 'Adnan Sameer'}
+                : ''}
 
             </strong>
 
 
             <span>
-              Candidate
+              {roleLabel}
             </span>
 
           </div>
@@ -715,7 +763,7 @@ export default function CareerSidebar({
                 bs-career-sidebar-label
               "
             >
-              My Applications
+              {applicationsLabel}
             </span>
 
 
@@ -728,6 +776,69 @@ export default function CareerSidebar({
             />
 
           </button>
+
+
+          {/* ===============================================
+              ADD USER
+
+              ONLY HR AND ADMIN CAN SEE THIS.
+              CANDIDATES WILL NOT SEE IT.
+          =============================================== */}
+
+          {canAddUser && (
+
+            <button
+              type="button"
+              className={`
+                bs-career-sidebar-item
+
+                ${
+                  isActive('/add-user')
+                    ? 'active'
+                    : ''
+                }
+              `}
+              onClick={() =>
+                handleNavigation(
+                  '/add-user'
+                )
+              }
+            >
+
+              <span
+                className="
+                  bs-career-sidebar-icon
+                "
+              >
+
+                <UserPlus
+                  size={18}
+                  strokeWidth={1.8}
+                />
+
+              </span>
+
+
+              <span
+                className="
+                  bs-career-sidebar-label
+                "
+              >
+                Add User
+              </span>
+
+
+              <ChevronRight
+                className="
+                  bs-career-sidebar-arrow
+                "
+                size={14}
+                strokeWidth={1.8}
+              />
+
+            </button>
+
+          )}
 
 
           {/* ===============================================

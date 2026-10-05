@@ -15,12 +15,16 @@ import {
 } from 'lucide-react'
 
 import { useDispatch } from 'react-redux'
-import type { AppDispatch } from '../../../app/store'
 
+import type {
+  AppDispatch,
+} from '../../../app/store'
 
 import {
   loginSuccess,
+  type UserRole,
 } from '../../../features/auth/authSlice'
+
 import {
   setProfile,
 } from '../../../features/profile/profileSlice'
@@ -30,8 +34,32 @@ import './Login.css'
 const API_URL =
   'http://localhost:5000/api/auth'
 
+function normalizeRole(
+  role: unknown
+): UserRole | null {
+
+  const value =
+    String(
+      role || ''
+    )
+      .trim()
+      .toLowerCase()
+
+  if (
+    value === 'candidate' ||
+    value === 'hr' ||
+    value === 'admin'
+  ) {
+    return value
+  }
+
+  return null
+}
+
 export default function Login() {
-  const navigate = useNavigate()
+
+  const navigate =
+    useNavigate()
 
   const dispatch =
     useDispatch<AppDispatch>()
@@ -56,6 +84,7 @@ export default function Login() {
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>
   ) => {
+
     event.preventDefault()
 
     setError('')
@@ -64,36 +93,34 @@ export default function Login() {
       !email.trim() ||
       !password
     ) {
+
       setError(
         'Please enter your email and password.'
       )
 
       return
+
     }
 
     setLoading(true)
 
     try {
+
       const response =
         await fetch(
           `${API_URL}/login`,
           {
             method: 'POST',
-
             headers: {
               'Content-Type':
                 'application/json',
             },
-
-            credentials:
-              'include',
-
+            credentials: 'include',
             body: JSON.stringify({
               email:
                 email
                   .trim()
                   .toLowerCase(),
-
               password,
             }),
           }
@@ -102,153 +129,151 @@ export default function Login() {
       const data =
         await response.json()
 
-      if (!response.ok) {
+      if (
+        !response.ok
+      ) {
+
         setError(
-          data.message ||
-            'Unable to sign in.'
+          data?.message ||
+          'Unable to sign in.'
         )
 
         return
+
       }
 
-      /*
-       * ========================================================
-       * LOGIN SUCCESS
-       *
-       * Backend has authenticated the user and created the
-       * HttpOnly JWT cookie.
-       *
-       * Now store the authenticated user in Redux.
-       * ========================================================
-       */
+      const backendUser =
+        data?.user ||
+        data?.data?.user
 
-      const user =
-        data.user || data.data?.user
+      if (
+        !backendUser
+      ) {
 
-      if (user) {
-        dispatch(
-  loginSuccess({
-    id: String(
-      user.id ||
-      user.userId ||
-      ''
-    ),
-
-    firstName:
-      user.firstName ||
-      user.first_name ||
-      '',
-
-    lastName:
-      user.lastName ||
-      user.last_name ||
-      '',
-
-    email:
-      user.email ||
-      email
-        .trim()
-        .toLowerCase(),
-
-    phone:
-      user.phone ||
-      '',
-
-    role:
-      user.role ||
-      'candidate',
-  })
-          )
-
-        /*
-         * ------------------------------------------------------
-         * Keep the profile Redux state synchronized with the
-         * authenticated user's basic information.
-         * ------------------------------------------------------
-         */
-
-        dispatch(
-          setProfile({
-            firstName:
-              user.firstName ||
-              user.first_name ||
-              '',
-
-            lastName:
-              user.lastName ||
-              user.last_name ||
-              '',
-
-            email:
-              user.email ||
-              email
-                .trim()
-                .toLowerCase(),
-
-            phone:
-              user.phone ||
-              '',
-
-            location:
-              '',
-
-            experience:
-              '',
-
-            currentCompany:
-              '',
-
-            skills:
-              '',
-
-            linkedin:
-              '',
-
-            portfolio:
-              '',
-
-            tenthSchoolName:
-              '',
-
-            tenthState:
-              '',
-
-            tenthPercentage:
-              '',
-
-            twelfthBoard:
-              '',
-
-            twelfthPercentage:
-              '',
-
-            highestQualification:
-              '',
-
-            qualificationPercentage:
-              '',
-
-            collegeName:
-              '',
-
-            collegeState:
-              '',
-
-            resume:
-              '',
-          })
+        setError(
+          'Login succeeded but the server did not return a user.'
         )
+
+        return
+
       }
 
+      const role =
+        normalizeRole(
+          backendUser.role
+        )
+
       /*
-       * ========================================================
-       * GO TO DASHBOARD
-       * ========================================================
+       * NEVER silently convert a missing/invalid
+       * role into candidate.
+       *
+       * That was the source of incorrect RBAC.
        */
 
-      navigate('/dashboard')
+      if (
+        !role
+      ) {
+
+        setError(
+          'Your account has an invalid role. Please contact the administrator.'
+        )
+
+        return
+
+      }
+
+      const user = {
+        id: String(
+          backendUser.id ||
+          backendUser.userId ||
+          ''
+        ),
+
+        firstName:
+          backendUser.firstName ||
+          backendUser.first_name ||
+          '',
+
+        lastName:
+          backendUser.lastName ||
+          backendUser.last_name ||
+          '',
+
+        email:
+          backendUser.email ||
+          email
+            .trim()
+            .toLowerCase(),
+
+        phone:
+          backendUser.phone ||
+          '',
+
+        role,
+
+        emailVerified:
+          Boolean(
+            backendUser.emailVerified ??
+            backendUser.email_verified ??
+            false
+          ),
+
+        phoneVerified:
+          Boolean(
+            backendUser.phoneVerified ??
+            backendUser.phone_verified ??
+            false
+          ),
+      }
+
+      dispatch(
+        loginSuccess(
+          user
+        )
+      )
+
+      dispatch(
+        setProfile({
+          firstName:
+            user.firstName,
+
+          lastName:
+            user.lastName,
+
+          email:
+            user.email,
+
+          phone:
+            user.phone,
+
+          location: '',
+          experience: '',
+          currentCompany: '',
+          skills: '',
+          linkedin: '',
+          portfolio: '',
+          tenthSchoolName: '',
+          tenthState: '',
+          tenthPercentage: '',
+          twelfthBoard: '',
+          twelfthPercentage: '',
+          highestQualification: '',
+          qualificationPercentage: '',
+          collegeName: '',
+          collegeState: '',
+          resume: '',
+        })
+      )
+
+      navigate(
+        '/dashboard',
+        {
+          replace: true,
+        }
+      )
 
     } catch (error) {
+
       console.error(
         'Login error:',
         error
@@ -259,7 +284,9 @@ export default function Login() {
       )
 
     } finally {
+
       setLoading(false)
+
     }
   }
 
@@ -268,32 +295,35 @@ export default function Login() {
 
       <div className="bs-login-container">
 
-        {/* ==================================================
-            RIGHT LOGIN PANEL
-        ================================================== */}
+        <section
+          className="bs-login-form-panel"
+        >
 
-        <section className="bs-login-form-panel">
+          <div
+            className="bs-login-form-content"
+          >
 
-          <div className="bs-login-form-content">
-
-            <div className="bs-brand-content">
+            <div
+              className="bs-brand-content"
+            >
 
               <Link
                 to="/"
                 className="bs-login-logo"
               >
+
                 <img
                   src="/Logo.webp"
                   alt="Bharaat Structurals"
                 />
+
               </Link>
 
             </div>
 
-
-            {/* HEADING */}
-
-            <div className="bs-login-heading">
+            <div
+              className="bs-login-heading"
+            >
 
               <h1>
                 Welcome Back
@@ -305,26 +335,25 @@ export default function Login() {
 
             </div>
 
-
-            {/* FORM */}
-
             <form
               className="bs-login-form"
-              onSubmit={
-                handleSubmit
-              }
+              onSubmit={handleSubmit}
             >
 
-              {/* EMAIL */}
+              <div
+                className="bs-login-field"
+              >
 
-              <div className="bs-login-field">
-
-                <label htmlFor="login-email">
+                <label
+                  htmlFor="login-email"
+                >
                   Email Address
                   <span>*</span>
                 </label>
 
-                <div className="bs-login-input">
+                <div
+                  className="bs-login-input"
+                >
 
                   <Mail
                     size={16}
@@ -336,9 +365,7 @@ export default function Login() {
                     type="email"
                     placeholder="Enter your email"
                     value={email}
-                    onChange={(
-                      event
-                    ) =>
+                    onChange={event =>
                       setEmail(
                         event.target.value
                       )
@@ -351,17 +378,20 @@ export default function Login() {
 
               </div>
 
+              <div
+                className="bs-login-field"
+              >
 
-              {/* PASSWORD */}
-
-              <div className="bs-login-field">
-
-                <label htmlFor="login-password">
+                <label
+                  htmlFor="login-password"
+                >
                   Password
                   <span>*</span>
                 </label>
 
-                <div className="bs-login-input">
+                <div
+                  className="bs-login-input"
+                >
 
                   <LockKeyhole
                     size={16}
@@ -377,9 +407,7 @@ export default function Login() {
                     }
                     placeholder="Enter your password"
                     value={password}
-                    onChange={(
-                      event
-                    ) =>
+                    onChange={event =>
                       setPassword(
                         event.target.value
                       )
@@ -393,7 +421,7 @@ export default function Login() {
                     className="bs-password-toggle"
                     onClick={() =>
                       setShowPassword(
-                        (previous) =>
+                        previous =>
                           !previous
                       )
                     }
@@ -422,32 +450,31 @@ export default function Login() {
 
               </div>
 
+              <div
+                className="bs-login-forgot"
+              >
 
-              {/* FORGOT */}
-
-              <div className="bs-login-forgot">
-
-                <Link to="/forgot-password">
+                <Link
+                  to="/forgot-password"
+                >
                   Forgot Password?
                 </Link>
 
               </div>
 
-
-              {/* ERROR */}
-
               {error && (
-                <div className="bs-login-error">
+
+                <div
+                  className="bs-login-error"
+                >
 
                   <span>!</span>
 
                   {error}
 
                 </div>
+
               )}
-
-
-              {/* SIGN IN */}
 
               <button
                 type="submit"
@@ -472,30 +499,29 @@ export default function Login() {
 
             </form>
 
+            <div
+              className="bs-login-divider"
+            />
 
-            {/* DIVIDER */}
-
-            <div className="bs-login-divider" />
-
-
-            {/* CREATE */}
-
-            <div className="bs-login-create">
+            <div
+              className="bs-login-create"
+            >
 
               <span>
                 Don't have an account?
               </span>
 
-              <Link to="/signup">
+              <Link
+                to="/signup"
+              >
                 Create Account
               </Link>
 
             </div>
 
-
-            {/* HELP */}
-
-            <div className="bs-login-help">
+            <div
+              className="bs-login-help"
+            >
 
               <span>
                 Need Help?
@@ -513,14 +539,13 @@ export default function Login() {
 
         </section>
 
+        <section
+          className="bs-login-brand-panel"
+        >
 
-        {/* ==================================================
-            LEFT BRAND PANEL
-        ================================================== */}
-
-        <section className="bs-login-brand-panel">
-
-          <div className="bs-brand-content" />
+          <div
+            className="bs-brand-content"
+          />
 
         </section>
 
