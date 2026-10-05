@@ -18,6 +18,19 @@ import ContactUs from './components/ContactUs/ContactUs'
 import Clients from './components/Clients/Clients'
 import Footer from './components/Footer/Footer'
 
+import Login from './components/Auth/Login/Login'
+import Signup from './components/Auth/Signup/Signup'
+import ForgotPassword from './components/Auth/ForgotPassword/ForgotPassword'
+
+import Dashboard from './components/Careers/Dashboard/Dashboard'
+import Jobs from './components/Careers/Jobs/Jobs'
+import Applications from './components/Careers/Applications/Applications'
+import Profile from './components/Careers/Profile/Profile'
+
+import JobDetails from './components/Careers/JobDetails/JobDetails'
+import Apply from './components/Careers/Apply/Apply'
+import SubmittedApplication from './components/Careers/Applications/SubmittedApplication'
+
 import { useReveal } from './hooks/useReveal'
 import { useCounters } from './hooks/useCounters'
 import { metrics } from './data/siteData'
@@ -37,12 +50,8 @@ function HomePage({
 }) {
 
   /*
-   * IMPORTANT:
-   *
-   * useReveal is inside HomePage.
-   *
-   * This makes sure the reveal animations are
-   * initialized again when returning from /contact.
+   * Initialize reveal animations
+   * whenever HomePage is mounted.
    */
   useReveal()
 
@@ -83,11 +92,9 @@ function HomePage({
         'scrollTarget'
       )
 
-
       let attempts = 0
 
       const maxAttempts = 120
-
 
       const tryScroll = () => {
 
@@ -96,13 +103,7 @@ function HomePage({
             pendingId
           )
 
-
         if (element) {
-
-          /*
-           * Wait for the Home DOM and reveal
-           * elements to initialize.
-           */
 
           requestAnimationFrame(() => {
 
@@ -133,11 +134,9 @@ function HomePage({
 
       }
 
-
       requestAnimationFrame(
         tryScroll
       )
-
 
       return
     }
@@ -171,27 +170,21 @@ function HomePage({
         onNavigate={onNavigate}
       />
 
-
       <About
         onNavigate={onNavigate}
       />
-
 
       <Metrics
         values={metricValues}
       />
 
-
       <Capabilities />
-
 
       <Services
         onNavigate={onNavigate}
       />
 
-
       <Partners />
-
 
       <Contact />
 
@@ -212,6 +205,44 @@ export default function App() {
 
 
   /* =======================================================
+     AUTH PAGES
+     
+     Main website Navbar/Footer should not appear.
+  ======================================================= */
+
+  const isAuthPage =
+    location.pathname === '/login' ||
+    location.pathname === '/signup' ||
+    location.pathname === '/forgot-password'
+
+
+  /* =======================================================
+     CAREER PAGES
+     
+     Career pages have their own CareerSidebar.
+     
+     Therefore the main website Navbar/Footer should
+     NOT appear on these pages.
+  ======================================================= */
+
+  const isCareerPage =
+    location.pathname === '/dashboard' ||
+    location.pathname === '/jobs' ||
+    location.pathname === '/applications' ||
+    location.pathname === '/profile' ||
+    location.pathname.startsWith('/jobs/') ||
+    location.pathname.startsWith('/applications/')
+
+
+  /* =======================================================
+     SHOW MAIN WEBSITE NAVBAR / FOOTER?
+  ======================================================= */
+
+  const showMainSiteLayout =
+    !isAuthPage && !isCareerPage
+
+
+  /* =======================================================
      RESET SCROLL WHEN OPENING STANDALONE CONTACT PAGE
   ======================================================= */
 
@@ -220,11 +251,6 @@ export default function App() {
     if (
       location.pathname === '/contact'
     ) {
-
-      /*
-       * Always start the standalone
-       * Contact Us page from the top.
-       */
 
       window.scrollTo({
         top: 0,
@@ -243,12 +269,8 @@ export default function App() {
 
   const go = (id: string) => {
 
-
     /* =====================================================
-       STANDALONE CONTACT US BUTTON
-       
-       Only the black Contact Us button uses
-       "contact-page".
+       STANDALONE CONTACT US PAGE
     ===================================================== */
 
     if (
@@ -263,35 +285,16 @@ export default function App() {
 
     /* =====================================================
        NORMAL HOME SECTIONS
-       
-       Examples:
-       
-       home
-       about
-       expertise
-       services
-       projects
-       contact
     ===================================================== */
 
     if (
       location.pathname !== '/'
     ) {
 
-      /*
-       * Remember which Home section
-       * the user wants.
-       */
-
       sessionStorage.setItem(
         'scrollTarget',
         id
       )
-
-
-      /*
-       * Return to Home.
-       */
 
       navigate('/')
 
@@ -301,8 +304,6 @@ export default function App() {
 
     /* =====================================================
        ALREADY ON HOME
-       
-       Scroll directly to the section.
     ===================================================== */
 
     scrollToId(id)
@@ -318,12 +319,23 @@ export default function App() {
 
 
       {/* ===================================================
-          NAVBAR
+          MAIN WEBSITE NAVBAR
+
+          Hidden on:
+          - Login
+          - Signup
+          - Forgot Password
+          - Dashboard
+          - Jobs
+          - Applications
+          - Profile
       =================================================== */}
 
-      <Navbar
-        onNavigate={go}
-      />
+      {showMainSiteLayout && (
+        <Navbar
+          onNavigate={go}
+        />
+      )}
 
 
       {/* ===================================================
@@ -331,6 +343,93 @@ export default function App() {
       =================================================== */}
 
       <Routes>
+
+
+        {/* =================================================
+            AUTH
+        ================================================= */}
+
+        <Route
+          path="/login"
+          element={
+            <Login />
+          }
+        />
+
+        <Route
+          path="/signup"
+          element={
+            <Signup />
+          }
+        />
+
+        <Route
+          path="/forgot-password"
+          element={
+            <ForgotPassword />
+          }
+        />
+
+
+        {/* =================================================
+            CAREER DASHBOARD
+        ================================================= */}
+
+        <Route
+          path="/dashboard"
+          element={
+            <Dashboard />
+          }
+        />
+
+
+        {/* =================================================
+            CAREER JOBS
+        ================================================= */}
+
+        <Route
+          path="/jobs"
+          element={
+            <Jobs />
+          }
+        />
+
+          <Route
+            path="/jobs/:jobId"
+            element={<JobDetails />}
+          />
+          <Route
+            path="/jobs/:jobId/apply"
+            element={<Apply />}
+          />
+
+        {/* =================================================
+            CAREER APPLICATIONS
+        ================================================= */}
+
+        <Route
+          path="/applications"
+          element={
+            <Applications />
+          }
+        />
+      <Route
+      path="/applications/:applicationId"
+      element={
+        <SubmittedApplication />
+      }
+    />
+
+        {/* =================================================
+            CAREER PROFILE
+        ================================================= */}
+
+        <Route
+          path="/profile"
+          element={
+            <Profile />
+          }
+        />
 
 
         {/* =================================================
@@ -370,15 +469,18 @@ export default function App() {
           }
         />
 
-
       </Routes>
 
 
       {/* ===================================================
-          FOOTER
+          MAIN WEBSITE FOOTER
+
+          Hidden on Career pages and Auth pages.
       =================================================== */}
 
-      <Footer />
+      {showMainSiteLayout && (
+        <Footer />
+      )}
 
     </div>
   )

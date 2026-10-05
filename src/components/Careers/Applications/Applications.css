@@ -1,0 +1,2311 @@
+/* =========================================================
+   BHARAAT STRUCTURALS
+   CAREER PORTAL - APPLICATIONS
+========================================================= */
+
+:root {
+  --bs-navy: #06243a;
+  --bs-navy-light: #0b3853;
+
+  --bs-blue: #1687ff;
+  --bs-blue-deep: #001cff;
+  --bs-blue-mid: #0066ff;
+  --bs-blue-bright: #00a3ff;
+
+  --bs-orange: #f47b20;
+
+  --bs-page-bg: #f4f7f9;
+
+  --bs-white: #ffffff;
+
+  --bs-border: #e1e8ec;
+  --bs-border-light: #edf1f3;
+
+  --bs-text: #647683;
+  --bs-text-light: #7d8c96;
+  --bs-muted: #9aa6ae;
+
+  --bs-sidebar-width: 76px;
+
+  --bs-content-max: 1100px;
+
+  --bs-radius-lg: 18px;
+  --bs-radius-md: 15px;
+  --bs-radius-sm: 10px;
+
+  --bs-transition: 0.24s ease;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.bs-applications-page {
+  min-height: 100vh;
+  min-height: 100svh;
+
+  background:
+    var(--bs-page-bg);
+
+  color:
+    var(--bs-navy);
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bs-applications-header {
+  height: 76px;
+
+  margin-left:
+    var(--bs-sidebar-width);
+
+  width:
+    calc(100% - var(--bs-sidebar-width));
+
+  box-sizing: border-box;
+
+  background:
+    #ffffff;
+
+  border-bottom:
+    1px solid
+    #e4eaee;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+}
+
+
+.bs-applications-header-inner {
+  width:
+    min(
+      1200px,
+      calc(100% - 60px)
+    );
+
+  height:
+    100%;
+
+  margin:
+    0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.bs-applications-back {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    #60717d;
+
+  cursor:
+    pointer;
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+
+  font-weight:
+    600;
+
+  transition:
+    color
+    var(--bs-transition);
+}
+
+
+.bs-applications-back:hover {
+  color:
+    var(--bs-navy);
+}
+
+
+.bs-applications-back:focus-visible {
+  outline:
+    2px solid
+    rgba(
+      22,
+      135,
+      255,
+      0.35
+    );
+
+  outline-offset:
+    4px;
+
+  border-radius:
+    4px;
+}
+
+
+/* =========================================================
+   HEADER LOGO
+========================================================= */
+
+.bs-applications-brand {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+.bs-applications-brand img {
+  width:
+    142px;
+
+  height:
+    auto;
+
+  max-width:
+    100%;
+
+  display:
+    block;
+
+  object-fit:
+    contain;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.bs-applications-content {
+  width:
+    min(
+      var(--bs-content-max),
+      calc(100% - 60px)
+    );
+
+  margin:
+    0 auto;
+
+  padding:
+    32px 0 60px;
+
+  box-sizing:
+    border-box;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bs-applications-intro {
+  position:
+    relative;
+
+  min-height:
+    188px;
+
+  box-sizing:
+    border-box;
+
+  margin-bottom:
+    26px;
+
+  padding:
+    34px 39px;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    var(--bs-radius-lg);
+
+  background:
+    linear-gradient(
+      135deg,
+      #06243a 0%,
+      #073451 42%,
+      #005fe8 100%
+    );
+
+  color:
+    #ffffff;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  box-shadow:
+    0 8px 30px
+    rgba(
+      6,
+      36,
+      58,
+      0.09
+    );
+}
+
+
+/* =========================================================
+   HERO LIGHT
+========================================================= */
+
+.bs-applications-intro::before {
+  content:
+    '';
+
+  position:
+    absolute;
+
+  width:
+    320px;
+
+  height:
+    320px;
+
+  right:
+    -120px;
+
+  top:
+    -155px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        0,
+        163,
+        255,
+        0.20
+      ) 0%,
+      rgba(
+        0,
+        163,
+        255,
+        0
+      ) 68%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+.bs-applications-intro::after {
+  content:
+    '';
+
+  position:
+    absolute;
+
+  width:
+    180px;
+
+  height:
+    180px;
+
+  right:
+    85px;
+
+  bottom:
+    -140px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(
+        244,
+        123,
+        32,
+        0.11
+      ) 0%,
+      rgba(
+        244,
+        123,
+        32,
+        0
+      ) 70%
+    );
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.bs-applications-intro-content {
+  position:
+    relative;
+
+  z-index:
+    5;
+
+  max-width:
+    620px;
+
+  min-width:
+    0;
+}
+
+
+.bs-applications-eyebrow {
+  display:
+    block;
+
+  margin-bottom:
+    10px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.68
+    );
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1.9px;
+}
+
+
+.bs-applications-intro h1 {
+  margin:
+    0;
+
+  color:
+    #ffffff;
+
+  font-size:
+    30px;
+
+  line-height:
+    1.18;
+
+  font-weight:
+    400;
+
+  letter-spacing:
+    -0.5px;
+}
+
+
+.bs-applications-intro p {
+  max-width:
+    570px;
+
+  margin:
+    10px 0 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.73
+    );
+
+  font-size:
+    12px;
+
+  line-height:
+    1.7;
+}
+
+
+/* =========================================================
+   HERO DECORATION
+========================================================= */
+
+.bs-applications-intro-decoration {
+  position:
+    absolute;
+
+  right:
+    120px;
+
+  top:
+    50%;
+
+  width:
+    125px;
+
+  height:
+    125px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.90
+    );
+
+  transform:
+    translateY(-50%);
+
+  z-index:
+    2;
+
+  pointer-events:
+    none;
+
+  animation:
+    bs-applications-float
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   CIRCLES
+========================================================= */
+
+.bs-applications-intro-circle {
+  position:
+    absolute;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.16
+    );
+
+  border-radius:
+    50%;
+
+  box-sizing:
+    border-box;
+}
+
+
+.bs-applications-intro-circle-one {
+  width:
+    84px;
+
+  height:
+    84px;
+}
+
+
+.bs-applications-intro-circle-two {
+  width:
+    155px;
+
+  height:
+    155px;
+}
+
+
+/* =========================================================
+   FLOAT
+========================================================= */
+
+@keyframes bs-applications-float {
+
+  0%,
+  100% {
+    transform:
+      translateY(-50%);
+  }
+
+  50% {
+    transform:
+      translateY(
+        calc(-50% - 4px)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   HERO COUNT
+========================================================= */
+
+.bs-applications-intro-count {
+  position:
+    absolute;
+
+  right:
+    28px;
+
+  bottom:
+    24px;
+
+  z-index:
+    6;
+
+  min-width:
+    72px;
+
+  padding:
+    9px 11px;
+
+  box-sizing:
+    border-box;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.17
+    );
+
+  border-radius:
+    11px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.075
+    );
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+}
+
+
+.bs-applications-intro-count strong {
+  display:
+    block;
+
+  color:
+    #ffffff;
+
+  font-size:
+    21px;
+
+  line-height:
+    1;
+
+  font-weight:
+    700;
+}
+
+
+.bs-applications-intro-count span {
+  display:
+    block;
+
+  margin-top:
+    4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.62
+    );
+
+  font-size:
+    8px;
+
+  line-height:
+    1.1;
+
+  font-weight:
+    600;
+
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.bs-applications-summary {
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap:
+    12px;
+
+  margin-bottom:
+    20px;
+}
+
+
+.bs-application-summary-card {
+  min-height:
+    82px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    11px;
+
+  padding:
+    15px;
+
+  box-sizing:
+    border-box;
+
+  border:
+    1px solid
+    #e2e8ec;
+
+  border-radius:
+    13px;
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0 4px 16px
+    rgba(
+      6,
+      36,
+      58,
+      0.018
+    );
+
+  transition:
+    transform
+    0.2s ease,
+
+    border-color
+    0.2s ease,
+
+    box-shadow
+    0.2s ease;
+}
+
+
+.bs-application-summary-card:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    #cedae1;
+
+  box-shadow:
+    0 9px 22px
+    rgba(
+      6,
+      36,
+      58,
+      0.05
+    );
+}
+
+
+.bs-application-summary-icon {
+  width:
+    40px;
+
+  height:
+    40px;
+
+  flex:
+    0 0 40px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    10px;
+
+  background:
+    #eef3f6;
+
+  color:
+    var(--bs-navy);
+
+}
+
+
+.bs-application-summary-card > div:last-child {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    4px;
+
+}
+
+
+.bs-application-summary-card span {
+  color:
+    #87959e;
+
+  font-size:
+    9px;
+
+  font-weight:
+    600;
+}
+
+
+.bs-application-summary-card strong {
+  color:
+    var(--bs-navy);
+
+  font-size:
+    21px;
+
+  line-height:
+    1;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.bs-applications-filters {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1fr
+    )
+    190px;
+
+  gap:
+    10px;
+
+  margin-bottom:
+    16px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.bs-applications-search {
+  height:
+    45px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+  padding:
+    0 14px;
+
+  box-sizing:
+    border-box;
+
+  border:
+    1px solid
+    #dfe6ea;
+
+  border-radius:
+    var(--bs-radius-sm);
+
+  background:
+    #ffffff;
+
+  color:
+    #8b99a2;
+
+  transition:
+    border-color
+    var(--bs-transition),
+
+    box-shadow
+    var(--bs-transition);
+}
+
+
+.bs-applications-search:hover {
+  border-color:
+    #cfd9df;
+}
+
+
+.bs-applications-search:focus-within {
+  border-color:
+    #9db0bc;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      22,
+      135,
+      255,
+      0.055
+    );
+}
+
+
+.bs-applications-search input {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  min-width:
+    0;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  outline:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    var(--bs-navy);
+
+  font-family:
+    inherit;
+
+  font-size:
+    11px;
+}
+
+
+.bs-applications-search input::placeholder {
+  color:
+    #a1adb5;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.bs-applications-filters select {
+  width:
+    100%;
+
+  height:
+    45px;
+
+  padding:
+    0 12px;
+
+  border:
+    1px solid
+    #dfe6ea;
+
+  border-radius:
+    var(--bs-radius-sm);
+
+  outline:
+    0;
+
+  background:
+    #ffffff;
+
+  color:
+    #586b77;
+
+  cursor:
+    pointer;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  transition:
+    border-color
+    var(--bs-transition),
+
+    box-shadow
+    var(--bs-transition);
+}
+
+
+.bs-applications-filters select:hover {
+  border-color:
+    #cfd9df;
+}
+
+
+.bs-applications-filters select:focus {
+  border-color:
+    #9db0bc;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      22,
+      135,
+      255,
+      0.055
+    );
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.bs-applications-list {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    12px;
+}
+
+
+/* =========================================================
+   APPLICATION CARD
+========================================================= */
+
+.bs-application-card {
+  position:
+    relative;
+
+  padding:
+    19px;
+
+  box-sizing:
+    border-box;
+
+  border:
+    1px solid
+    var(--bs-border);
+
+  border-radius:
+    var(--bs-radius-md);
+
+  background:
+    #ffffff;
+
+  box-shadow:
+    0 5px 22px
+    rgba(
+      6,
+      36,
+      58,
+      0.025
+    );
+
+  transition:
+    transform
+    0.22s ease,
+
+    border-color
+    0.22s ease,
+
+    box-shadow
+    0.22s ease;
+}
+
+
+.bs-application-card:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    #cbd7de;
+
+  box-shadow:
+    0 10px 30px
+    rgba(
+      6,
+      36,
+      58,
+      0.06
+    );
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.bs-application-card-top {
+  display:
+    flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+}
+
+
+.bs-application-card-main {
+  min-width:
+    0;
+
+  display:
+    flex;
+
+  gap:
+    14px;
+}
+
+
+.bs-application-job-icon {
+  width:
+    47px;
+
+  height:
+    47px;
+
+  flex:
+    0 0 47px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    12px;
+
+  background:
+    #eef3f6;
+
+  color:
+    var(--bs-navy);
+
+  transition:
+    background
+    var(--bs-transition),
+
+    color
+    var(--bs-transition);
+}
+
+
+.bs-application-card:hover
+.bs-application-job-icon {
+  background:
+    rgba(
+      22,
+      135,
+      255,
+      0.08
+    );
+
+  color:
+    var(--bs-blue);
+}
+
+
+.bs-application-job-info {
+  min-width:
+    0;
+}
+
+
+.bs-application-code {
+  display:
+    block;
+
+  margin-bottom:
+    4px;
+
+  color:
+    #9ba7af;
+
+  font-size:
+    8px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1.2px;
+}
+
+
+.bs-application-job-info h2 {
+  margin:
+    0;
+
+  color:
+    var(--bs-navy);
+
+  font-size:
+    16px;
+
+  line-height:
+    1.3;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    -0.15px;
+}
+
+
+.bs-application-meta {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    14px;
+
+  margin-top:
+    9px;
+}
+
+
+.bs-application-meta span {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    5px;
+
+  color:
+    var(--bs-text-light);
+
+  font-size:
+    9px;
+
+  white-space:
+    nowrap;
+}
+
+
+.bs-application-meta svg {
+  color:
+    #8d9aa2;
+
+  flex:
+    0 0 auto;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.bs-application-status {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-height:
+    27px;
+
+  padding:
+    0 11px;
+
+  border-radius:
+    20px;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  white-space:
+    nowrap;
+
+  flex-shrink:
+    0;
+}
+
+
+.bs-application-status-applied {
+  background:
+    #eef3f6;
+
+  color:
+    #526a78;
+}
+
+
+.bs-application-status-review {
+  background:
+    #f1f4f6;
+
+  color:
+    #385b70;
+}
+
+
+.bs-application-status-shortlisted {
+  background:
+    #edf6f0;
+
+  color:
+    #39704f;
+}
+
+
+.bs-application-status-selected {
+  background:
+    #e8f3ec;
+
+  color:
+    #286641;
+}
+
+
+.bs-application-status-rejected {
+  background:
+    #f8eeee;
+
+  color:
+    #925454;
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+========================================================= */
+
+.bs-application-card-bottom {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    15px;
+
+  margin-top:
+    18px;
+
+  padding-top:
+    14px;
+
+  border-top:
+    1px solid
+    #edf0f2;
+}
+
+
+.bs-application-date {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    6px;
+
+  color:
+    #9aa6ae;
+
+  font-size:
+    9px;
+}
+
+
+.bs-application-date svg {
+  flex:
+    0 0 auto;
+}
+
+
+/* =========================================================
+   VIEW APPLICATION
+========================================================= */
+
+.bs-application-view {
+  position:
+    relative;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    7px;
+
+  min-width:
+    124px;
+
+  height:
+    35px;
+
+  padding:
+    0 13px;
+
+  border:
+    0;
+
+  border-radius:
+    8px;
+
+  background:
+    var(--bs-navy);
+
+  color:
+    #ffffff;
+
+  cursor:
+    pointer;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  overflow:
+    hidden;
+
+  transition:
+    background
+    0.2s ease,
+
+    transform
+    0.2s ease,
+
+    box-shadow
+    0.2s ease;
+}
+
+
+.bs-application-view::before {
+  content:
+    '';
+
+  position:
+    absolute;
+
+  top:
+    -80%;
+
+  right:
+    -50%;
+
+  width:
+    35%;
+
+  height:
+    260%;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent,
+      rgba(
+        255,
+        255,
+        255,
+        0.34
+      ),
+      transparent
+    );
+
+  transform:
+    skewX(-18deg)
+    translateX(0);
+
+  transition:
+    transform
+    0.55s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
+  pointer-events:
+    none;
+}
+
+
+.bs-application-view:hover {
+  background:
+    var(--bs-navy-light);
+
+  transform:
+    translateX(2px);
+
+  box-shadow:
+    0 6px 16px
+    rgba(
+      6,
+      36,
+      58,
+      0.15
+    );
+}
+
+
+.bs-application-view:hover::before {
+  transform:
+    skewX(-18deg)
+    translateX(-390%);
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.bs-applications-empty {
+  min-height:
+    280px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    30px;
+
+  box-sizing:
+    border-box;
+
+  border:
+    1px dashed
+    #d5dfe4;
+
+  border-radius:
+    var(--bs-radius-md);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  text-align:
+    center;
+}
+
+
+.bs-applications-empty-icon {
+  width:
+    52px;
+
+  height:
+    52px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  margin-bottom:
+    13px;
+
+  border-radius:
+    50%;
+
+  background:
+    #edf2f5;
+
+  color:
+    #72828d;
+}
+
+
+.bs-applications-empty h2 {
+  margin:
+    0;
+
+  color:
+    var(--bs-navy);
+
+  font-size:
+    15px;
+
+  font-weight:
+    700;
+}
+
+
+.bs-applications-empty p {
+  margin:
+    7px 0 16px;
+
+  color:
+    #8a98a1;
+
+  font-size:
+    10px;
+
+  line-height:
+    1.5;
+}
+
+
+.bs-applications-empty button {
+  height:
+    35px;
+
+  padding:
+    0 15px;
+
+  border:
+    0;
+
+  border-radius:
+    8px;
+
+  background:
+    var(--bs-navy);
+
+  color:
+    #ffffff;
+
+  cursor:
+    pointer;
+
+  font-family:
+    inherit;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  transition:
+    background
+    0.2s ease,
+
+    transform
+    0.2s ease;
+}
+
+
+.bs-applications-empty button:hover {
+  background:
+    var(--bs-navy-light);
+
+  transform:
+    translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bs-applications-content {
+    width:
+      calc(100% - 50px);
+  }
+
+
+  .bs-applications-intro {
+    padding:
+      30px;
+  }
+
+
+  .bs-applications-intro-decoration {
+    right:
+      105px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .bs-applications-header-inner {
+    width:
+      calc(100% - 40px);
+  }
+
+
+  .bs-applications-content {
+    width:
+      calc(100% - 40px);
+  }
+
+
+  .bs-applications-summary {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .bs-applications-intro-decoration {
+    right:
+      75px;
+
+    opacity:
+      0.65;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /*
+     CareerSidebar is a mobile drawer,
+     so page content uses full width.
+  */
+
+  .bs-applications-header {
+
+    margin-left:
+      0;
+
+    width:
+      100%;
+
+    height:
+      66px;
+
+  }
+
+
+  .bs-applications-header-inner {
+
+    width:
+      calc(100% - 30px);
+
+  }
+
+
+  .bs-applications-brand img {
+
+    width:
+      120px;
+
+  }
+
+
+  .bs-applications-back span {
+
+    display:
+      none;
+
+  }
+
+
+  .bs-applications-content {
+
+    width:
+      calc(100% - 30px);
+
+    padding:
+      22px 0 40px;
+
+  }
+
+
+  /* ===============================================
+     MOBILE HERO
+  =============================================== */
+
+  .bs-applications-intro {
+
+    min-height:
+      190px;
+
+    display:
+      block;
+
+    padding:
+      27px 22px;
+
+    margin-bottom:
+      20px;
+
+    border-radius:
+      15px;
+
+  }
+
+
+  .bs-applications-intro-content {
+
+    max-width:
+      100%;
+
+  }
+
+
+  .bs-applications-eyebrow {
+
+    font-size:
+      8px;
+
+  }
+
+
+  .bs-applications-intro h1 {
+
+    font-size:
+      23px;
+
+  }
+
+
+  .bs-applications-intro p {
+
+    max-width:
+      75%;
+
+    font-size:
+      10px;
+
+    line-height:
+      1.65;
+
+  }
+
+
+  /* ===============================================
+     MOBILE DECORATION
+  =============================================== */
+
+  .bs-applications-intro-decoration {
+
+    right:
+      9px;
+
+    top:
+      auto;
+
+    bottom:
+      15px;
+
+    width:
+      90px;
+
+    height:
+      90px;
+
+    margin:
+      0;
+
+    opacity:
+      0.78;
+
+    transform:
+      none;
+
+  }
+
+
+  .bs-applications-intro-circle-one {
+
+    width:
+      60px;
+
+    height:
+      60px;
+
+  }
+
+
+  .bs-applications-intro-circle-two {
+
+    width:
+      108px;
+
+    height:
+      108px;
+
+  }
+
+
+  @keyframes bs-applications-float {
+
+    0%,
+    100% {
+      transform:
+        translateY(0);
+    }
+
+    50% {
+      transform:
+        translateY(-3px);
+    }
+
+  }
+
+
+  /* ===============================================
+     MOBILE COUNT
+  =============================================== */
+
+  .bs-applications-intro-count {
+
+    right:
+      16px;
+
+    top:
+      15px;
+
+    bottom:
+      auto;
+
+    min-width:
+      58px;
+
+    padding:
+      7px 8px;
+
+  }
+
+
+  .bs-applications-intro-count strong {
+
+    font-size:
+      17px;
+
+  }
+
+
+  .bs-applications-intro-count span {
+
+    font-size:
+      7px;
+
+  }
+
+
+  /* ===============================================
+     SUMMARY
+  =============================================== */
+
+  .bs-applications-summary {
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+
+    gap:
+      9px;
+
+  }
+
+
+  .bs-application-summary-card {
+
+    min-height:
+      75px;
+
+    padding:
+      11px;
+
+  }
+
+
+  .bs-application-summary-icon {
+
+    width:
+      35px;
+
+    height:
+      35px;
+
+    flex-basis:
+      35px;
+
+  }
+
+
+  .bs-application-summary-card strong {
+
+    font-size:
+      18px;
+
+  }
+
+
+  /* ===============================================
+     FILTERS
+  =============================================== */
+
+  .bs-applications-filters {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  /* ===============================================
+     APPLICATION CARD
+  =============================================== */
+
+  .bs-application-card {
+
+    padding:
+      15px;
+
+  }
+
+
+  .bs-application-card-top {
+
+    display:
+      block;
+
+  }
+
+
+  .bs-application-status {
+
+    margin-top:
+      12px;
+
+  }
+
+
+  .bs-application-job-icon {
+
+    width:
+      40px;
+
+    height:
+      40px;
+
+    flex-basis:
+      40px;
+
+  }
+
+
+  .bs-application-job-info h2 {
+
+    font-size:
+      14px;
+
+  }
+
+
+  .bs-application-meta {
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+    gap:
+      7px;
+
+  }
+
+
+  .bs-application-card-bottom {
+
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+  }
+
+
+  .bs-application-view {
+
+    width:
+      100%;
+
+    justify-content:
+      center;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .bs-applications-content {
+
+    width:
+      calc(100% - 24px);
+
+    padding:
+      16px 0 30px;
+
+  }
+
+
+  .bs-applications-intro {
+
+    min-height:
+      190px;
+
+    padding:
+      24px 18px;
+
+  }
+
+
+  .bs-applications-intro h1 {
+
+    font-size:
+      21px;
+
+  }
+
+
+  .bs-applications-intro p {
+
+    max-width:
+      76%;
+
+    font-size:
+      9px;
+
+  }
+
+
+  .bs-applications-intro-decoration {
+
+    right:
+      4px;
+
+    bottom:
+      10px;
+
+    transform:
+      scale(0.88);
+
+  }
+
+
+  .bs-applications-summary {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bs-applications-intro-decoration {
+    animation:
+      none;
+  }
+
+
+  .bs-application-card,
+  .bs-application-summary-card,
+  .bs-application-view {
+    transition:
+      none;
+  }
+
+}
+
+/* =========================================================
+   WITHDRAWN STATUS
+========================================================= */
+
+.bs-application-status-withdrawn {
+  background: #eef1f3;
+  color: #5c636a;
+  border-color: #dce1e5;
+}

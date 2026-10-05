@@ -1,0 +1,936 @@
+/* =========================================================
+   BHARAAT STRUCTURALS
+   LOGIN PAGE
+   ========================================================= */
+
+.bs-login-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 28px;
+
+  background: #f4f7f9;
+
+  color: #06243a;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.bs-login-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 1180px;
+
+  height: 650px;
+
+  display: grid;
+
+  grid-template-columns: 42% 58%;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 20px 55px
+    rgba(6, 36, 58, 0.12);
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   BUILDING IMAGE
+   ========================================================= */
+
+.bs-login-container::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image:
+    url('../../../assets/Login/bg.png');
+
+  background-repeat: no-repeat;
+
+  background-size: 65% 100%;
+
+  background-position: right center;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LOGIN FORM PANEL
+   ========================================================= */
+
+.bs-login-form-panel {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 48px 58px;
+
+  background:
+    rgba(138, 137, 137, 0.568);
+
+  border-right:
+    1px solid
+    rgba(6, 36, 58, 0.87);
+
+  backdrop-filter:
+    blur(2px);
+
+  -webkit-backdrop-filter:
+    blur(2px);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.bs-login-form-content {
+  width: 100%;
+
+  max-width: 370px;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.bs-login-logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 48px;
+
+  text-decoration: none;
+}
+
+.bs-login-logo img {
+  display: block;
+
+  width: 350px;
+
+  height: auto;
+
+  max-height: 68px;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.bs-login-heading {
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+.bs-login-heading h1 {
+  margin: 0;
+
+  color: #000000;
+
+  font-size: 54px;
+
+  font-weight: 900;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+}
+
+.bs-login-heading p {
+  margin: 9px 0 0;
+
+  color: #050505;
+
+  font-weight: 500;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.bs-login-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   FIELD
+   ========================================================= */
+
+.bs-login-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.bs-login-field label {
+  color: #294352;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.01em;
+}
+
+.bs-login-field label span {
+  margin-left: 3px;
+
+  color: #f47a20;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.bs-login-input {
+  position: relative;
+
+  width: 100%;
+
+  height: 46px;
+}
+
+.bs-login-input > svg {
+  position: absolute;
+
+  left: 14px;
+  top: 50%;
+
+  color: #82919a;
+
+  pointer-events: none;
+
+  transform:
+    translateY(-50%);
+}
+
+.bs-login-input input {
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  padding:
+    0 42px;
+
+  border:
+    1px solid #d7e0e5;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #06243a;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.bs-login-input input::placeholder {
+  color: #a7b2b8;
+}
+
+.bs-login-input input:hover {
+  border-color: #b9c9d2;
+}
+
+.bs-login-input input:focus {
+  border-color: #1598ff;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(21, 152, 255, 0.10);
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+   ========================================================= */
+
+.bs-password-toggle {
+  position: absolute;
+
+  top: 50%;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #87959d;
+
+  cursor: pointer;
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    color 0.2s ease;
+}
+
+.bs-password-toggle:hover {
+  color: #1598ff;
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+   ========================================================= */
+
+.bs-login-forgot {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin-top: -7px;
+}
+
+.bs-login-forgot a {
+  color: #ff6b01;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease;
+}
+
+.bs-login-forgot a:hover {
+  color: #1598ff;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.bs-login-error {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-height: 18px;
+
+  color: #c94d45;
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+.bs-login-error span {
+  width: 17px;
+  height: 17px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #fff1f0;
+
+  border:
+    1px solid #f0c7c3;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SIGN IN BUTTON
+   ========================================================= */
+
+.bs-login-button {
+  width: 100%;
+
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  margin-top: 1px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #06243a;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bs-login-button:hover:not(:disabled) {
+  background: #1598ff;
+
+  box-shadow:
+    0 8px 22px
+    rgba(21, 152, 255, 0.22);
+
+  transform:
+    translateY(-1px);
+}
+
+.bs-login-button:active:not(:disabled) {
+  transform:
+    translateY(0);
+}
+
+.bs-login-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.bs-login-divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin:
+    23px 0 17px;
+
+  background:
+    #e0e7eb;
+}
+
+
+/* =========================================================
+   CREATE ACCOUNT
+   ========================================================= */
+
+.bs-login-create {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #303233;
+
+  font-weight: 600;
+
+  font-size: 10px;
+}
+
+.bs-login-create a {
+  color: #06243a;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition:
+    color 0.2s ease;
+}
+
+.bs-login-create a:hover {
+  color: #0071c7;
+}
+
+
+/* =========================================================
+   HELP
+   ========================================================= */
+
+.bs-login-help {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 13px;
+
+  color: #3c3d3d;
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+.bs-login-help a {
+  color: #08364d;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease;
+}
+
+.bs-login-help a:hover {
+  color: #0071c7;
+}
+
+
+/* =========================================================
+   BRAND PANEL
+   ========================================================= */
+
+.bs-login-brand-panel {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bs-login-page {
+    padding: 22px;
+  }
+
+  .bs-login-container {
+    height: 600px;
+
+    grid-template-columns:
+      44% 56%;
+  }
+
+  .bs-login-form-panel {
+    padding:
+      42px;
+  }
+
+  .bs-login-logo {
+    margin-bottom: 38px;
+  }
+
+  .bs-login-heading h1 {
+    font-size: 31px;
+  }
+
+  .bs-login-container::after {
+    background-size:
+      62% 100%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+  .bs-login-container::after {
+    display: none;
+  }
+
+  .bs-login-brand-panel {
+    display: none;
+  }
+
+  .bs-login-page {
+    width: 100%;
+
+    min-height: 100svh;
+
+    box-sizing: border-box;
+
+    padding:
+      24px 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+      linear-gradient(
+        145deg,
+        #eef3f6 0%,
+        #f7f9fa 50%,
+        #edf2f5 100%
+      );
+  }
+
+  .bs-login-container {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 430px;
+
+    height: auto;
+
+    min-height: 0;
+
+    display: block;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    border:
+      1px solid
+      rgba(6, 36, 58, 0.07);
+
+    box-shadow:
+      0 20px 55px
+      rgba(6, 36, 58, 0.13);
+  }
+
+  .bs-login-form-panel {
+    width: 100%;
+
+    height: auto;
+
+    min-height: 0;
+
+    box-sizing: border-box;
+
+    padding:
+      38px 28px 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: none;
+
+    backdrop-filter: none;
+
+    -webkit-backdrop-filter: none;
+  }
+
+  .bs-login-form-content {
+    width: 100%;
+
+    max-width: 350px;
+
+    margin: 0 auto;
+  }
+
+  .bs-login-logo {
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 36px;
+  }
+
+  .bs-login-logo img {
+    width: 145px;
+
+    max-height: 55px;
+
+    object-fit: contain;
+  }
+
+  .bs-login-heading {
+    margin-bottom: 28px;
+
+    text-align: center;
+  }
+
+  .bs-login-heading h1 {
+    margin: 0;
+
+    color: #06243a;
+
+    font-size: 29px;
+
+    font-weight: 600;
+
+    line-height: 1.12;
+
+    letter-spacing: -0.04em;
+  }
+
+  .bs-login-heading p {
+    margin-top: 9px;
+
+    color: #7b8991;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+  .bs-login-form {
+    gap: 18px;
+  }
+
+  .bs-login-field {
+    gap: 7px;
+  }
+
+  .bs-login-field label {
+    font-size: 10px;
+
+    color: #294352;
+  }
+
+  .bs-login-input {
+    width: 100%;
+
+    height: 48px;
+  }
+
+  .bs-login-input input {
+    width: 100%;
+
+    height: 100%;
+
+    font-size: 11px;
+
+    border-radius: 9px;
+  }
+
+  .bs-login-input > svg {
+    left: 14px;
+  }
+
+  .bs-login-forgot {
+    margin-top: -6px;
+  }
+
+  .bs-login-forgot a {
+    font-size: 9px;
+  }
+
+  .bs-login-button {
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: 2px;
+
+    border-radius: 9px;
+
+    background: #06243a;
+
+    font-size: 11px;
+  }
+
+  .bs-login-button:hover:not(:disabled) {
+    background: #1598ff;
+  }
+
+  .bs-login-divider {
+    width: 100%;
+
+    margin:
+      24px 0 18px;
+  }
+
+  .bs-login-create {
+    justify-content: center;
+
+    font-size: 9px;
+
+    text-align: center;
+  }
+
+  .bs-login-help {
+    margin-top: 13px;
+
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .bs-login-form-panel {
+    padding:
+      30px 20px;
+  }
+
+  .bs-login-logo {
+    margin-bottom: 40px;
+
+    margin-left: 0;
+  }
+
+  .bs-login-logo img {
+    width: 135px;
+  }
+
+  .bs-login-heading {
+    margin-bottom: 28px;
+  }
+
+  .bs-login-heading h1 {
+    font-size: 28px;
+  }
+
+  .bs-login-input,
+  .bs-login-button {
+    height: 46px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+  .bs-login-form-panel {
+    padding:
+      26px 18px;
+  }
+
+  .bs-login-logo {
+    margin-bottom: 40px;
+  }
+
+  .bs-login-logo img {
+    width: 125px;
+  }
+
+  .bs-login-heading h1 {
+    font-size: 26px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bs-login-button,
+  .bs-password-toggle,
+  .bs-login-input input {
+    transition: none;
+  }
+}

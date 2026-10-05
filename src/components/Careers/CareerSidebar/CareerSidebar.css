@@ -1,0 +1,1386 @@
+/* =========================================================
+   BHARAAT STRUCTURALS
+   CAREER SIDEBAR
+========================================================= */
+
+:root {
+
+  --bs-navy: #06243a;
+  --bs-navy-light: #0b3a58;
+
+  --bs-blue: #1687ff;
+  --bs-orange: #f47b20;
+
+  --bs-border: #e1e8ed;
+
+  --bs-text: #637582;
+  --bs-muted: #98a6af;
+
+  --bs-sidebar-small: 76px;
+  --bs-sidebar-large: 250px;
+
+  --bs-content-width: 224px;
+
+  --bs-speed: 0.38s;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.bs-career-sidebar {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width:
+    var(--bs-sidebar-small);
+
+  height: 100vh;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.985
+    );
+
+  border-right:
+    1px solid
+    rgba(
+      6,
+      36,
+      58,
+      0.075
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    14px 10px 12px;
+
+  overflow: hidden;
+
+  z-index: 2000;
+
+  /*
+    IMPORTANT:
+
+    Width is controlled ONLY by
+    the React state classes:
+
+      .expanded
+      .collapsed
+
+    There is no desktop :hover width rule.
+
+    This prevents the sidebar from
+    collapsing/re-expanding when
+    navigating between pages.
+  */
+
+  transition:
+
+    width
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    box-shadow
+      0.28s ease;
+
+  will-change:
+    width;
+
+  -webkit-font-smoothing:
+    antialiased;
+
+  -moz-osx-font-smoothing:
+    grayscale;
+
+}
+
+
+/* =========================================================
+   COLLAPSED
+========================================================= */
+
+.bs-career-sidebar-collapsed {
+
+  width:
+    var(--bs-sidebar-small);
+
+  box-shadow:
+    none;
+
+}
+
+
+/* =========================================================
+   EXPANDED
+========================================================= */
+
+.bs-career-sidebar-expanded {
+
+  width:
+    var(--bs-sidebar-large);
+
+  box-shadow:
+    14px 0 38px
+    rgba(
+      6,
+      36,
+      58,
+      0.09
+    );
+
+}
+
+
+/* =========================================================
+   LOGO AREA
+========================================================= */
+
+.bs-career-sidebar-logo {
+
+  position: relative;
+
+  width: 56px;
+
+  height: 62px;
+
+  margin:
+    0 auto 12px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  transition:
+    width
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+
+}
+
+
+/* =========================================================
+   LOGO IMAGES
+
+   Both images are layered exactly
+   on top of each other.
+
+   Only opacity changes.
+
+   This prevents:
+     - duplicate logo
+     - jump
+     - stretching
+========================================================= */
+
+.bs-career-sidebar-logo img {
+
+  position: absolute;
+
+  display: block;
+
+  height: auto;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  top: 50%;
+
+  transition:
+    opacity
+      0.20s
+      ease;
+
+}
+
+
+/* =========================================================
+   COLLAPSED LOGO
+
+   /BlackLogo.png
+========================================================= */
+
+.bs-career-logo-black {
+
+  width: 55px;
+
+  left: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  opacity: 1;
+
+}
+
+
+/* =========================================================
+   FULL LOGO
+
+   /Logo.png
+========================================================= */
+
+.bs-career-logo-full {
+
+  width: 200px;
+
+  left: 6px;
+
+  transform:
+    translateY(-50%);
+
+  opacity: 0;
+
+}
+
+
+/* =========================================================
+   COLLAPSED LOGO STATE
+========================================================= */
+
+.bs-career-sidebar-collapsed
+.bs-career-logo-black {
+
+  opacity: 1;
+
+}
+
+
+.bs-career-sidebar-collapsed
+.bs-career-logo-full {
+
+  opacity: 0;
+
+}
+
+
+/* =========================================================
+   EXPANDED LOGO STATE
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-logo {
+
+  width:
+    var(--bs-content-width);
+
+}
+
+
+.bs-career-sidebar-expanded
+.bs-career-logo-black {
+
+  opacity: 0;
+
+}
+
+
+.bs-career-sidebar-expanded
+.bs-career-logo-full {
+
+  opacity: 1;
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.bs-career-sidebar-profile {
+
+  width: 56px;
+
+  height: 48px;
+
+  margin:
+    0 auto 20px;
+
+  padding: 5px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    var(--bs-border);
+
+  border-radius: 10px;
+
+  background:
+    #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+
+    width
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    background
+      0.2s ease,
+
+    border-color
+      0.2s ease;
+
+}
+
+
+/* =========================================================
+   EXPANDED PROFILE
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-profile {
+
+  width:
+    var(--bs-content-width);
+
+  padding:
+    5px 8px;
+
+}
+
+
+/* =========================================================
+   PROFILE HOVER
+========================================================= */
+
+.bs-career-sidebar-profile:hover {
+
+  background:
+    #f8fbfd;
+
+  border-color:
+    #d6e1e8;
+
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.bs-career-sidebar-avatar {
+
+  width: 36px;
+
+  height: 36px;
+
+  min-width: 36px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--bs-navy),
+      var(--bs-navy-light)
+    );
+
+  color:
+    #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   ONLINE DOT
+========================================================= */
+
+.bs-career-sidebar-avatar::after {
+
+  content: '';
+
+  position: absolute;
+
+  right: -1px;
+
+  bottom: 0;
+
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background:
+    var(--bs-blue);
+
+  border:
+    2px solid
+    #ffffff;
+
+}
+
+
+/* =========================================================
+   PROFILE TEXT
+========================================================= */
+
+.bs-career-sidebar-profile-info {
+
+  min-width: 150px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateX(-5px);
+
+  transition:
+
+    opacity
+      0.18s ease,
+
+    transform
+      0.24s ease,
+
+    visibility
+      0s linear
+      0.18s;
+
+}
+
+
+/* =========================================================
+   SHOW PROFILE TEXT
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-profile-info {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateX(0);
+
+  transition:
+
+    opacity
+      0.20s ease
+      0.05s,
+
+    transform
+      0.24s ease
+      0.03s,
+
+    visibility
+      0s linear
+      0s;
+
+}
+
+
+/* =========================================================
+   PROFILE NAME
+========================================================= */
+
+.bs-career-sidebar-profile-info strong {
+
+  color:
+    var(--bs-navy);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   PROFILE ROLE
+========================================================= */
+
+.bs-career-sidebar-profile-info span {
+
+  margin-top: 3px;
+
+  color:
+    var(--bs-muted);
+
+  font-size: 9px;
+
+  white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.bs-career-sidebar-navigation {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+}
+
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
+
+.bs-career-sidebar-item {
+
+  width: 56px;
+
+  height: 43px;
+
+  margin:
+    0 auto;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    transparent;
+
+  color:
+    var(--bs-text);
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  text-align: left;
+
+  transition:
+
+    width
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    padding
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    background
+      0.2s ease,
+
+    color
+      0.2s ease,
+
+    box-shadow
+      0.2s ease;
+
+}
+
+
+/* =========================================================
+   EXPANDED NAV
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-item {
+
+  width:
+    var(--bs-content-width);
+
+  padding:
+    0 8px;
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.bs-career-sidebar-icon {
+
+  width: 40px;
+
+  min-width: 40px;
+
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color:
+    inherit;
+
+  flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.bs-career-sidebar-label {
+
+  white-space: nowrap;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  color:
+    inherit;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateX(-5px);
+
+  transition:
+
+    opacity
+      0.18s ease,
+
+    transform
+      0.22s ease,
+
+    visibility
+      0s linear
+      0.18s;
+
+}
+
+
+/* =========================================================
+   EXPANDED LABEL
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-label {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateX(0);
+
+  transition:
+
+    opacity
+      0.18s ease
+      0.06s,
+
+    transform
+      0.22s ease
+      0.04s,
+
+    visibility
+      0s linear
+      0s;
+
+}
+
+
+/* =========================================================
+   NORMAL ITEM HOVER
+========================================================= */
+
+.bs-career-sidebar-item:hover {
+
+  background:
+    rgba(
+      22,
+      135,
+      255,
+      0.055
+    );
+
+  color:
+    var(--bs-navy);
+
+}
+
+
+/* =========================================================
+   ACTIVE ITEM
+========================================================= */
+
+.bs-career-sidebar-item.active {
+
+  background:
+    linear-gradient(
+      135deg,
+      #06243a,
+      #0a3855
+    );
+
+  color:
+    #ffffff;
+
+  box-shadow:
+    0 7px 18px
+    rgba(
+      6,
+      36,
+      58,
+      0.14
+    );
+
+}
+
+
+/* =========================================================
+   ACTIVE HOVER
+========================================================= */
+
+.bs-career-sidebar-item.active:hover {
+
+  background:
+    linear-gradient(
+      135deg,
+      #06243a,
+      #0a3855
+    );
+
+  color:
+    #ffffff;
+
+}
+
+
+/* =========================================================
+   NO ACTIVE VERTICAL LINE
+========================================================= */
+
+.bs-career-sidebar-item.active::before {
+
+  display:
+    none !important;
+
+  content:
+    none !important;
+
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.bs-career-sidebar-arrow {
+
+  margin-left:
+    auto;
+
+  flex-shrink: 0;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateX(-4px);
+
+  transition:
+
+    opacity
+      0.18s ease,
+
+    transform
+      0.22s ease,
+
+    visibility
+      0s linear
+      0.18s;
+
+}
+
+
+/* =========================================================
+   EXPANDED ARROW
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-arrow {
+
+  opacity: 0.62;
+
+  visibility: visible;
+
+  transform:
+    translateX(0);
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.bs-career-sidebar-logout {
+
+  position: relative;
+
+  width: 56px;
+
+  height: 43px;
+
+  margin:
+    auto auto 2px;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid
+    var(--bs-border);
+
+  border-radius: 9px;
+
+  background:
+    #ffffff;
+
+  color:
+    var(--bs-text);
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  text-align: left;
+
+  transition:
+
+    width
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    padding
+      var(--bs-speed)
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      ),
+
+    background
+      0.25s ease,
+
+    border-color
+      0.25s ease,
+
+    color
+      0.25s ease;
+
+}
+
+
+/* =========================================================
+   EXPANDED LOGOUT
+========================================================= */
+
+.bs-career-sidebar-expanded
+.bs-career-sidebar-logout {
+
+  width:
+    var(--bs-content-width);
+
+  padding:
+    0 8px;
+
+}
+
+
+/* =========================================================
+   SIGN OUT HOVER
+
+   Navy background + white glossy layer
+   sweeping RIGHT → LEFT
+========================================================= */
+
+.bs-career-sidebar-logout::before {
+
+  content: '';
+
+  position: absolute;
+
+  top: -30%;
+
+  right: -45%;
+
+  width: 38%;
+
+  height: 160%;
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent,
+      rgba(
+        255,
+        255,
+        255,
+        0.45
+      ),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg)
+    translateX(0);
+
+  transition:
+    transform
+      0.55s
+      cubic-bezier(
+        0.22,
+        1,
+        0.36,
+        1
+      );
+
+  pointer-events:
+    none;
+
+  z-index: 1;
+
+}
+
+
+/* =========================================================
+   SWEEP
+========================================================= */
+
+.bs-career-sidebar-logout:hover::before {
+
+  transform:
+    skewX(-20deg)
+    translateX(-430%);
+
+}
+
+
+/* =========================================================
+   SIGN OUT HOVER
+========================================================= */
+
+.bs-career-sidebar-logout:hover {
+
+  background:
+    #06243a;
+
+  border-color:
+    #06243a;
+
+  color:
+    #ffffff;
+
+  box-shadow:
+    0 7px 18px
+    rgba(
+      6,
+      36,
+      58,
+      0.13
+    );
+
+}
+
+
+/*
+   Keep the actual content above
+   the glossy sweep.
+*/
+
+.bs-career-sidebar-logout
+.bs-career-sidebar-icon,
+
+.bs-career-sidebar-logout
+.bs-career-sidebar-label {
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
+========================================================= */
+
+.bs-career-sidebar-overlay {
+
+  display:
+    none;
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1999;
+
+  background:
+    rgba(
+      4,
+      28,
+      45,
+      0.24
+    );
+
+  backdrop-filter:
+    blur(2px);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .bs-career-sidebar {
+
+    width:
+      250px;
+
+    transform:
+      translateX(
+        -100%
+      );
+
+    box-shadow:
+      none;
+
+    transition:
+
+      transform
+        0.38s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        );
+
+  }
+
+
+  /* -----------------------------------------------
+     MOBILE OPEN
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open {
+
+    width:
+      250px;
+
+    transform:
+      translateX(0);
+
+    box-shadow:
+      15px 0 40px
+      rgba(
+        6,
+        36,
+        58,
+        0.18
+      );
+
+  }
+
+
+  /* -----------------------------------------------
+     Mobile logo
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-logo {
+
+    width:
+      224px;
+
+  }
+
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-logo-black {
+
+    opacity:
+      0;
+
+  }
+
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-logo-full {
+
+    opacity:
+      1;
+
+  }
+
+
+  /* -----------------------------------------------
+     Profile
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-profile {
+
+    width:
+      224px;
+
+    padding:
+      5px 8px;
+
+  }
+
+
+  /* -----------------------------------------------
+     Navigation
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-item {
+
+    width:
+      224px;
+
+    padding:
+      0 8px;
+
+  }
+
+
+  /* -----------------------------------------------
+     Labels
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-label {
+
+    opacity:
+      1;
+
+    visibility:
+      visible;
+
+    transform:
+      translateX(0);
+
+  }
+
+
+  /* -----------------------------------------------
+     Arrows
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-arrow {
+
+    opacity:
+      0.62;
+
+    visibility:
+      visible;
+
+    transform:
+      translateX(0);
+
+  }
+
+
+  /* -----------------------------------------------
+     Profile text
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-profile-info {
+
+    opacity:
+      1;
+
+    visibility:
+      visible;
+
+    transform:
+      translateX(0);
+
+  }
+
+
+  /* -----------------------------------------------
+     Logout
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-logout {
+
+    width:
+      224px;
+
+    padding:
+      0 8px;
+
+  }
+
+
+  /* -----------------------------------------------
+     Overlay
+  ------------------------------------------------ */
+
+  .bs-career-sidebar-overlay {
+
+    display:
+      block;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .bs-career-sidebar-mobile-open {
+
+    width:
+      235px;
+
+  }
+
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-logo,
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-profile,
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-item,
+
+  .bs-career-sidebar-mobile-open
+  .bs-career-sidebar-logout {
+
+    width:
+      209px;
+
+  }
+
+}

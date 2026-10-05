@@ -328,8 +328,9 @@ export default function Footer() {
 
           <button
             type="button"
-            onClick={() => navigate('/contact')}
+            onClick={() => navigate('/login')}
           >
+
             Login
           </button>
 

@@ -1,15 +1,17 @@
 /* =========================================================
-   BHARAATH STRUCTURALS
-   FULL WIDTH DESKTOP NAVBAR
+   BHARAAT STRUCTURALS
+   DESKTOP NAVBAR
+   MOBILE TOP BAR
    MOBILE BOTTOM NAVIGATION
    ========================================================= */
 
 
 /* =========================================================
    DESKTOP NAVBAR
-   ========================================================= */
+========================================================= */
 
 .navbar {
+
   position: fixed;
 
   z-index: 1000;
@@ -29,16 +31,16 @@
   transition:
     color 0.35s ease,
     background 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    box-shadow 0.35s ease;
 }
 
 
 /* =========================================================
    NAVBAR INNER
-   ========================================================= */
+========================================================= */
 
 .navbar-inner {
+
   width: 100%;
   height: 100%;
 
@@ -55,32 +57,30 @@
     0
     clamp(28px, 5vw, 78px);
 
+  box-sizing: border-box;
+
   background: transparent;
 }
 
 
 /* =========================================================
-   HOME
-   TRANSPARENT
-   WHITE TEXT
-   ========================================================= */
-
-/* =========================================================
-   HOME
-   SLIGHTLY FROSTED / BLURRED
-   ========================================================= */
+   HOME NAVBAR
+========================================================= */
 
 .navbar--home {
+
   color: #ffffff;
 
   background:
     rgba(255, 255, 255, 0.055);
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.10);
+    1px solid
+    rgba(255, 255, 255, 0.10);
 
   box-shadow:
-    0 4px 25px rgba(0, 0, 0, 0.08);
+    0 4px 25px
+    rgba(0, 0, 0, 0.08);
 
   backdrop-filter:
     blur(10px)
@@ -91,28 +91,25 @@
     saturate(115%);
 }
 
-.navbar--home .navbar-inner {
-  background: transparent;
-}
-
 
 /* =========================================================
-   OTHER SECTIONS
-   TRANSPARENT WHITE GLASS
-   BLACK TEXT
-   ========================================================= */
+   INNER PAGE NAVBAR
+========================================================= */
 
 .navbar--inner {
+
   color: #111111;
 
   background:
     rgba(255, 255, 255, 0.72);
 
   border-bottom:
-    1px solid rgba(0, 0, 0, 0.07);
+    1px solid
+    rgba(0, 0, 0, 0.07);
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.06);
+    0 8px 30px
+    rgba(0, 0, 0, 0.06);
 
   backdrop-filter:
     blur(18px)
@@ -126,18 +123,22 @@
 
 /* =========================================================
    LOGO
-   ========================================================= */
+========================================================= */
 
 .navbar-brand {
+
   justify-self: start;
 
   width: auto;
   height: 100%;
 
   display: flex;
+
   align-items: center;
 
   padding: 0;
+
+  margin: 0;
 
   border: none;
   outline: none;
@@ -147,7 +148,9 @@
   cursor: pointer;
 }
 
+
 .navbar-brand img {
+
   display: block;
 
   width: 205px;
@@ -164,16 +167,20 @@
     transform 0.25s ease;
 }
 
+
 .navbar-brand:hover img {
-  transform: scale(1.02);
+
+  transform:
+    scale(1.02);
 }
 
 
 /* =========================================================
    DESKTOP LINKS
-   ========================================================= */
+========================================================= */
 
 .navbar-links {
+
   justify-self: center;
 
   height: 100%;
@@ -189,10 +196,11 @@
 
 
 /* =========================================================
-   LINK
-   ========================================================= */
+   NAVBAR LINK
+========================================================= */
 
 .navbar-link {
+
   position: relative;
 
   height: 100%;
@@ -200,12 +208,10 @@
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   padding:
-    0
-    12px;
+    0 12px;
 
   border: none;
 
@@ -235,51 +241,62 @@
 
 /* =========================================================
    HOME LINKS
-   ========================================================= */
+========================================================= */
 
 .navbar--home
 .navbar-link {
+
   color:
     rgba(255, 255, 255, 0.68);
 }
 
+
 .navbar--home
 .navbar-link:hover {
+
   color: #ffffff;
 }
 
+
 .navbar--home
 .navbar-link--active {
+
   color: #ffffff;
 }
 
 
 /* =========================================================
-   OTHER SECTION LINKS
-   ========================================================= */
+   INNER PAGE LINKS
+========================================================= */
 
 .navbar--inner
 .navbar-link {
+
   color:
     rgba(0, 0, 0, 0.56);
 }
 
+
 .navbar--inner
 .navbar-link:hover {
+
   color: #000000;
 }
 
+
 .navbar--inner
 .navbar-link--active {
+
   color: #000000;
 }
 
 
 /* =========================================================
    ACTIVE LINE
-   ========================================================= */
+========================================================= */
 
 .navbar-link--active::after {
+
   content: '';
 
   position: absolute;
@@ -298,34 +315,49 @@
     background 0.3s ease;
 }
 
+
 .navbar--inner
 .navbar-link--active::after {
+
   background: #111111;
 }
 
 
 /* =========================================================
+   DESKTOP ACTIONS
+========================================================= */
+
+.navbar-actions {
+
+  justify-self: end;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+}
+
+
+/* =========================================================
    CONTACT BUTTON
-   ========================================================= */
+========================================================= */
 
 .navbar-contact {
-  justify-self: end;
 
   height: 35px;
 
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 8px;
 
   padding:
-    0
-    6px
-    0
-    17px;
+    0 6px 0 17px;
 
   border-radius: 999px;
 
@@ -336,6 +368,8 @@
   font-weight: 700;
 
   letter-spacing: 0.035em;
+
+  white-space: nowrap;
 
   cursor: pointer;
 
@@ -349,10 +383,11 @@
 
 /* =========================================================
    CONTACT ON HOME
-   ========================================================= */
+========================================================= */
 
 .navbar--home
 .navbar-contact {
+
   border:
     1px solid
     rgba(255, 255, 255, 0.42);
@@ -363,8 +398,10 @@
   color: #ffffff;
 }
 
+
 .navbar--home
 .navbar-contact:hover {
+
   background:
     rgba(255, 255, 255, 0.12);
 
@@ -378,28 +415,34 @@
 
 /* =========================================================
    CONTACT OUTSIDE HOME
-   BLACK BUTTON
-   WHITE TEXT
-   ========================================================= */
+========================================================= */
 
 .navbar--inner
 .navbar-contact {
-  border:
-    1px solid #0b0d0f;
 
-  background: #0b0d0f;
+  border:
+    1px solid
+    #0b0d0f;
+
+  background:
+    #0b0d0f;
 
   color: #ffffff;
 
   box-shadow:
-    0 5px 16px rgba(0, 0, 0, 0.14);
+    0 5px 16px
+    rgba(0, 0, 0, 0.14);
 }
+
 
 .navbar--inner
 .navbar-contact:hover {
-  background: #24282c;
 
-  border-color: #24282c;
+  background:
+    #24282c;
+
+  border-color:
+    #24282c;
 
   transform:
     translateY(-1px);
@@ -408,9 +451,10 @@
 
 /* =========================================================
    CONTACT ICON
-   ========================================================= */
+========================================================= */
 
 .navbar-contact-icon {
+
   width: 25px;
   height: 25px;
 
@@ -427,105 +471,140 @@
 
 
 /* =========================================================
-   MOBILE TOP BAR
-   ========================================================= */
+   MOBILE TOPBAR
+========================================================= */
 
 .mobile-topbar {
+
   display: none;
 }
 
 
 /* =========================================================
    MOBILE BOTTOM NAV
-   ========================================================= */
+========================================================= */
 
 .mobile-bottom-nav {
+
   display: none;
 }
 
 
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 950px) {
 
   .navbar {
+
     height: 66px;
   }
 
+
   .navbar-inner {
+
     padding:
       0
       clamp(22px, 4vw, 45px);
   }
 
+
   .navbar-brand img {
-    width: 205px;
+
+    width: 185px;
   }
 
+
   .navbar-links {
+
     gap: 1px;
   }
 
-  .navbar-link {
-    padding:
-      0
-      8px;
 
-    font-size: 7.5px;
+  .navbar-link {
+
+    padding:
+      0 7px;
+
+    font-size: 8px;
   }
 
+
   .navbar-link--active::after {
-    left: 8px;
-    right: 8px;
+
+    left: 7px;
+    right: 7px;
 
     bottom: 16px;
   }
 
+
   .navbar-contact {
-    font-size: 7px;
+
+    height: 33px;
+
+    padding:
+      0 5px 0 12px;
+
+    font-size: 8px;
+  }
+
+
+  .navbar-contact-icon {
+
+    width: 23px;
+    height: 23px;
   }
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
   /* -------------------------------------------------------
      HIDE DESKTOP NAVBAR
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .navbar {
+
     display: none;
   }
 
 
   /* -------------------------------------------------------
-     MOBILE TOP LOGO
-     ------------------------------------------------------- */
+     MOBILE TOP BAR
+     
+     LOGO LEFT
+     CONTACT US RIGHT
+  ------------------------------------------------------- */
 
   .mobile-topbar {
+
     position: fixed;
 
-    z-index: 1000;
+    z-index: 3000;
 
     top: 0;
     left: 0;
 
     width: 100%;
+
     height: 60px;
 
     display: flex;
 
     align-items: center;
 
+    justify-content: space-between;
+
     padding:
-      0
-      18px;
+      0 18px;
+
+    box-sizing: border-box;
 
     background: transparent;
 
@@ -536,28 +615,34 @@
 
 
   /* -------------------------------------------------------
-     HOME TOP BAR
-     ------------------------------------------------------- */
+     MOBILE HOME TOPBAR
+  ------------------------------------------------------- */
 
   .mobile-topbar--home {
-    background: transparent;
 
-    backdrop-filter: none;
+    background:
+      rgba(0, 0, 0, 0.04);
 
-    -webkit-backdrop-filter: none;
+    backdrop-filter:
+      blur(2px);
+
+    -webkit-backdrop-filter:
+      blur(2px);
   }
 
 
   /* -------------------------------------------------------
-     OTHER SECTION TOP BAR
-     ------------------------------------------------------- */
+     MOBILE INNER PAGE TOPBAR
+  ------------------------------------------------------- */
 
   .mobile-topbar--inner {
+
     background:
-      rgba(255, 255, 255, 0.72);
+      rgba(255, 255, 255, 0.78);
 
     border-bottom:
-      1px solid rgba(0, 0, 0, 0.06);
+      1px solid
+      rgba(0, 0, 0, 0.06);
 
     backdrop-filter:
       blur(16px);
@@ -568,33 +653,42 @@
 
 
   /* -------------------------------------------------------
-     MOBILE LOGO BUTTON
-     ------------------------------------------------------- */
+     MOBILE LOGO
+  ------------------------------------------------------- */
 
   .mobile-logo-button {
+
     width: auto;
     height: 100%;
 
     display: flex;
 
     align-items: center;
+    justify-content: flex-start;
 
     padding: 0;
+    margin: 0;
 
     border: none;
+    outline: none;
 
     background: transparent;
 
     cursor: pointer;
+
+    flex-shrink: 0;
   }
 
 
   .mobile-logo-button img {
+
     display: block;
 
     width: 118px;
 
     max-height: 34px;
+
+    height: auto;
 
     object-fit: contain;
 
@@ -602,11 +696,98 @@
   }
 
 
-  /* =======================================================
-     BOTTOM NAVIGATION
-     ======================================================= */
+  /* -------------------------------------------------------
+     MOBILE CONTACT BUTTON
+  ------------------------------------------------------- */
+
+  .mobile-contact-button {
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding:
+      0 6px 0 14px;
+
+    border:
+      1px solid
+      #0b0d0f;
+
+    border-radius: 999px;
+
+    background:
+      #0b0d0f;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow:
+      0 5px 16px
+      rgba(0, 0, 0, 0.18);
+
+    transition:
+      transform 0.2s ease,
+      background 0.25s ease;
+  }
+
+
+  .mobile-contact-button:hover {
+
+    background:
+      #24282c;
+  }
+
+
+  .mobile-contact-button:active {
+
+    transform:
+      scale(0.95);
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE CONTACT ICON
+  ------------------------------------------------------- */
+
+  .mobile-contact-icon {
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+      rgba(255, 255, 255, 0.10);
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE BOTTOM NAV
+  ------------------------------------------------------- */
 
   .mobile-bottom-nav {
+
     position: fixed;
 
     z-index: 2000;
@@ -631,11 +812,12 @@
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      BOTTOM NAV CONTAINER
-     ======================================================= */
+  ------------------------------------------------------- */
 
   .mobile-bottom-nav-inner {
+
     width: 100%;
 
     min-height: 64px;
@@ -647,8 +829,9 @@
 
     align-items: center;
 
-    padding:
-      5px;
+    padding: 5px;
+
+    box-sizing: border-box;
 
     border:
       1px solid
@@ -674,11 +857,12 @@
   }
 
 
-  /* =======================================================
-     BOTTOM ITEM
-     ======================================================= */
+  /* -------------------------------------------------------
+     BOTTOM NAV ITEM
+  ------------------------------------------------------- */
 
   .mobile-bottom-item {
+
     position: relative;
 
     height: 53px;
@@ -688,7 +872,6 @@
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 4px;
@@ -702,7 +885,7 @@
     background: transparent;
 
     color:
-      rgba(255, 255, 255, 0.42);
+      rgba(255, 255, 255, 0.45);
 
     font-family: inherit;
 
@@ -718,29 +901,29 @@
   }
 
 
-  /* =======================================================
-     PRESS
-     ======================================================= */
-
   .mobile-bottom-item:active {
+
     transform:
       scale(0.93);
   }
 
 
-  /* =======================================================
-     ICON CONTAINER
-     ======================================================= */
+  /* -------------------------------------------------------
+     ICON
+  ------------------------------------------------------- */
 
   .mobile-bottom-icon {
+
     width: 30px;
-    height: 27px;
+    height: 28px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
+
+    color:
+      rgba(255, 255, 255, 0.55);
 
     border-radius: 9px;
 
@@ -750,23 +933,24 @@
   }
 
 
-  /* =======================================================
-     ICON
-     ======================================================= */
-
   .mobile-bottom-icon svg {
+
     display: block;
+
+    width: 22px;
+    height: 22px;
 
     transition:
       transform 0.25s ease;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      LABEL
-     ======================================================= */
+  ------------------------------------------------------- */
 
   .mobile-bottom-label {
+
     max-width: 60px;
 
     overflow: hidden;
@@ -782,20 +966,25 @@
     font-weight: 500;
 
     letter-spacing: 0.01em;
+
+    color:
+      rgba(255, 255, 255, 0.50);
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      ACTIVE ITEM
-     ======================================================= */
+  ------------------------------------------------------- */
 
   .mobile-bottom-item--active {
+
     color: #ffffff;
   }
 
 
   .mobile-bottom-item--active
   .mobile-bottom-icon {
+
     color: #ffffff;
 
     background:
@@ -804,17 +993,26 @@
 
 
   .mobile-bottom-item--active
+  .mobile-bottom-label {
+
+    color: #ffffff;
+  }
+
+
+  .mobile-bottom-item--active
   .mobile-bottom-icon svg {
+
     transform:
       translateY(-1px);
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      ACTIVE TOP INDICATOR
-     ======================================================= */
+  ------------------------------------------------------- */
 
   .mobile-bottom-item--active::before {
+
     content: '';
 
     position: absolute;
@@ -842,25 +1040,47 @@
 
 /* =========================================================
    SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 420px) {
 
   .mobile-topbar {
+
     height: 56px;
 
     padding:
-      0
-      14px;
+      0 14px;
   }
 
+
   .mobile-logo-button img {
+
     width: 112px;
 
     max-height: 32px;
   }
 
+
+  .mobile-contact-button {
+
+    height: 32px;
+
+    padding:
+      0 5px 0 12px;
+
+    font-size: 9px;
+  }
+
+
+  .mobile-contact-icon {
+
+    width: 21px;
+    height: 21px;
+  }
+
+
   .mobile-bottom-nav {
+
     width:
       calc(100% - 20px);
 
@@ -871,7 +1091,9 @@
       );
   }
 
+
   .mobile-bottom-nav-inner {
+
     min-height: 60px;
 
     padding: 4px;
@@ -879,16 +1101,29 @@
     border-radius: 17px;
   }
 
+
   .mobile-bottom-item {
+
     height: 51px;
   }
 
+
   .mobile-bottom-icon {
+
     width: 28px;
     height: 25px;
   }
 
+
+  .mobile-bottom-icon svg {
+
+    width: 21px;
+    height: 21px;
+  }
+
+
   .mobile-bottom-label {
+
     font-size: 6.5px;
   }
 }
@@ -896,29 +1131,65 @@
 
 /* =========================================================
    VERY SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 340px) {
 
+  .mobile-topbar {
+
+    padding:
+      0 11px;
+  }
+
+
+  .mobile-logo-button img {
+
+    width: 105px;
+  }
+
+
+  .mobile-contact-button {
+
+    height: 31px;
+
+    padding:
+      0 4px 0 10px;
+
+    font-size: 8.5px;
+  }
+
+
   .mobile-bottom-nav {
+
     width:
       calc(100% - 14px);
   }
 
+
   .mobile-bottom-label {
+
     font-size: 6px;
   }
 
+
   .mobile-bottom-icon {
+
     width: 26px;
     height: 24px;
+  }
+
+
+  .mobile-bottom-icon svg {
+
+    width: 20px;
+    height: 20px;
   }
 }
 
 
 /* =========================================================
    REDUCED MOTION
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -926,9 +1197,11 @@
   .navbar-link,
   .navbar-contact,
   .mobile-topbar,
+  .mobile-contact-button,
   .mobile-bottom-item,
   .mobile-bottom-icon,
   .mobile-bottom-icon svg {
+
     transition: none !important;
   }
 }
