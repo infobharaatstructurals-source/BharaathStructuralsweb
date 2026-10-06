@@ -1,5 +1,5 @@
 /* =========================================================
-   BHARAATH STRUCTURALS
+   BHARAAT STRUCTURALS
    FULL WIDTH DESKTOP NAVBAR
    MOBILE BOTTOM NAVIGATION
    ========================================================= */
@@ -7,12 +7,10 @@
 
 /* =========================================================
    DESKTOP NAVBAR
-   ========================================================= */
+========================================================= */
 
 .navbar {
   position: fixed;
-
-  z-index: 1000;
 
   top: 0;
   left: 0;
@@ -20,23 +18,31 @@
   width: 100%;
   height: 70px;
 
+  z-index: 1000;
+
   color: #ffffff;
 
   background: transparent;
 
   border: none;
 
+  /*
+   * Smooth transitions.
+   * Fixed invalid "*background*" from previous CSS.
+   */
   transition:
     color 0.35s ease,
     background 0.35s ease,
     box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    -webkit-backdrop-filter 0.35s ease;
 }
 
 
 /* =========================================================
    NAVBAR INNER
-   ========================================================= */
+========================================================= */
 
 .navbar-inner {
   width: 100%;
@@ -56,40 +62,57 @@
     clamp(28px, 5vw, 78px);
 
   background: transparent;
+
+  box-sizing: border-box;
 }
 
 
 /* =========================================================
-   HOME
-   TRANSPARENT
-   WHITE TEXT
-   ========================================================= */
-
-/* =========================================================
-   HOME
-   SLIGHTLY FROSTED / BLURRED
-   ========================================================= */
+   HOME NAVBAR
+   GLASS / FROSTED
+========================================================= */
 
 .navbar--home {
   color: #ffffff;
 
+  /*
+   * Permanent translucent layer.
+   *
+   * This is important because backdrop-filter
+   * can look almost invisible while the hero
+   * image/video is still loading.
+   */
   background:
-    rgba(255, 255, 255, 0.055);
+    linear-gradient(
+      to bottom,
+      rgba(15, 20, 25, 0.38),
+      rgba(15, 20, 25, 0.20)
+    );
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.10);
+    1px solid rgba(255, 255, 255, 0.14);
 
   box-shadow:
-    0 4px 25px rgba(0, 0, 0, 0.08);
+    0 4px 25px rgba(0, 0, 0, 0.12);
 
+  /*
+   * Stronger glass effect.
+   */
   backdrop-filter:
-    blur(10px)
-    saturate(115%);
+    blur(18px)
+    saturate(125%);
 
   -webkit-backdrop-filter:
-    blur(10px)
-    saturate(115%);
+    blur(18px)
+    saturate(125%);
+
+  /*
+   * Helps some browsers create a stable
+   * compositing layer for backdrop-filter.
+   */
+  isolation: isolate;
 }
+
 
 .navbar--home .navbar-inner {
   background: transparent;
@@ -98,21 +121,21 @@
 
 /* =========================================================
    OTHER SECTIONS
-   TRANSPARENT WHITE GLASS
+   WHITE GLASS
    BLACK TEXT
-   ========================================================= */
+========================================================= */
 
 .navbar--inner {
   color: #111111;
 
   background:
-    rgba(255, 255, 255, 0.72);
+    rgba(255, 255, 255, 0.78);
 
   border-bottom:
-    1px solid rgba(0, 0, 0, 0.07);
+    1px solid rgba(0, 0, 0, 0.08);
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.06);
+    0 8px 30px rgba(0, 0, 0, 0.08);
 
   backdrop-filter:
     blur(18px)
@@ -121,12 +144,14 @@
   -webkit-backdrop-filter:
     blur(18px)
     saturate(130%);
+
+  isolation: isolate;
 }
 
 
 /* =========================================================
    LOGO
-   ========================================================= */
+========================================================= */
 
 .navbar-brand {
   justify-self: start;
@@ -145,7 +170,11 @@
   background: transparent;
 
   cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
+
 
 .navbar-brand img {
   display: block;
@@ -160,9 +189,15 @@
 
   object-position: left center;
 
+  /*
+   * Prevent layout jump while image loads.
+   */
+  aspect-ratio: auto;
+
   transition:
     transform 0.25s ease;
 }
+
 
 .navbar-brand:hover img {
   transform: scale(1.02);
@@ -171,7 +206,7 @@
 
 /* =========================================================
    DESKTOP LINKS
-   ========================================================= */
+========================================================= */
 
 .navbar-links {
   justify-self: center;
@@ -190,7 +225,7 @@
 
 /* =========================================================
    LINK
-   ========================================================= */
+========================================================= */
 
 .navbar-link {
   position: relative;
@@ -228,56 +263,58 @@
 
   cursor: pointer;
 
+  appearance: none;
+  -webkit-appearance: none;
+
   transition:
-    color 0.3s ease;
+    color 0.3s ease,
+    background 0.3s ease;
 }
 
 
 /* =========================================================
    HOME LINKS
-   ========================================================= */
+========================================================= */
 
-.navbar--home
-.navbar-link {
+.navbar--home .navbar-link {
   color:
-    rgba(255, 255, 255, 0.68);
+    rgba(255, 255, 255, 0.72);
 }
 
-.navbar--home
-.navbar-link:hover {
+
+.navbar--home .navbar-link:hover {
   color: #ffffff;
 }
 
-.navbar--home
-.navbar-link--active {
+
+.navbar--home .navbar-link--active {
   color: #ffffff;
 }
 
 
 /* =========================================================
    OTHER SECTION LINKS
-   ========================================================= */
+========================================================= */
 
-.navbar--inner
-.navbar-link {
+.navbar--inner .navbar-link {
   color:
-    rgba(0, 0, 0, 0.56);
+    rgba(0, 0, 0, 0.58);
 }
 
-.navbar--inner
-.navbar-link:hover {
+
+.navbar--inner .navbar-link:hover {
   color: #000000;
 }
 
-.navbar--inner
-.navbar-link--active {
+
+.navbar--inner .navbar-link--active {
   color: #000000;
 }
 
 
 /* =========================================================
    ACTIVE LINE
-   ========================================================= */
+========================================================= */
 
 .navbar-link--active::after {
   content: '';
@@ -295,18 +332,19 @@
     rgba(255, 255, 255, 0.9);
 
   transition:
-    background 0.3s ease;
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-.navbar--inner
-.navbar-link--active::after {
+
+.navbar--inner .navbar-link--active::after {
   background: #111111;
 }
 
 
 /* =========================================================
    CONTACT BUTTON
-   ========================================================= */
+========================================================= */
 
 .navbar-contact {
   justify-self: end;
@@ -339,6 +377,9 @@
 
   cursor: pointer;
 
+  appearance: none;
+  -webkit-appearance: none;
+
   transition:
     background 0.3s ease,
     color 0.3s ease,
@@ -349,24 +390,29 @@
 
 /* =========================================================
    CONTACT ON HOME
-   ========================================================= */
+========================================================= */
 
-.navbar--home
-.navbar-contact {
+.navbar--home .navbar-contact {
   border:
     1px solid
     rgba(255, 255, 255, 0.42);
 
   background:
-    rgba(255, 255, 255, 0.035);
+    rgba(255, 255, 255, 0.07);
 
   color: #ffffff;
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
 }
 
-.navbar--home
-.navbar-contact:hover {
+
+.navbar--home .navbar-contact:hover {
   background:
-    rgba(255, 255, 255, 0.12);
+    rgba(255, 255, 255, 0.14);
 
   border-color:
     rgba(255, 255, 255, 0.7);
@@ -380,14 +426,14 @@
    CONTACT OUTSIDE HOME
    BLACK BUTTON
    WHITE TEXT
-   ========================================================= */
+========================================================= */
 
-.navbar--inner
-.navbar-contact {
+.navbar--inner .navbar-contact {
   border:
     1px solid #0b0d0f;
 
-  background: #0b0d0f;
+  background:
+    #0b0d0f;
 
   color: #ffffff;
 
@@ -395,11 +441,13 @@
     0 5px 16px rgba(0, 0, 0, 0.14);
 }
 
-.navbar--inner
-.navbar-contact:hover {
-  background: #24282c;
 
-  border-color: #24282c;
+.navbar--inner .navbar-contact:hover {
+  background:
+    #24282c;
+
+  border-color:
+    #24282c;
 
   transform:
     translateY(-1px);
@@ -408,7 +456,7 @@
 
 /* =========================================================
    CONTACT ICON
-   ========================================================= */
+========================================================= */
 
 .navbar-contact-icon {
   width: 25px;
@@ -423,12 +471,14 @@
 
   background:
     rgba(255, 255, 255, 0.10);
+
+  flex-shrink: 0;
 }
 
 
 /* =========================================================
    MOBILE TOP BAR
-   ========================================================= */
+========================================================= */
 
 .mobile-topbar {
   display: none;
@@ -437,7 +487,7 @@
 
 /* =========================================================
    MOBILE BOTTOM NAV
-   ========================================================= */
+========================================================= */
 
 .mobile-bottom-nav {
   display: none;
@@ -446,7 +496,7 @@
 
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 950px) {
 
@@ -454,19 +504,23 @@
     height: 66px;
   }
 
+
   .navbar-inner {
     padding:
       0
       clamp(22px, 4vw, 45px);
   }
 
+
   .navbar-brand img {
     width: 205px;
   }
 
+
   .navbar-links {
     gap: 1px;
   }
+
 
   .navbar-link {
     padding:
@@ -476,12 +530,14 @@
     font-size: 7.5px;
   }
 
+
   .navbar-link--active::after {
     left: 8px;
     right: 8px;
 
     bottom: 16px;
   }
+
 
   .navbar-contact {
     font-size: 7px;
@@ -491,13 +547,13 @@
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
   /* -------------------------------------------------------
      HIDE DESKTOP NAVBAR
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .navbar {
     display: none;
@@ -506,7 +562,7 @@
 
   /* -------------------------------------------------------
      MOBILE TOP LOGO
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .mobile-topbar {
     position: fixed;
@@ -527,17 +583,21 @@
       0
       18px;
 
+    box-sizing: border-box;
+
     background: transparent;
 
     transition:
       background 0.3s ease,
-      backdrop-filter 0.3s ease;
+      backdrop-filter 0.3s ease,
+      -webkit-backdrop-filter 0.3s ease;
   }
 
 
   /* -------------------------------------------------------
      HOME TOP BAR
-     ------------------------------------------------------- */
+     Keep transparent on hero
+  ------------------------------------------------------- */
 
   .mobile-topbar--home {
     background: transparent;
@@ -545,19 +605,21 @@
     backdrop-filter: none;
 
     -webkit-backdrop-filter: none;
+
+    border-bottom: none;
   }
 
 
   /* -------------------------------------------------------
      OTHER SECTION TOP BAR
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .mobile-topbar--inner {
     background:
-      rgba(255, 255, 255, 0.72);
+      rgba(255, 255, 255, 0.78);
 
     border-bottom:
-      1px solid rgba(0, 0, 0, 0.06);
+      1px solid rgba(0, 0, 0, 0.07);
 
     backdrop-filter:
       blur(16px);
@@ -569,7 +631,7 @@
 
   /* -------------------------------------------------------
      MOBILE LOGO BUTTON
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .mobile-logo-button {
     width: auto;
@@ -586,6 +648,9 @@
     background: transparent;
 
     cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
   }
 
 
@@ -596,6 +661,8 @@
 
     max-height: 34px;
 
+    height: auto;
+
     object-fit: contain;
 
     object-position: left center;
@@ -604,7 +671,7 @@
 
   /* =======================================================
      BOTTOM NAVIGATION
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-nav {
     position: fixed;
@@ -633,7 +700,7 @@
 
   /* =======================================================
      BOTTOM NAV CONTAINER
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-nav-inner {
     width: 100%;
@@ -647,8 +714,9 @@
 
     align-items: center;
 
-    padding:
-      5px;
+    padding: 5px;
+
+    box-sizing: border-box;
 
     border:
       1px solid
@@ -676,7 +744,7 @@
 
   /* =======================================================
      BOTTOM ITEM
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-item {
     position: relative;
@@ -711,6 +779,9 @@
     -webkit-tap-highlight-color:
       transparent;
 
+    appearance: none;
+    -webkit-appearance: none;
+
     transition:
       color 0.25s ease,
       background 0.25s ease,
@@ -720,7 +791,7 @@
 
   /* =======================================================
      PRESS
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-item:active {
     transform:
@@ -730,7 +801,7 @@
 
   /* =======================================================
      ICON CONTAINER
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-icon {
     width: 30px;
@@ -752,7 +823,7 @@
 
   /* =======================================================
      ICON
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-icon svg {
     display: block;
@@ -764,7 +835,7 @@
 
   /* =======================================================
      LABEL
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-label {
     max-width: 60px;
@@ -787,7 +858,7 @@
 
   /* =======================================================
      ACTIVE ITEM
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-item--active {
     color: #ffffff;
@@ -812,7 +883,7 @@
 
   /* =======================================================
      ACTIVE TOP INDICATOR
-     ======================================================= */
+  ======================================================= */
 
   .mobile-bottom-item--active::before {
     content: '';
@@ -820,6 +891,7 @@
     position: absolute;
 
     top: 1px;
+
     left: 50%;
 
     width: 20px;
@@ -842,7 +914,7 @@
 
 /* =========================================================
    SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 420px) {
 
@@ -854,11 +926,13 @@
       14px;
   }
 
+
   .mobile-logo-button img {
     width: 112px;
 
     max-height: 32px;
   }
+
 
   .mobile-bottom-nav {
     width:
@@ -871,6 +945,7 @@
       );
   }
 
+
   .mobile-bottom-nav-inner {
     min-height: 60px;
 
@@ -879,14 +954,17 @@
     border-radius: 17px;
   }
 
+
   .mobile-bottom-item {
     height: 51px;
   }
+
 
   .mobile-bottom-icon {
     width: 28px;
     height: 25px;
   }
+
 
   .mobile-bottom-label {
     font-size: 6.5px;
@@ -896,7 +974,7 @@
 
 /* =========================================================
    VERY SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 340px) {
 
@@ -905,9 +983,11 @@
       calc(100% - 14px);
   }
 
+
   .mobile-bottom-label {
     font-size: 6px;
   }
+
 
   .mobile-bottom-icon {
     width: 26px;
@@ -918,7 +998,7 @@
 
 /* =========================================================
    REDUCED MOTION
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
