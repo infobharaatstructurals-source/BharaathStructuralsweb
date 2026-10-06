@@ -159,64 +159,7 @@ function HomePage({
 
   }, [location.pathname])
 
-//------------right click 
 
-useEffect(() => {
-  const handleKeyDown = (event: KeyboardEvent) => {
-    const key = event.key.toLowerCase()
-
-    // F12
-    if (event.key === 'F12') {
-      event.preventDefault()
-      return
-    }
-
-    // Ctrl + Shift + I
-    if (
-      event.ctrlKey &&
-      event.shiftKey &&
-      key === 'i'
-    ) {
-      event.preventDefault()
-      return
-    }
-
-    // Ctrl + Shift + J
-    if (
-      event.ctrlKey &&
-      event.shiftKey &&
-      key === 'j'
-    ) {
-      event.preventDefault()
-      return
-    }
-
-    // Ctrl + Shift + C
-    if (
-      event.ctrlKey &&
-      event.shiftKey &&
-      key === 'c'
-    ) {
-      event.preventDefault()
-      return
-    }
-
-    // Ctrl + U
-    if (
-      event.ctrlKey &&
-      key === 'u'
-    ) {
-      event.preventDefault()
-      return
-    }
-  }
-
-  document.addEventListener('keydown', handleKeyDown)
-
-  return () => {
-    document.removeEventListener('keydown', handleKeyDown)
-  }
-}, [])
   /* =======================================================
      HOME CONTENT
   ======================================================= */
@@ -269,6 +212,232 @@ export default function App() {
 
 
   /* =======================================================
+     BASIC WEBSITE PROTECTION
+     
+     Applies to ALL pages:
+     
+     /
+     /contact
+     /certifications
+     
+     NOTE:
+     This does NOT provide complete source-code security.
+     It only prevents casual inspection methods.
+  ======================================================= */
+
+  useEffect(() => {
+
+    /* -----------------------------------------------------
+       DISABLE RIGHT CLICK
+    ----------------------------------------------------- */
+
+    const handleContextMenu = (
+      event: MouseEvent
+    ) => {
+
+      event.preventDefault()
+
+    }
+
+
+    /* -----------------------------------------------------
+       DISABLE COMMON DEVTOOLS SHORTCUTS
+    ----------------------------------------------------- */
+
+    const handleKeyDown = (
+      event: KeyboardEvent
+    ) => {
+
+      const key =
+        event.key.toLowerCase()
+
+
+      /* ---------------------------------------------------
+         F12
+         Chrome DevTools
+      --------------------------------------------------- */
+
+      if (event.key === 'F12') {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         CTRL + SHIFT + I
+         Chrome DevTools
+      --------------------------------------------------- */
+
+      if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        key === 'i'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         CTRL + SHIFT + J
+         Chrome Console
+      --------------------------------------------------- */
+
+      if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        key === 'j'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         CTRL + SHIFT + C
+         Inspect Element
+      --------------------------------------------------- */
+
+      if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        key === 'c'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         CTRL + U
+         View Page Source
+      --------------------------------------------------- */
+
+      if (
+        event.ctrlKey &&
+        key === 'u'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         MAC:
+         CMD + OPTION + I
+      --------------------------------------------------- */
+
+      if (
+        event.metaKey &&
+        event.altKey &&
+        key === 'i'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         MAC:
+         CMD + OPTION + J
+      --------------------------------------------------- */
+
+      if (
+        event.metaKey &&
+        event.altKey &&
+        key === 'j'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         MAC:
+         CMD + OPTION + C
+      --------------------------------------------------- */
+
+      if (
+        event.metaKey &&
+        event.altKey &&
+        key === 'c'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+
+      /* ---------------------------------------------------
+         MAC:
+         CMD + U
+      --------------------------------------------------- */
+
+      if (
+        event.metaKey &&
+        key === 'u'
+      ) {
+
+        event.preventDefault()
+
+        return
+      }
+
+    }
+
+
+    /* -----------------------------------------------------
+       REGISTER EVENTS
+    ----------------------------------------------------- */
+
+    document.addEventListener(
+      'contextmenu',
+      handleContextMenu
+    )
+
+    document.addEventListener(
+      'keydown',
+      handleKeyDown
+    )
+
+
+    /* -----------------------------------------------------
+       CLEANUP
+    ----------------------------------------------------- */
+
+    return () => {
+
+      document.removeEventListener(
+        'contextmenu',
+        handleContextMenu
+      )
+
+      document.removeEventListener(
+        'keydown',
+        handleKeyDown
+      )
+
+    }
+
+  }, [])
+
+
+  /* =======================================================
      RESET SCROLL WHEN OPENING STANDALONE CONTACT PAGE
   ======================================================= */
 
@@ -303,7 +472,7 @@ export default function App() {
 
     /* =====================================================
        STANDALONE CONTACT US BUTTON
-       
+
        Only the black Contact Us button uses
        "contact-page".
     ===================================================== */
@@ -320,9 +489,9 @@ export default function App() {
 
     /* =====================================================
        NORMAL HOME SECTIONS
-       
+
        Examples:
-       
+
        home
        about
        expertise
@@ -358,7 +527,7 @@ export default function App() {
 
     /* =====================================================
        ALREADY ON HOME
-       
+
        Scroll directly to the section.
     ===================================================== */
 
