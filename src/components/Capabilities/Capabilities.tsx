@@ -19,16 +19,20 @@ export default function Capabilities() {
           </div>
 
           <h2 className="display-title">
-            From model
+           Transforming Designs
             <br />
-            to <span>fabrication.</span>
+            Into <span> Reality.</span>
           </h2>
-
+    
           <p>
-            Our detailing workflow connects 3D modelling, engineering
-            information, checking and documentation into one coordinated
-            process.
-          </p>
+  Leveraging advanced Tekla Structures expertise, we provide accurate steel detailing,
+  3D modeling, shop drawings, and erection plans that streamline fabrication, reduce
+  errors, and accelerate project delivery.
+  <br aria-hidden="true" />
+  <br aria-hidden="true" />
+  Our commitment to precision and quality ensures seamless coordination between design,
+  fabrication, and construction teams, helping projects stay on schedule and within budget.
+</p>
 
           <div className="cap-points">
 
