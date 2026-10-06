@@ -281,7 +281,7 @@ export default function Hero({
               <button
                 className="hero-button hero-button--secondary"
                 onClick={() =>
-                  onNavigate('projects')
+                  onNavigate('services')
                 }
               >
 

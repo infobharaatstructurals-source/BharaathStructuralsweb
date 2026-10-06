@@ -159,7 +159,64 @@ function HomePage({
 
   }, [location.pathname])
 
+//------------right click 
 
+useEffect(() => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const key = event.key.toLowerCase()
+
+    // F12
+    if (event.key === 'F12') {
+      event.preventDefault()
+      return
+    }
+
+    // Ctrl + Shift + I
+    if (
+      event.ctrlKey &&
+      event.shiftKey &&
+      key === 'i'
+    ) {
+      event.preventDefault()
+      return
+    }
+
+    // Ctrl + Shift + J
+    if (
+      event.ctrlKey &&
+      event.shiftKey &&
+      key === 'j'
+    ) {
+      event.preventDefault()
+      return
+    }
+
+    // Ctrl + Shift + C
+    if (
+      event.ctrlKey &&
+      event.shiftKey &&
+      key === 'c'
+    ) {
+      event.preventDefault()
+      return
+    }
+
+    // Ctrl + U
+    if (
+      event.ctrlKey &&
+      key === 'u'
+    ) {
+      event.preventDefault()
+      return
+    }
+  }
+
+  document.addEventListener('keydown', handleKeyDown)
+
+  return () => {
+    document.removeEventListener('keydown', handleKeyDown)
+  }
+}, [])
   /* =======================================================
      HOME CONTENT
   ======================================================= */
