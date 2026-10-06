@@ -16,7 +16,6 @@ import { navItems } from '../../data/siteData'
 
 import './Navbar.css'
 
-
 /* =========================================================
    MOBILE ICON MAPPING
 ========================================================= */
@@ -29,7 +28,6 @@ const mobileIcons: Record<string, LucideIcon> = {
   careers: BriefcaseBusiness,
 }
 
-
 /* =========================================================
    NAVBAR PROPS
 ========================================================= */
@@ -38,7 +36,6 @@ interface NavbarProps {
   onNavigate: (id: string) => void
 }
 
-
 /* =========================================================
    NAVBAR
 ========================================================= */
@@ -46,15 +43,10 @@ interface NavbarProps {
 export default function Navbar({
   onNavigate,
 }: NavbarProps) {
-
   const location = useLocation()
 
-
-  const [
-    activeSection,
-    setActiveSection,
-  ] = useState('home')
-
+  const [activeSection, setActiveSection] =
+    useState('home')
 
   /* =======================================================
      CONTACT PAGE STATE
@@ -63,47 +55,28 @@ export default function Navbar({
   const isContactPage =
     location.pathname === '/contact'
 
-
   /* =======================================================
      HOME SECTION OBSERVER
   ======================================================= */
 
   useEffect(() => {
-
-    /*
-     * Don't observe Home sections while
-     * on standalone Contact page.
-     */
-
-    if (
-      location.pathname !== '/'
-    ) {
-
+    if (location.pathname !== '/') {
       return
     }
-
 
     const sections = navItems
       .map((item) =>
-        document.getElementById(
-          item.id
-        )
+        document.getElementById(item.id)
       )
       .filter(Boolean) as HTMLElement[]
 
-
-    if (
-      !sections.length
-    ) {
-
+    if (!sections.length) {
       return
     }
-
 
     const observer =
       new IntersectionObserver(
         (entries) => {
-
           const visibleSections =
             entries
               .filter(
@@ -116,19 +89,15 @@ export default function Navbar({
                   a.intersectionRatio
               )
 
-
           if (
             visibleSections.length > 0
           ) {
-
             setActiveSection(
               visibleSections[0]
                 .target
                 .id
             )
-
           }
-
         },
         {
           rootMargin:
@@ -142,53 +111,29 @@ export default function Navbar({
         }
       )
 
-
-    sections.forEach(
-      (section) => {
-        observer.observe(section)
-      }
-    )
-
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
 
     return () => {
-
       observer.disconnect()
-
     }
-
   }, [location.pathname])
-
 
   /* =======================================================
      NAVIGATION
   ======================================================= */
 
-  const go = (
-    id: string
-  ) => {
-
+  const go = (id: string) => {
     onNavigate(id)
-
-
-    /*
-     * Only actual Home sections
-     * become active.
-     *
-     * "contact-page" means standalone
-     * Contact Us page.
-     */
 
     if (
       id !== 'contact' &&
       id !== 'contact-page'
     ) {
-
       setActiveSection(id)
-
     }
-
   }
-
 
   /* =======================================================
      MOBILE ICON
@@ -197,14 +142,11 @@ export default function Navbar({
   const getMobileIcon = (
     id: string
   ): LucideIcon => {
-
     return (
       mobileIcons[id] ??
       CircleDot
     )
-
   }
-
 
   /* =======================================================
      NAVBAR STATE
@@ -214,15 +156,12 @@ export default function Navbar({
     activeSection === 'home' &&
     !isContactPage
 
-
   /* =======================================================
      RENDER
   ======================================================= */
 
   return (
     <>
-
-
       {/* ===================================================
           DESKTOP NAVBAR
       =================================================== */}
@@ -234,13 +173,11 @@ export default function Navbar({
             : 'navbar--inner'
         }`}
       >
-
         <div className="navbar-inner">
 
-
-          {/* ===============================================
+          {/* =================================================
               LOGO
-          =============================================== */}
+          ================================================= */}
 
           <button
             className="navbar-brand"
@@ -249,67 +186,51 @@ export default function Navbar({
             }
             aria-label="Bharaat Structurals Home"
           >
-
             <img
               src="/Logo.webp"
               alt="Bharaat Structurals"
+              width="205"
+              height="58"
+              loading="eager"
+              decoding="async"
             />
-
           </button>
 
-
-          {/* ===============================================
+          {/* =================================================
               DESKTOP LINKS
-          =============================================== */}
+          ================================================= */}
 
           <nav
             className="navbar-links"
             aria-label="Primary navigation"
           >
+            {navItems.map((item) => {
+              const active =
+                activeSection ===
+                  item.id &&
+                !isContactPage
 
-            {navItems.map(
-              (item) => {
-
-                const active =
-                  activeSection ===
-                    item.id &&
-                  !isContactPage
-
-
-                return (
-
-                  <button
-                    key={item.id}
-                    className={`navbar-link ${
-                      active
-                        ? 'navbar-link--active'
-                        : ''
-                    }`}
-                    onClick={() =>
-                      go(item.id)
-                    }
-                  >
-
-                    {item.label}
-
-                  </button>
-
-                )
-
-              }
-            )}
-
+              return (
+                <button
+                  key={item.id}
+                  className={`navbar-link ${
+                    active
+                      ? 'navbar-link--active'
+                      : ''
+                  }`}
+                  onClick={() =>
+                    go(item.id)
+                  }
+                >
+                  {item.label}
+                </button>
+              )
+            })}
           </nav>
 
-
-          {/* ===============================================
-              STANDALONE CONTACT US BUTTON
-              
-              IMPORTANT:
-              
-              This uses "contact-page"
-              instead of "contact".
-          =============================================== */}
+          {/* =================================================
+              CONTACT BUTTON
+          ================================================= */}
 
           <button
             className={`navbar-contact ${
@@ -321,29 +242,22 @@ export default function Navbar({
               go('contact-page')
             }
           >
-
             <span>
               Contact Us
             </span>
 
-
             <span
               className="navbar-contact-icon"
             >
-
               <ArrowUpRight
                 size={13}
                 strokeWidth={1.7}
               />
-
             </span>
-
           </button>
 
         </div>
-
       </header>
-
 
       {/* ===================================================
           MOBILE TOP LOGO
@@ -356,7 +270,6 @@ export default function Navbar({
             : 'mobile-topbar--inner'
         }`}
       >
-
         <button
           className="mobile-logo-button"
           onClick={() =>
@@ -364,16 +277,16 @@ export default function Navbar({
           }
           aria-label="Bharaat Structurals Home"
         >
-
           <img
             src="/Logo.webp"
             alt="Bharaat Structurals"
+            width="118"
+            height="34"
+            loading="eager"
+            decoding="async"
           />
-
         </button>
-
       </div>
-
 
       {/* ===================================================
           MOBILE BOTTOM NAVIGATION
@@ -383,27 +296,22 @@ export default function Navbar({
         className="mobile-bottom-nav"
         aria-label="Mobile navigation"
       >
-
         <div className="mobile-bottom-nav-inner">
 
           {navItems
             .slice(0, 5)
             .map((item) => {
-
               const active =
                 activeSection ===
                   item.id &&
                 !isContactPage
-
 
               const MobileIcon =
                 getMobileIcon(
                   item.id
                 )
 
-
               return (
-
                 <button
                   key={item.id}
                   className={`mobile-bottom-item ${
@@ -418,11 +326,7 @@ export default function Navbar({
                     item.label
                   }
                 >
-
-                  <span
-                    className="mobile-bottom-icon"
-                  >
-
+                  <span className="mobile-bottom-icon">
                     <MobileIcon
                       size={17}
                       strokeWidth={
@@ -431,28 +335,17 @@ export default function Navbar({
                           : 1.6
                       }
                     />
-
                   </span>
 
-
-                  <span
-                    className="mobile-bottom-label"
-                  >
-
+                  <span className="mobile-bottom-label">
                     {item.label}
-
                   </span>
-
                 </button>
-
               )
-
             })}
 
         </div>
-
       </nav>
-
     </>
   )
 }

@@ -1,8 +1,19 @@
 /* =========================================================
    BHARAAT STRUCTURALS
-   FULL WIDTH DESKTOP NAVBAR
-   MOBILE BOTTOM NAVIGATION
-   ========================================================= */
+   NAVBAR
+   DESKTOP + MOBILE
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.navbar,
+.mobile-topbar,
+.mobile-bottom-nav {
+  -webkit-tap-highlight-color: transparent;
+}
 
 
 /* =========================================================
@@ -26,9 +37,11 @@
 
   border: none;
 
+  box-sizing: border-box;
+
   /*
-   * Smooth transitions.
-   * Fixed invalid "*background*" from previous CSS.
+   * IMPORTANT:
+   * Use valid "background", never "*background*".
    */
   transition:
     color 0.35s ease,
@@ -37,6 +50,24 @@
     border-color 0.35s ease,
     backdrop-filter 0.35s ease,
     -webkit-backdrop-filter 0.35s ease;
+
+  /*
+   * Helps backdrop-filter rendering.
+   */
+  transform: translateZ(0);
+
+  -webkit-transform: translateZ(0);
+
+  will-change:
+    background,
+    backdrop-filter;
+
+  /*
+   * Prevents accidental text selection.
+   */
+  user-select: none;
+
+  -webkit-user-select: none;
 }
 
 
@@ -76,27 +107,27 @@
   color: #ffffff;
 
   /*
-   * Permanent translucent layer.
-   *
-   * This is important because backdrop-filter
-   * can look almost invisible while the hero
-   * image/video is still loading.
+   * Semi-transparent layer.
+   * This makes the glass visible even when
+   * the hero video/image is still loading.
    */
   background:
     linear-gradient(
       to bottom,
-      rgba(15, 20, 25, 0.38),
-      rgba(15, 20, 25, 0.20)
+      rgba(10, 14, 20, 0.42),
+      rgba(10, 14, 20, 0.22)
     );
 
   border-bottom:
-    1px solid rgba(255, 255, 255, 0.14);
+    1px solid
+    rgba(255, 255, 255, 0.14);
 
   box-shadow:
-    0 4px 25px rgba(0, 0, 0, 0.12);
+    0 4px 25px
+    rgba(0, 0, 0, 0.14);
 
   /*
-   * Stronger glass effect.
+   * MAIN GLASS EFFECT
    */
   backdrop-filter:
     blur(18px)
@@ -107,12 +138,26 @@
     saturate(125%);
 
   /*
-   * Helps some browsers create a stable
-   * compositing layer for backdrop-filter.
+   * Stable compositing layer.
    */
   isolation: isolate;
+
+  transform:
+    translate3d(0, 0, 0);
+
+  -webkit-transform:
+    translate3d(0, 0, 0);
+
+  /*
+   * Makes the translucent area visually obvious.
+   */
+  overflow: visible;
 }
 
+
+/* =========================================================
+   HOME INNER
+========================================================= */
 
 .navbar--home .navbar-inner {
   background: transparent;
@@ -132,10 +177,12 @@
     rgba(255, 255, 255, 0.78);
 
   border-bottom:
-    1px solid rgba(0, 0, 0, 0.08);
+    1px solid
+    rgba(0, 0, 0, 0.08);
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.08);
+    0 8px 30px
+    rgba(0, 0, 0, 0.08);
 
   backdrop-filter:
     blur(18px)
@@ -146,6 +193,12 @@
     saturate(130%);
 
   isolation: isolate;
+
+  transform:
+    translate3d(0, 0, 0);
+
+  -webkit-transform:
+    translate3d(0, 0, 0);
 }
 
 
@@ -160,6 +213,7 @@
   height: 100%;
 
   display: flex;
+
   align-items: center;
 
   padding: 0;
@@ -172,7 +226,10 @@
   cursor: pointer;
 
   appearance: none;
+
   -webkit-appearance: none;
+
+  flex-shrink: 0;
 }
 
 
@@ -180,7 +237,6 @@
   display: block;
 
   width: 205px;
-
   height: auto;
 
   max-height: 58px;
@@ -190,17 +246,25 @@
   object-position: left center;
 
   /*
-   * Prevent layout jump while image loads.
+   * Keeps the image from jumping.
    */
   aspect-ratio: auto;
 
   transition:
     transform 0.25s ease;
+
+  /*
+   * Image rendering.
+   */
+  backface-visibility: hidden;
+
+  -webkit-backface-visibility: hidden;
 }
 
 
 .navbar-brand:hover img {
-  transform: scale(1.02);
+  transform:
+    scale(1.02);
 }
 
 
@@ -264,11 +328,16 @@
   cursor: pointer;
 
   appearance: none;
+
   -webkit-appearance: none;
 
   transition:
     color 0.3s ease,
     background 0.3s ease;
+
+  user-select: none;
+
+  -webkit-user-select: none;
 }
 
 
@@ -278,7 +347,7 @@
 
 .navbar--home .navbar-link {
   color:
-    rgba(255, 255, 255, 0.72);
+    rgba(255, 255, 255, 0.78);
 }
 
 
@@ -337,7 +406,8 @@
 }
 
 
-.navbar--inner .navbar-link--active::after {
+.navbar--inner
+.navbar-link--active::after {
   background: #111111;
 }
 
@@ -378,6 +448,7 @@
   cursor: pointer;
 
   appearance: none;
+
   -webkit-appearance: none;
 
   transition:
@@ -385,6 +456,8 @@
     color 0.3s ease,
     border-color 0.3s ease,
     transform 0.25s ease;
+
+  flex-shrink: 0;
 }
 
 
@@ -398,24 +471,28 @@
     rgba(255, 255, 255, 0.42);
 
   background:
-    rgba(255, 255, 255, 0.07);
+    rgba(255, 255, 255, 0.08);
 
   color: #ffffff;
 
   backdrop-filter:
-    blur(8px);
+    blur(10px);
 
   -webkit-backdrop-filter:
-    blur(8px);
+    blur(10px);
+
+  box-shadow:
+    0 4px 16px
+    rgba(0, 0, 0, 0.10);
 }
 
 
 .navbar--home .navbar-contact:hover {
   background:
-    rgba(255, 255, 255, 0.14);
+    rgba(255, 255, 255, 0.16);
 
   border-color:
-    rgba(255, 255, 255, 0.7);
+    rgba(255, 255, 255, 0.72);
 
   transform:
     translateY(-1px);
@@ -424,13 +501,12 @@
 
 /* =========================================================
    CONTACT OUTSIDE HOME
-   BLACK BUTTON
-   WHITE TEXT
 ========================================================= */
 
 .navbar--inner .navbar-contact {
   border:
-    1px solid #0b0d0f;
+    1px solid
+    #0b0d0f;
 
   background:
     #0b0d0f;
@@ -438,7 +514,8 @@
   color: #ffffff;
 
   box-shadow:
-    0 5px 16px rgba(0, 0, 0, 0.14);
+    0 5px 16px
+    rgba(0, 0, 0, 0.14);
 }
 
 
@@ -596,7 +673,6 @@
 
   /* -------------------------------------------------------
      HOME TOP BAR
-     Keep transparent on hero
   ------------------------------------------------------- */
 
   .mobile-topbar--home {
@@ -619,7 +695,8 @@
       rgba(255, 255, 255, 0.78);
 
     border-bottom:
-      1px solid rgba(0, 0, 0, 0.07);
+      1px solid
+      rgba(0, 0, 0, 0.07);
 
     backdrop-filter:
       blur(16px);
@@ -650,6 +727,7 @@
     cursor: pointer;
 
     appearance: none;
+
     -webkit-appearance: none;
   }
 
@@ -666,11 +744,15 @@
     object-fit: contain;
 
     object-position: left center;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
   }
 
 
   /* =======================================================
-     BOTTOM NAVIGATION
+     MOBILE BOTTOM NAV
   ======================================================= */
 
   .mobile-bottom-nav {
@@ -730,7 +812,6 @@
     box-shadow:
       0 18px 45px
       rgba(0, 0, 0, 0.38),
-
       0 5px 15px
       rgba(0, 0, 0, 0.22);
 
@@ -739,6 +820,12 @@
 
     -webkit-backdrop-filter:
       blur(22px);
+
+    transform:
+      translate3d(0, 0, 0);
+
+    -webkit-transform:
+      translate3d(0, 0, 0);
   }
 
 
@@ -780,6 +867,7 @@
       transparent;
 
     appearance: none;
+
     -webkit-appearance: none;
 
     transition:
