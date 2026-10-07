@@ -1,2 +1,52 @@
 import './Excellence.css'
-export default function Excellence(){return <section className="excellence-section"><div className="excellence-grid"/><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="section-wrap excellence-inner" data-reveal><div className="eyebrow orange">THE BHARAAT APPROACH</div><h2>Precision is not a step.<br/><span>It is the process.</span></h2><div className="process-track">{['Understand','Model','Check','Coordinate','Deliver'].map((step,i)=><div className="process-step" key={step}><span>0{i+1}</span><b>{step}</b>{i<4&&<i/>}</div>)}</div></div></section>}
+
+export default function Excellence() {
+  return (
+    <section
+      id="expertise"
+      className="excellence-section"
+    >
+      <div className="excellence-grid" />
+
+      <div className="orbit orbit-one" />
+
+      <div className="orbit orbit-two" />
+
+      <div
+        className="section-wrap excellence-inner"
+        data-reveal
+      >
+        <div className="eyebrow orange">
+          THE BHARAAT APPROACH
+        </div>
+
+        <h2>
+          Precision is not a step.
+          <br />
+          <span>It is the process.</span>
+        </h2>
+
+        <div className="process-track">
+          {[
+            'Understand',
+            'Model',
+            'Check',
+            'Coordinate',
+            'Deliver',
+          ].map((step, i) => (
+            <div
+              className="process-step"
+              key={step}
+            >
+              <span>0{i + 1}</span>
+
+              <b>{step}</b>
+
+              {i < 4 && <i />}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

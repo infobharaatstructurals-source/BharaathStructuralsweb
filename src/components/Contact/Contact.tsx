@@ -3,7 +3,9 @@ import {
   ArrowUpRight,
   Mail,
   Phone,
+  PhoneCall,
   MapPin,
+  FilePenLine,
   Clock3,
   MessageCircle,
   ExternalLink,
@@ -349,6 +351,50 @@ Regards,`
               </a>
 
               {/* =================================================
+                  PHONE
+              ================================================== */}
+
+              <a
+                href="tel:+918880235050"
+                className="contact-action"
+                aria-label="Call Bharaat Structurals office"
+              >
+
+                <div className="contact-action-icon">
+
+                  <PhoneCall
+                    size={18}
+                    strokeWidth={1.8}
+                  />
+
+                </div>
+
+
+                <div className="contact-action-content">
+
+                  <span>
+                    FOR ADDITIONAL ASSISTANCE
+                  </span>
+
+                  <strong>
+                    +91 88802 35050
+                  </strong>
+
+                </div>
+
+
+                <div className="contact-action-arrow">
+
+                  <ArrowUpRight
+                    size={17}
+                    strokeWidth={1.8}
+                  />
+
+                </div>
+
+              </a>
+
+              {/* =================================================
                   Contact Us Form
               ================================================== */}
               <a
@@ -357,7 +403,7 @@ Regards,`
                 aria-label="Open Contact Us form"
               >
                 <div className="contact-action-icon">
-                  <Phone
+                  <FilePenLine
                     size={18}
                     strokeWidth={1.8}
                   />

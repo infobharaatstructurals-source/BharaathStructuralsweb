@@ -17,6 +17,7 @@ import Contact from './components/Contact/Contact'
 import ContactUs from './components/ContactUs/ContactUs'
 import Clients from './components/Clients/Clients'
 import Footer from './components/Footer/Footer'
+import ScrollToTop from './components/common/ScrollToTop/ScrollToTop'
 
 import { useReveal } from './hooks/useReveal'
 import { useCounters } from './hooks/useCounters'
@@ -605,7 +606,7 @@ export default function App() {
       =================================================== */}
 
       <Footer />
-
+        <ScrollToTop />
     </div>
   )
 }
