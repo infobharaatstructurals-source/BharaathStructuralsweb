@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import Icon from '../common/Icon'
 
-import video1 from '../../assets/hero/Video1-final.mp4'
-import video2 from '../../assets/hero/Video2-final.mp4'
-import video3 from '../../assets/hero/Video3-final.mp4'
+import video1 from '../../assets/hero/Video1-web.mp4'
+import video2 from '../../assets/hero/Video2-web.mp4'
+import video3 from '../../assets/hero/Video3-web.mp4'
 
 import './Hero.css'
 
