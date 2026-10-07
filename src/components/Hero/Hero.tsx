@@ -20,117 +20,180 @@ const videos = [
 export default function Hero({
   onNavigate,
 }: HeroProps) {
+
   const [activeVideo, setActiveVideo] = useState(0)
 
-  const videoRefs = useRef<
-    Array<HTMLVideoElement | null>
-  >([])
+  /*
+   * IMPORTANT:
+   * Only ONE <video> element is used.
+   *
+   * This prevents Android Chrome from treating
+   * multiple video elements as separate media
+   * playback instances.
+   */
+  const videoRef =
+    useRef<HTMLVideoElement | null>(null)
 
-  const transitioning = useRef(false)
+  const transitioning =
+    useRef(false)
+
 
   /*
-   * Start the active video.
+   * =========================================================
+   * START ACTIVE VIDEO
+   * =========================================================
    */
+
   useEffect(() => {
-    const activeVideoElement =
-      videoRefs.current[activeVideo]
 
-    if (!activeVideoElement) return
-
-    activeVideoElement.currentTime = 0
-
-    const playPromise =
-      activeVideoElement.play()
-
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Autoplay may be blocked by the browser.
-      })
-    }
-
-    /*
-     * Pause all other videos.
-     */
-    videoRefs.current.forEach(
-      (video, index) => {
-        if (
-          video &&
-          index !== activeVideo
-        ) {
-          video.pause()
-        }
-      }
-    )
-
-    transitioning.current = false
-  }, [activeVideo])
-
-  /*
-   * Start the next video before the
-   * current video finishes.
-   */
-  const handleTimeUpdate = (
-    index: number
-  ) => {
     const video =
-      videoRefs.current[index]
+      videoRef.current
 
     if (!video) return
 
+    /*
+     * Make sure the video starts
+     * from the beginning.
+     */
+    video.currentTime = 0
+
+    /*
+     * Make sure it remains inline.
+     */
+    video.muted = true
+    video.playsInline = true
+
+    /*
+     * Play the active video.
+     */
+    const playPromise =
+      video.play()
+
     if (
-      index !== activeVideo ||
-      transitioning.current
+      playPromise !== undefined
+    ) {
+      playPromise.catch(() => {
+        /*
+         * Autoplay may be blocked by
+         * the browser in some situations.
+         */
+      })
+    }
+
+    transitioning.current = false
+
+  }, [activeVideo])
+
+
+  /*
+   * =========================================================
+   * GO TO NEXT VIDEO
+   * =========================================================
+   */
+
+  const goToNextVideo = () => {
+
+    /*
+     * Prevent multiple transitions
+     * from happening at the same time.
+     */
+    if (transitioning.current) {
+      return
+    }
+
+    transitioning.current = true
+
+    const video =
+      videoRef.current
+
+    /*
+     * Pause current video before
+     * changing its source.
+     */
+    if (video) {
+      video.pause()
+    }
+
+    /*
+     * Change to the next video.
+     *
+     * Video 1 → Video 2
+     * Video 2 → Video 3
+     * Video 3 → Video 1
+     */
+    setActiveVideo(
+      current =>
+        (current + 1) %
+        videos.length
+    )
+
+  }
+
+
+  /*
+   * =========================================================
+   * VIDEO TIME UPDATE
+   * =========================================================
+   */
+
+  const handleTimeUpdate = () => {
+
+    const video =
+      videoRef.current
+
+    if (!video) return
+
+    if (transitioning.current) {
+      return
+    }
+
+    /*
+     * Ignore invalid duration values.
+     */
+    if (
+      !Number.isFinite(
+        video.duration
+      ) ||
+      video.duration <= 0
     ) {
       return
     }
 
-    if (!video.duration) return
-
     const remaining =
-      video.duration - video.currentTime
+      video.duration -
+      video.currentTime
 
     /*
-     * Switch 1.1 seconds before the
-     * current video finishes.
+     * Switch slightly before the
+     * video reaches the end.
+     *
+     * This preserves the existing
+     * behavior of your hero.
      */
     if (remaining <= 1.1) {
-      transitioning.current = true
 
-      setActiveVideo(
-        (current) =>
-          (current + 1) % videos.length
-      )
+      goToNextVideo()
+
     }
+
   }
 
+
   /*
-   * Preload only the NEXT video.
+   * =========================================================
+   * VIDEO ENDED
    *
-   * This means:
-   *
-   * Video 1 playing
-   *      ↓
-   * preload Video 2
-   *
-   * Video 2 playing
-   *      ↓
-   * preload Video 3
-   *
-   * Video 3 playing
-   *      ↓
-   * preload Video 1
+   * Fallback in case timeupdate does
+   * not catch the final moment.
+   * =========================================================
    */
-  useEffect(() => {
-    const nextIndex =
-      (activeVideo + 1) % videos.length
 
-    const nextVideo =
-      videoRefs.current[nextIndex]
+  const handleEnded = () => {
 
-    if (!nextVideo) return
+    goToNextVideo()
 
-    nextVideo.load()
-  }, [activeVideo])
+  }
+
 
   return (
     <section
@@ -158,52 +221,92 @@ export default function Hero({
 
         <div className="hero-video-layer">
 
-          {videos.map(
-            (video, index) => (
-              <video
-                key={video}
+          <video
+            ref={videoRef}
 
-                ref={(element) => {
-                  videoRefs.current[index] =
-                    element
-                }}
+            className="hero-video hero-video--active"
 
-                className={`hero-video ${
-                  activeVideo === index
-                    ? 'hero-video--active'
-                    : ''
-                }`}
+            src={videos[activeVideo]}
 
-                src={video}
+            /*
+             * =================================================
+             * ANDROID / MOBILE VIDEO SETTINGS
+             * =================================================
+             */
 
-                muted
+            muted
 
-                playsInline
+            playsInline
 
-                autoPlay={
-                  activeVideo === index
-                }
+            /*
+             * Prevent Picture-in-Picture.
+             */
+            disablePictureInPicture
 
-                /*
-                 * Only the active video gets
-                 * automatic loading.
-                 *
-                 * The next video gets loaded
-                 * manually by the preload
-                 * effect above.
-                 */
-                preload={
-                  index === activeVideo
-                    ? 'auto'
-                    : 'none'
-                }
+            /*
+             * Prevent remote playback/casting.
+             */
+            disableRemotePlayback
 
-                onTimeUpdate={() =>
-                  handleTimeUpdate(index)
-                }
-              />
-            )
-          )}
+            /*
+             * Never show native video controls.
+             */
+            controls={false}
+
+            /*
+             * Prevent native playback options.
+             */
+            controlsList="nodownload noplaybackrate noremoteplayback"
+
+            /*
+             * Keep autoplay enabled.
+             */
+            autoPlay
+
+            /*
+             * Only this one video exists.
+             */
+            preload="auto"
+
+            /*
+             * Existing video transition.
+             */
+            onTimeUpdate={
+              handleTimeUpdate
+            }
+
+            /*
+             * Fallback when video ends.
+             */
+            onEnded={
+              handleEnded
+            }
+
+            /*
+             * Keep Android inline playback.
+             */
+            onLoadedMetadata={() => {
+
+              const video =
+                videoRef.current
+
+              if (!video) return
+
+              video.muted = true
+
+              video.playsInline = true
+
+            }}
+
+            /*
+             * Prevent long-press/context menu
+             * on the video.
+             */
+            onContextMenu={(event) => {
+              event.preventDefault()
+            }}
+
+          />
 
         </div>
 
@@ -259,6 +362,7 @@ export default function Hero({
             <div className="hero-actions">
 
               <button
+                type="button"
                 className="hero-button hero-button--primary"
                 onClick={() =>
                   onNavigate('services')
@@ -269,7 +373,6 @@ export default function Hero({
                   Explore Services
                 </span>
 
-                
                 <Icon
                   name="ArrowRight"
                   size={14}
@@ -279,6 +382,7 @@ export default function Hero({
 
 
               <button
+                type="button"
                 className="hero-button hero-button--secondary"
                 onClick={() =>
                   onNavigate('services')
@@ -367,6 +471,7 @@ export default function Hero({
 
 
             <button
+              type="button"
               className="hero-scroll"
               onClick={() =>
                 onNavigate('about')

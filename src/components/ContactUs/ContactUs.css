@@ -900,18 +900,49 @@ a.contact-us-detail:hover
   color: #ffffff;
 }
 
+/* =========================================================
+   INPUT FOCUS
+   Keep the field usable but remove the blue focus glow.
+   ========================================================= */
+
 .contact-us-field input:focus,
 .contact-us-field select:focus,
 .contact-us-field textarea:focus {
+  outline: none !important;
+
+  /* Keep the normal border */
   border-color:
-    rgba(36, 152, 255, 0.65);
+    rgba(83, 169, 220, 0.16) !important;
 
+  /* Keep the normal background */
   background:
-    rgba(5, 27, 42, 0.85);
+    rgba(3, 20, 31, 0.55) !important;
 
-  box-shadow:
-    0 0 0 3px
-    rgba(36, 152, 255, 0.07);
+  /* Remove blue glow */
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   KEYBOARD / TOUCH FOCUS
+   ========================================================= */
+
+.contact-us-field input:focus-visible,
+.contact-us-field select:focus-visible,
+.contact-us-field textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   MOBILE TAP HIGHLIGHT
+   ========================================================= */
+
+.contact-us-field input,
+.contact-us-field select,
+.contact-us-field textarea {
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -1759,4 +1790,21 @@ a.contact-us-detail:hover
   .contact-us-bottom {
     margin-top: 12px;
   }
+}
+
+/* =========================================================
+   MOBILE INPUT ZOOM FIX
+   Prevent iPhone / iOS Safari from zooming when
+   the user taps an input, select or textarea.
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .contact-us-field input,
+  .contact-us-field select,
+  .contact-us-field textarea {
+    font-size: 16px !important;
+    line-height: 1.4;
+  }
+
 }
