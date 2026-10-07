@@ -872,3 +872,19 @@
     transition: none !important;
   }
 }
+
+.hero-seo-description {
+  max-width: 680px;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 768px) {
+  .hero-seo-description {
+    font-size: 12.5px;
+    line-height: 1.65;
+    margin-top: 12px;
+  }
+}

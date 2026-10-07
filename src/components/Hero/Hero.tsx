@@ -357,7 +357,11 @@ export default function Hero({
               accuracy, clarity and
               performance.
             </p>
-
+            <p className="hero-seo-description">
+  Bharaat Structurals is a Bengaluru-based structural steel detailing
+  company specializing in Tekla Structures 3D modelling, BIM coordination,
+  connection detailing and fabrication-ready drawings.
+</p>
 
             <div className="hero-actions">
 

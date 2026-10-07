@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+
 import {
   Routes,
   Route,
@@ -18,6 +19,8 @@ import ContactUs from './components/ContactUs/ContactUs'
 import Clients from './components/Clients/Clients'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/common/ScrollToTop/ScrollToTop'
+
+import AutoSectionScroll from './components/AutoSectionScroll/AutoSectionScroll'
 
 import { useReveal } from './hooks/useReveal'
 import { useCounters } from './hooks/useCounters'
@@ -45,6 +48,7 @@ function HomePage({
    * This makes sure the reveal animations are
    * initialized again when returning from /contact.
    */
+
   useReveal()
 
 
@@ -168,33 +172,55 @@ function HomePage({
   return (
     <main>
 
-      <Hero
-        onNavigate={onNavigate}
-      />
+      {/* HOME */}
+      <div id="home">
+        <Hero
+          onNavigate={onNavigate}
+        />
+      </div>
 
 
-      <About
-        onNavigate={onNavigate}
-      />
+      {/* ABOUT */}
+      <div id="about">
+        <About
+          onNavigate={onNavigate}
+        />
+      </div>
 
 
+      {/* METRICS
+          Existing functionality preserved.
+          This is intentionally NOT an auto-scroll stop.
+      */}
       <Metrics
         values={metricValues}
       />
 
 
-      <Capabilities />
+      {/* EXPERTISE */}
+      <div id="expertise">
+        <Capabilities />
+      </div>
 
 
-      <Services
-        onNavigate={onNavigate}
-      />
+      {/* SERVICES */}
+      <div id="services">
+        <Services
+          onNavigate={onNavigate}
+        />
+      </div>
 
 
-      <Partners />
+      {/* PARTNERS */}
+      <div id="partners">
+        <Partners />
+      </div>
 
 
-      <Contact />
+      {/* CONTACT */}
+      <div id="contact">
+        <Contact />
+      </div>
 
     </main>
   )
@@ -214,13 +240,13 @@ export default function App() {
 
   /* =======================================================
      BASIC WEBSITE PROTECTION
-     
+
      Applies to ALL pages:
-     
+
      /
      /contact
      /certifications
-     
+
      NOTE:
      This does NOT provide complete source-code security.
      It only prevents casual inspection methods.
@@ -255,6 +281,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          F12
+
          Chrome DevTools
       --------------------------------------------------- */
 
@@ -268,6 +295,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          CTRL + SHIFT + I
+
          Chrome DevTools
       --------------------------------------------------- */
 
@@ -285,6 +313,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          CTRL + SHIFT + J
+
          Chrome Console
       --------------------------------------------------- */
 
@@ -302,6 +331,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          CTRL + SHIFT + C
+
          Inspect Element
       --------------------------------------------------- */
 
@@ -319,6 +349,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          CTRL + U
+
          View Page Source
       --------------------------------------------------- */
 
@@ -335,6 +366,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          MAC:
+
          CMD + OPTION + I
       --------------------------------------------------- */
 
@@ -352,6 +384,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          MAC:
+
          CMD + OPTION + J
       --------------------------------------------------- */
 
@@ -369,6 +402,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          MAC:
+
          CMD + OPTION + C
       --------------------------------------------------- */
 
@@ -386,6 +420,7 @@ export default function App() {
 
       /* ---------------------------------------------------
          MAC:
+
          CMD + U
       --------------------------------------------------- */
 
@@ -597,7 +632,6 @@ export default function App() {
           }
         />
 
-
       </Routes>
 
 
@@ -605,8 +639,26 @@ export default function App() {
           FOOTER
       =================================================== */}
 
-      <Footer />
-        <ScrollToTop />
+      <div id="footer">
+        <Footer />
+      </div>
+
+
+      <ScrollToTop />
+
+
+      {/* ===================================================
+          AUTOMATIC INACTIVITY SECTION SCROLL
+
+          Runs ONLY on "/".
+
+          Does not affect:
+          /contact
+          /certifications
+      =================================================== */}
+
+      <AutoSectionScroll />
+
     </div>
   )
 }
